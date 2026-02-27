@@ -1,14 +1,18 @@
 <!DOCTYPE html>
-<html lang="en" class="bg-dark">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gayan Sandamal | Portfolio</title>
+  <meta name="description" content="Gayan Sandamal — Technical Lead & Frontend Engineer with 10+ years building scalable web & mobile products with Vue, React, Angular, TypeScript and Node for millions of users.">
+  <title>Gayan Sandamal | Technical Lead & Frontend Engineer</title>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -18,7 +22,7 @@
 </head>
 
 <body>
-  <header class="p-3 bg-dark text-white sticky-top">
+  <header class="p-3 text-white sticky-top">
     <div class="container">
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
         <a class="d-flex align-items-center mb-2 mb-lg-0 me-lg-2 text-white text-decoration-none d-none d-md-block">
@@ -26,10 +30,11 @@
           <span class="ms-2 me-0 me-md-4">Gayan Sandamal</span>
         </a>
         <ul class="nav col-12 col-lg-auto me-lg-auto justify-content-center mb-0 main-nav-ul">
-          <li><a href="#about" class="nav-link px-2 text-white">What else?</a></li>|
-          <li><a href="#projects" class="nav-link px-2 text-white">Projects</a></li>|
-          <li><a href="#ui-ux" class="nav-link px-2 text-white align-items-center d-flex">UI/UX <span class="d-none d-md-block ms-1">Designs</span></a></li>|
+          <li><a href="#about" class="nav-link px-2 text-white">About</a></li>
+          <li><a href="#projects" class="nav-link px-2 text-white">Projects</a></li>
+          <li><a href="#designs" class="nav-link px-2 text-white">Design</a></li>
           <li><a href="#experience" class="nav-link px-2 text-white">Experience</a></li>
+          <li><a href="#credentials" class="nav-link px-2 text-white d-none d-md-block">Education</a></li>
         </ul>
 
         <!-- <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
@@ -43,22 +48,23 @@
       </div>
     </div>
   </header>
-  <div class="cover-container bg-dark text-white w-100 min-vh-100 py-5 align-items-center shadow-b-1">
+  <div class="cover-container text-white w-100 min-vh-100 py-5 align-items-center shadow-b-1">
     <div class="hero-image" style="background-image: url('./assets/hero-image.webp');"></div>
     <div class="d-flex align-items-center mt-5 pt-xxl-2 z-1">
       <div class="container text-start">
         <h1 class="display-2 fw-bold text-white mb-2 text-start hero-txt"><span id="im"
             class="text-secondary"></span><br><span id="fullstack"></span><br><span id="se"></span></h1>
         <!-- <p class="lead text-end">Gayan Sandamal</p> -->
-        <p class="lead">I develop Vue.js applications that are demonstrably SUPER-DUPER FAST, ROBUST, and RELIABLE
-          compared to those created by the average Vue developer. My expertise is built upon 9 years of experience
-          building user-centric web applications utilizing Vue.js, React, and modern JavaScript frameworks.</p>
-        <p class="lead">I'm skilled in crafting visually appealing and responsive UIs using HTML5, CSS3, and adhering to
-          best practices for server-side rendering. My proven ability to collaborate with clients ensures a smooth
-          transition from defining user experience to translating design mockups into functional, efficient, and secure
-          JavaScript code.</p>
-        <p class="lead mb-4 mb-lg-5">Experience with automated testing frameworks and Git version control guarantees
-          high-quality code delivery.</p>
+        <p class="lead">I'm a passionate and experienced Frontend Engineer with nearly a decade of experience crafting
+          high-quality, robust and scalable web and mobile applications. I specialize in Vue.js, React and Angular, building
+          intuitive, user-centric interfaces that millions of users interact with daily.</p>
+        <p class="lead">My foundation in UI/UX design gives me a unique perspective when translating user needs and
+          design mockups into efficient, secure and maintainable code. I'm skilled in Server-Side Rendering (SSR),
+          Search Engine Optimization (SEO) and cross-platform development, ensuring exceptional performance and
+          accessibility.</p>
+        <p class="lead mb-4 mb-lg-5">I have a proven track record of collaborating with diverse teams and driving
+          projects from concept to completion. Experience with automated testing, Git and agile methodologies ensures
+          I deliver high-quality solutions that meet both user expectations and business goals.</p>
         <div class="text-start">
           <a href="https://www.linkedin.com/in/gayan-sandamal/" target="_blank1">
             <button type="button" class="btn btn-outline-primary mb-3 me-2">
@@ -96,6 +102,12 @@
               Medium
             </button>
           </a>
+          <a href="https://choner.io/" target="_blank" rel="noopener">
+            <button type="button" class="btn btn-outline-info mb-3 me-2">
+              <i class="fa-solid fa-globe"></i>
+              choner.io
+            </button>
+          </a>
         </div>
         <div class="mt-4">
           <button type="button" class="btn btn-success mb-3 me-2"
@@ -114,34 +126,65 @@
     </div>
   </div>
 
+  <section class="stats-bar">
+    <div class="container">
+      <div class="row g-3 justify-content-center stagger-children">
+        <div class="col-6 col-md-3">
+          <div class="stat-item">
+            <div class="stat-number" data-count="10">0</div>
+            <div class="stat-label">Years Experience</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="stat-item">
+            <div class="stat-number" data-count="8">0</div>
+            <div class="stat-label">Companies</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="stat-item">
+            <div class="stat-number" data-count="20" data-suffix="+">0</div>
+            <div class="stat-label">Projects Delivered</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="stat-item">
+            <div class="stat-number" data-count="1" data-suffix="M+">0</div>
+            <div class="stat-label">Users Impacted</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="about" class="about px-0 py-md-5">
     <div class="container py-md-5">
+      <span class="section-label reveal">About Me</span>
       <div class="row align-items-center">
-        <div class="col-md-3">
-          <img src="./assets/Gayan-Sandamal-Front-Facing.jpg" style="width: 100%; max-width: 300px;" alt="My Profile Picture"
-            class="img-fluid mx-auto d-block mb-3 shadow">
+        <div class="col-md-3 reveal-left">
+          <img src="./assets/Gayan-Sandamal-Front-Facing.jpg" style="width: 100%; max-width: 300px;" alt="Gayan Sandamal"
+            class="img-fluid mx-auto d-block mb-3 profile-photo">
         </div>
-        <div class="col-md-9">
-          <h2 class="display-5 mt-4 mb-4 mt-md-0 mb-md-4">Not only <span class="badge bg-success mb-1">Vue</span> and
-            <span class="badge bg-danger mb-1">Vanilla JS</span>
+        <div class="col-md-9 reveal-right">
+          <h2 class="display-5 mt-4 mb-4 mt-md-0 mb-md-4">Vue, React & <span class="badge mb-1" style="background-color: #dd0031;">Angular</span>
           </h2>
-          <p class="h5 text-start">I'm a dynamic FULL-STACK Developer, specializing in JavaScript. Proficient in
-            <span class="badge bg-dark mb-1">TypeScript</span>,
-            <span class="badge bg-primary mb-1">React.js</span>,
+          <p class="h5 text-start">I'm a Frontend Engineer with top skills in
+            <span class="badge bg-danger mb-1">Angular</span>,
+            <span class="badge bg-success mb-1">Vue.js</span>,
+            <span class="badge bg-primary mb-1">React</span>,
             <span class="badge bg-primary mb-1">React Native</span>,
+            <span class="badge mb-1" style="background-color: #3178c6;">TypeScript</span>,
             <span class="badge bg-danger mb-1">Node.js</span>,
-            <span class="badge mb-1" style="background-color: purple;">PHP</span>,
-            <span class="badge bg-dark mb-1">Relational Databases</span> such as
+            <span class="badge mb-1" style="background-color: var(--accent-primary);">Team Leadership</span> and
+            <span class="badge mb-1" style="background-color: var(--accent-secondary);">Team Management</span>.
+            I also work with
+            <span class="badge mb-1" style="background-color: #7b4f9d;">PHP</span>,
             <span class="badge mb-1" style="background-color: #f29111;">MySQL</span>,
-            <span class="badge bg-dark mb-1">MariaDB</span>,
-            <span class="badge bg-danger mb-1">MSSQL</span> also
-            <span class="badge bg-dark mb-1">None-relational Databases</span>
-            such as
-            <span class="badge bg-success mb-1">MongoDB</span> and cloud computing such as
-            <span class="badge mb-1" style="background-color: #FFA611;">Firebase</span>,
-            <span class="badge mb-1" style="background-color: #ff9900;">AWS</span> and, I excel in crafting user-centric
-            web apps. Passionate about innovative UI design, I'm always learning and staying updated on JavaScript
-            trends.
+            <span class="badge mb-1" style="background-color: #336791;">MariaDB</span>,
+            <span class="badge bg-success mb-1">MongoDB</span>,
+            <span class="badge mb-1" style="background-color: #FFA611;">Firebase</span> and
+            <span class="badge mb-1" style="background-color: #ff9900;">AWS</span>.
+            I excel in crafting user-centric web and mobile apps and am passionate about innovative UI design.
           </p>
         </div>
       </div>
@@ -149,12 +192,13 @@
   </section>
 
   <!-- top projects -->
-  <section id="projects" class="projects px-0 py-5 bg-dark text-white shadow-b-1">
+  <section id="projects" class="projects px-0 py-5 text-white shadow-b-1">
     <div class="container py-md-5">
-      <h2 class="display-4 mb-5">Top Projects</h2>
+      <span class="section-label reveal">Selected Work</span>
+      <h2 class="display-4 mb-5 reveal">Top Projects</h2>
       <div class="row row-cols-1 row-cols-md-2 g-4">
         <div class="col">
-          <div class="card h-100 bg-dark text-white outline-light">
+          <div class="card h-100 text-white outline-light">
             <!-- Modal -->
             <div class="modal fade" id="paradigm360Modal" tabindex="-1" aria-hidden="true">
               <div class="modal-dialog max-limit">
@@ -235,7 +279,7 @@
           </div>
         </div>
         <div class="col">
-          <div class="card h-100 bg-dark text-white outline-light">
+          <div class="card h-100 text-white outline-light">
             <!-- Modal -->
             <div class="modal fade" id="planningPokereModal" tabindex="-1" aria-hidden="true">
               <div class="modal-dialog max-limit">
@@ -320,7 +364,7 @@
           </div>
         </div>
         <div class="col">
-          <div class="card h-100 bg-dark text-white outline-light">
+          <div class="card h-100 text-white outline-light">
             <div class="modal fade" id="akurataModal" tabindex="-1" aria-hidden="true">
               <div class="modal-dialog max-limit">
                 <div class="modal-content d-flex align-items-end">
@@ -407,7 +451,7 @@
           </div>
         </div>
         <div class="col">
-          <div class="card h-100 bg-dark text-white outline-light">
+          <div class="card h-100 text-white outline-light">
             <div class="modal fade" id="inquestaModal" tabindex="-1" aria-hidden="true">
               <div class="modal-dialog max-limit">
                 <div class="modal-content d-flex align-items-end">
@@ -510,7 +554,7 @@
           </div>
         </div>
         <div class="col">
-          <div class="card h-100 bg-dark text-white outline-light">
+          <div class="card h-100 text-white outline-light">
             <div class="modal fade" id="findyoaModal" tabindex="-1" aria-hidden="true">
               <div class="modal-dialog max-limit">
                 <div class="modal-content d-flex align-items-end">
@@ -557,10 +601,11 @@
   </section>
 
   <!-- UI / UX -->
-  <section class="px-0 py-md-5" id="ui-ux">
+  <section class="uiux-section px-0 py-md-5" id="designs">
     <div class="container">
       <div class="row py-5">
-        <div class="col-md-6">
+        <div class="col-md-6 reveal-left">
+          <span class="section-label">Design Craft</span>
           <h2 class="display-4">UI/UX Design</h2>
           <p class="lead">I craft user-centered experiences that are both beautiful and functional.</p>
           <p>I have a strong understanding of design principles and best practices, and I'm passionate about creating
@@ -579,7 +624,7 @@
             See My Works on Dribble
           </a>
         </div>
-        <div class="col-md-6 d-flex justify-content-center align-items-center">
+        <div class="col-md-6 d-flex justify-content-center align-items-center reveal-right">
           <div class="row">
             <div class="col-12">
               <img src="./assets/projects/designs/choner-ui.png" alt="choner" class="img-fluid rounded-3 shadow">
@@ -598,130 +643,197 @@
   </section>
 
   <!-- Total experience -->
-  <section id="experience" class="experience px-0 py-md-5 bg-dark text-white">
+  <section id="experience" class="experience px-0 py-md-5 text-white">
     <div class="container py-5">
-      <h2 class="display-4 mb-5">Work Experience</h2>
-      <div class="list-group">
-        <div class="list-group-item list-group-item-action bg-dark text-white outline-light">
+      <span class="section-label reveal">Career Journey</span>
+      <h2 class="display-4 mb-5 reveal">Work Experience</h2>
+      <div class="list-group stagger-children">
+        <div class="list-group-item text-white">
           <div class="timeline-content pt-3">
-            <h3 class="timeline-title">GoTradie - Australia (Hybrid)</h3>
+            <h3 class="timeline-title">Platform One - Sri Lanka</h3>
             <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
-              <span class="job-title text-white">Senior Software Engineer (Frontend)</span>
-              <small class="mt-2 mt-md-0">August 2023 - Present</small>
+              <span class="job-title text-white">Technical Lead</span>
+              <small class="mt-2 mt-md-0">November 2025 - Present</small>
+            </div>
+            <p>Leading technical delivery and frontend excellence for scalable web and mobile products.</p>
+          </div>
+        </div>
+        <div class="list-group-item text-white">
+          <div class="timeline-content pt-3">
+            <h3 class="timeline-title">OpenSolar - Australia</h3>
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+              <span class="job-title text-white">Senior Frontend Engineer</span>
+              <small class="mt-2 mt-md-0">January 2025 - November 2025</small>
+            </div>
+            <p>Building scalable frontend solutions for solar and energy products.</p>
+          </div>
+        </div>
+        <div class="list-group-item text-white">
+          <div class="timeline-content pt-3">
+            <h3 class="timeline-title">FlowFuse - San Francisco, USA (Remote)</h3>
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+              <span class="job-title text-white">Frontend Engineer</span>
+              <small class="mt-2 mt-md-0">April 2024 - January 2025</small>
             </div>
             <p>
-              - Successful remote working, collaboration and communicate across time zones and disciplines helped to build a user-centric web application using Vue.js 3, React and modern front-end technologies (Redux, TypeScript, Storybook, Jest for unit testing, websockets) within an Agile development framework (Scrum) and collaboration tools (JIRA, Confluence for documentation) and version controlling with GIT. Developed and integrated our own design system which supports both web and mobile (used <a href="https://necolas.github.io/react-native-web/">react-native-web</a>) and most of the modules have been written using object oriented development methodologies. Leveraged this approach to develop new features iteratively in collaboration with UI/UX and product teams. Integrated RESTful APIs and JSON with collaboration with backend developers while demonstrating the ability to work independently.<br>
-              - Demonstrate strong communication and strong problem-solving skills by transforming the web app into a standalone Progressive Web App (PWA) within a week. This resulted in a 90% reduction in development cost compared to a traditional standalone application (estimated 3 months).
+              - Played a pivotal role in developing the Node-Red Dashboard 2.0 using Vue.js, optimizing performance, reducing memory consumption and enabling efficient data visualization (hundreds of charts, graphs and widgets) for thousands of Node-Red users globally.<br>
+              - Designed and implemented responsive, high-performance widgets and features; conducted rigorous testing, peer-code reviews and community pull request reviews to ensure high coding standards.<br>
+              - Actively engaged with Discourse and Discord communities and collaborated with open-source contributors; worked with cross-functional, international teams using agile methodologies to deliver impactful solutions.
             </p>
           </div>
         </div>
-        <div class="list-group-item list-group-item-action bg-dark text-white outline-light">
+        <div class="list-group-item text-white">
           <div class="timeline-content pt-3">
-            <h3 class="timeline-title">OrangeHRM - Sri Lanka (Hybrid)</h3>
+            <h3 class="timeline-title">GoTradie - Sydney, Australia (Remote)</h3>
             <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
-              <span class="job-title text-white">Senior Software Engineer (Frontend)</span>
+              <span class="job-title text-white">Senior Software Engineer</span>
+              <small class="mt-2 mt-md-0">September 2023 - April 2024</small>
+            </div>
+            <p>
+              - Developed a feature-rich, cross-platform web and mobile application using React Native and ReactJS, with PWA, TypeScript, React Query, and Storybook. Worked within Scrum using JIRA and Confluence in close collaboration with UI/UX and product teams.<br>
+              - Transformed the GoTradie web app into a standalone Progressive Web App (PWA) within one week, reducing development costs by 90% compared to the estimated timeline for a standalone application, accelerating time-to-market while maintaining high-quality standards.
+            </p>
+          </div>
+        </div>
+        <div class="list-group-item text-white">
+          <div class="timeline-content pt-3">
+            <h3 class="timeline-title">OrangeHRM - Colombo, Sri Lanka</h3>
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+              <span class="job-title text-white">Senior Software Engineer</span>
               <small class="mt-2 mt-md-0">June 2021 - August 2023</small>
             </div>
             <p>
-              - Led a comprehensive front-end overhaul for OrangeHRM enterprise by taking ownership of assigned tasks, a rapidly growing HR global software company. Prioritized a user-centric experience with Vue.js 3, Vite, NodeJs, Docker and Agile methodologies (GIT, JIRA, Confluence) to improve collaboration, documentation and user experience.  Effectively communicated with international stakeholders and the UI/UX team, spearheading the revamp of the recruitment module by a clean, maintainable and efficient code with Vue.js 3 with SOLID principles and software designing. This resulted in a 22% increase in positive user satisfaction ratings, demonstrating the success of the user-centric approach.
+              - Led OrangeHRM's front-end overhaul with VueJS 3, VueX, React Native and agile tools (GIT, JIRA, Confluence, TWiki). Co-revamped the recruitment module with the UI/UX team, leading to a 22% increase in positive user satisfaction ratings from post-application surveys.
             </p>
           </div>
         </div>
-        <!-- <div class="list-group-item list-group-item-action bg-dark text-white outline-light">
+        <div class="list-group-item text-white">
           <div class="timeline-content pt-3">
-            <h3 class="timeline-title">Aeturnum - Sri Lanka (Remote)</h3>
-            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
-              <span class="job-title text-white">Senior Software Engineer (Frontend)</span>
-              <small class="mt-2 mt-md-0">June 2021 - October 2021</small>
-            </div>
-            <p>
-              - Improved the developer experience by introducing, implementing the VueX state manager in the <a href="https://lineten.com">Line10</a> Application.<br>
-              - Collaborated effectively with stakeholders and the design team on the development of a <a href="https://lineten.com/pos-bridge/">POS bridge</a> for Line10, an API-first application. Leveraged Nuxt.js (Vue.js framework) and TypeScript to build a user-centric experience. Contributed to architectural planning and making decisions, Maintained and established coding standards by ensuring a scalable and robust foundation for the application while delivering high-quality work within agreed timelines.
-            </p>
-          </div>
-        </div> -->
-        <div class="list-group-item list-group-item-action bg-dark text-white outline-light">
-          <div class="timeline-content pt-3">
-            <h3 class="timeline-title">PlatformOne - Sri Lanka (On-site)</h3>
+            <h3 class="timeline-title">Platform One - Colombo, Sri Lanka</h3>
             <ul class="promotions">
               <li class="promotion">
                 <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
-                  <span class="text-white job-title">Senior Software Engineer (Frontend)</span>
-                  <small class="mt-2 mt-md-0">January 2021 - May 2021</small>
+                  <span class="text-white job-title">Senior Software Engineer (Front-end)</span>
+                  <small class="mt-2 mt-md-0">January 2021 - June 2021</small>
                 </div>
                 <p>
-                  - Led front-end front end across the entire software lifecycle, contributing micro front-ends for maintainability, UX iteration, Secure best practices for for maintainable, secure and well-documented code using Vue.js 2 and its core libraries in Vue ecosystem (Vue Router, VueX, Vue CLI, Axios, Vuetify and BootstrapVue), ECMAScript 6+, ESLint, Storybook, GitLab, ISO 27001, GDPR. As the product was rapidly growing, optimized, developed and maintained the web application for maximum speed, scalability, and security.
+                  - Led front-end development across the software lifecycle, contributing micro front-ends for maintainability, UX iteration and best practices (ISO 27001, GDPR). Used Vue.js, VueX, Vue Router, Vue CLI, Axios, Vuetify, BootstrapVue, ESLint, Storybook and GitLab.
                 </p>
               </li>
               <li class="promotion">
                 <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
-                  <span class="text-white job-title">Software Engineer (Frontend)</span>
-                  <small class="mt-2 mt-md-0">June 2018 - June 2021</small>
+                  <span class="text-white job-title">Software Engineer (Front-end)</span>
+                  <small class="mt-2 mt-md-0">June 2018 - January 2021</small>
                 </div>
                 <p>
-                  - Worked across the entire software lifecycle, contributing micro front-ends for maintainability, UX improvement iterations, Backend development using ASP.NET Core, and best practices adherence. Used the core libraries of the Vue ecosystem to improve the application, debug and troubleshoot technical issues.
+                  - Enhanced user experience through iterative design, built interactive web components and implemented secure front-end practices with JavaScript, Vue.js, VueX, React Native and Storybook.
                 </p>
               </li>
             </ul>
           </div>
         </div>
-        <div class="list-group-item list-group-item-action bg-dark text-white outline-light">
+        <div class="list-group-item text-white">
           <div class="timeline-content pt-3">
-            <h3 class="timeline-title">Suwahas - Sri Lanka (On-site)</h3>
+            <h3 class="timeline-title">Suwahas.com - Negombo, Sri Lanka</h3>
             <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
-              <span class="job-title text-white">Software Engineer (Frontend)</span>
+              <span class="job-title text-white">Software Engineer</span>
               <small class="mt-2 mt-md-0">September 2017 - June 2018</small>
             </div>
             <p>
-              - Supported ERP development TrendyWear with vanilla Js, jQuery, PHP (object oriented programming), MariaDB, GIT, Wordpress projects.
+              - Built a comprehensive ERP application for TrendyWear.lk using Vanilla JavaScript, jQuery, PHP and MariaDB, streamlining operations and increasing efficiency by 25%.
             </p>
           </div>
         </div>
-        <div class="list-group-item list-group-item-action bg-dark text-white outline-light">
+        <div class="list-group-item text-white">
           <div class="timeline-content pt-3">
-            <h3 class="timeline-title">Quard International - Sri Lanka (On-site)</h3>
+            <h3 class="timeline-title">Quard Designs PVT LTD - Sri Lanka</h3>
             <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
               <span class="job-title text-white">Web Developer</span>
               <small class="mt-2 mt-md-0">August 2016 - August 2017</small>
             </div>
             <p>
-              - Designed and developed 20+ websites using Wordpress (Development and managed plugin upgrades and improved page performance. Understands deployment processes for these web pages on Apache server and cPanel), PHP and Magento.
+              - Built 20+ websites using PHP, WordPress and Magento.
             </p>
           </div>
         </div>
-        <div class="list-group-item list-group-item-action bg-dark text-white outline-light">
+        <div class="list-group-item text-white">
           <div class="timeline-content pt-3">
-            <h3 class="timeline-title">3CS - Sri Lanka (On-site)</h3>
+            <h3 class="timeline-title">3CS Web Design - Sri Jayawardenepura Kotte, Sri Lanka</h3>
             <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
               <span class="job-title text-white">Associate Web Designer</span>
-              <small class="mt-2 mt-md-0">Feb 2016 - August 2016</small>
+              <small class="mt-2 mt-md-0">February 2016 - August 2016</small>
             </div>
             <p>
-              - Skilled in website and application design using Adobe Photoshop, seamlessly transitioning to Figma and Adobe XD as industry standards evolved.
+              - Skilled in website and application design using Adobe Photoshop, transitioning to Figma and Adobe XD as industry standards evolved.
             </p>
           </div>
         </div>
-        <div class="list-group-item list-group-item-action bg-dark text-white outline-light">
+        <div class="list-group-item text-white">
           <div class="timeline-content pt-3">
-            <h3 class="timeline-title">Miami Exports - Sri Lanka (On-site)</h3>
+            <h3 class="timeline-title">Miami Export (Pvt) Ltd - Homagama, Sri Lanka</h3>
             <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
-              <span class="job-title text-white">Intern Developer</span>
+              <span class="job-title text-white">Web Development Intern</span>
               <small class="mt-2 mt-md-0">June 2015 - August 2015</small>
             </div>
             <p>
-              - Interned as a web developer, focusing on front-end design and development.
+              - Intern web developer: front-end design and development.
             </p>
           </div>
         </div>
       </div>
   </section>
 
+  <!-- Certifications, Education & Honors -->
+  <section id="credentials" class="credentials-section px-0 py-md-5">
+    <div class="container py-5">
+      <span class="section-label reveal">Background</span>
+      <h2 class="display-5 mb-5 reveal">Education &amp; Credentials</h2>
+      <div class="row g-4">
+        <div class="col-md-4 reveal">
+          <div class="credential-card">
+            <h5 class="mb-3">Education</h5>
+            <ul class="list-unstyled mb-0">
+              <li><strong>Cardiff Metropolitan University</strong> — MSc Information Technology (2021–2023)</li>
+              <li><strong>ESOFT Metro Campus</strong> — MCSD Stage 1, ASP.NET Exam 70-486 (2017)</li>
+              <li><strong>Aquinas College of Higher Studies</strong> — Diploma in I.C.T (2014–2015)</li>
+              <li><strong>Wesley College, Colombo</strong> — Science, Mathematics (2004–2013)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-4 reveal">
+          <div class="credential-card">
+            <h5 class="mb-3">Certifications</h5>
+            <ul class="list-unstyled mb-0">
+              <li>Microsoft Certified Solution Developer (MCSD) — Exam 70-486</li>
+              <li>Python Essential Training</li>
+              <li>Learning 3D Graphics on the Web with Three.js</li>
+              <li>Building &amp; Securing RESTful APIs in ASP.NET Core</li>
+              <li>Learning Bitcoin and Other Cryptocurrencies</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-4 reveal">
+          <div class="credential-card">
+            <h5 class="mb-3">Honors &amp; Awards</h5>
+            <ul class="list-unstyled">
+              <li>ESOFT Dev Challenge 2017 — Winner</li>
+              <li>1st place — Aquinas University I.C.T Competition 2014</li>
+            </ul>
+            <h5 class="mb-3 mt-4">Publication</h5>
+            <p class="text-muted mb-0" style="font-size:0.85rem;"><em>Factors Influencing the Success of User-Friendly Mobile Applications for Senior Citizens with Limited Digital Literacy in Colombo District</em></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Testimonials -->
-  <section class="px-0 py-md-5" id="ui-ux">
+  <section class="testimonials-section px-0 py-md-5" id="testimonials">
     <div class="container">
       <div class="row py-5">
         <div class="col-12">
-          <h2 class="display-4">What People Say</h2>
+          <span class="section-label reveal">Testimonials</span>
+          <h2 class="display-4 reveal">What People Say</h2>
           <div class="row">
             <div class="col-12-6 mb-3">
               <div id="carouselReviews" class="carousel carousel-dark slide" data-bs-ride="carousel">
@@ -739,7 +851,7 @@
                         <div class="card rounded-3 border-3 shadow">
                           <div class="card-body flex justify-content-center">
                             <div class="d-flex justify-content-start flex-row align-items-center">
-                              <img class="reviewer-avatar" src="https://media.licdn.com/dms/image/D5603AQFamZkP_cEbxA/profile-displayphoto-shrink_100_100/0/1671240531298?e=1723075200&v=beta&t=TC_d86Aq8QKYj6r_eHWcWcdQ-RwUIKsJGQ0ViKDpi2Y" class="rounded-circle" alt="Adam Fazzani">
+                              <img class="reviewer-avatar rounded-circle" src="https://ui-avatars.com/api/?name=Adam+Fazzani&size=128&background=6366f1&color=fff&bold=1" alt="Adam Fazzani" loading="lazy">
                               <div class="d-flex flex-column align-items-start justify-content-between ms-2">
                                 <h5 class="card-title mb-1"><strong>Adam Fazzani</strong></h5>
                                 <p class="m-0 d-flex align-items-center"><small>ConTech Founder | Techstars '23 | GoTradie 🔨 | SPCLST</small></p>
@@ -758,7 +870,7 @@
                         <div class="card rounded-3 border-3 shadow">
                           <div class="card-body flex justify-content-center">
                             <div class="d-flex justify-content-start flex-row align-items-center">
-                              <img class="reviewer-avatar" src="https://media.licdn.com/dms/image/D5603AQF8MCqLlYi6Fw/profile-displayphoto-shrink_100_100/0/1680159803718?e=1723075200&v=beta&t=RgOJhMgWq7mC-NSQMlcVqwNhOv3hc9Lbr4O1zXGmJ2E" class="rounded-circle" alt="Adam Fazzani">
+                              <img class="reviewer-avatar rounded-circle" src="https://ui-avatars.com/api/?name=Will+Brown&size=128&background=6366f1&color=fff&bold=1" alt="Will Brown" loading="lazy">
                               <div class="d-flex flex-column align-items-start justify-content-between ms-2">
                                 <h5 class="card-title mb-1"><strong>Will Brown</strong></h5>
                                 <p class="m-0 d-flex align-items-center"><small>Lead Product Designer | Freelance | Gary Vision</small></p>
@@ -776,7 +888,7 @@
                         <div class="card rounded-3 border-3 shadow">
                           <div class="card-body flex justify-content-center">
                             <div class="d-flex justify-content-start flex-row align-items-center">
-                              <img class="reviewer-avatar" src="https://media.licdn.com/dms/image/C5103AQFrJRL9-PnbNg/profile-displayphoto-shrink_100_100/0/1549617244524?e=1723075200&v=beta&t=w8ZASVqoEtCFqci_aSl1v9ySm8TxYqc7-c-Ick9jJ80" class="rounded-circle" alt="Adam Fazzani">
+                              <img class="reviewer-avatar rounded-circle" src="https://ui-avatars.com/api/?name=Sumudu+Dewasurendra&size=128&background=6366f1&color=fff&bold=1" alt="Sumudu Dewasurendra" loading="lazy">
                               <div class="d-flex flex-column align-items-start justify-content-between ms-2">
                                 <h5 class="card-title mb-1"><strong>Sumudu Dewasurendra</strong></h5>
                                 <p class="m-0 d-flex align-items-center"><small>Lead Software Engineer at GoTradie</small></p>
@@ -799,7 +911,7 @@
                         <div class="card rounded-3 border-3 shadow">
                           <div class="card-body flex justify-content-center">
                             <div class="d-flex justify-content-start flex-row align-items-center">
-                              <img class="reviewer-avatar" src="https://media.licdn.com/dms/image/D5603AQG6Tz9jELk_qQ/profile-displayphoto-shrink_100_100/0/1689771328633?e=1723075200&v=beta&t=T6OYtmIQ1egYAtgXgZR2egy2A9a4NFQcLSI94GzBvps" class="rounded-circle" alt="Adam Fazzani">
+                              <img class="reviewer-avatar rounded-circle" src="https://ui-avatars.com/api/?name=Mahesh+Dissanayaka&size=128&background=6366f1&color=fff&bold=1" alt="Mahesh Dissanayaka" loading="lazy">
                               <div class="d-flex flex-column align-items-start justify-content-between ms-2">
                                 <h5 class="card-title mb-1"><strong>Mahesh Dissanayaka</strong></h5>
                                 <p class="m-0 d-flex align-items-center"><small>Software Architect | AWS | Cloud</small></p>
@@ -817,7 +929,7 @@
                         <div class="card rounded-3 border-3 shadow">
                           <div class="card-body flex justify-content-center">
                             <div class="d-flex justify-content-start flex-row align-items-center">
-                              <img class="reviewer-avatar" src="https://media.licdn.com/dms/image/C5603AQH2anZf_ovo5A/profile-displayphoto-shrink_100_100/0/1651944585348?e=1723075200&v=beta&t=bEqYV36P5IHLMDlLC_oWvn9TFIOrzjFa8e6UskzO2C8" class="rounded-circle" alt="Adam Fazzani">
+                              <img class="reviewer-avatar rounded-circle" src="https://ui-avatars.com/api/?name=Buwaneka+Sumanasekara&size=128&background=6366f1&color=fff&bold=1" alt="Buwaneka Sumanasekara" loading="lazy">
                               <div class="d-flex flex-column align-items-start justify-content-between ms-2">
                                 <h5 class="card-title mb-1"><strong>Buwaneka Sumanasekara</strong></h5>
                                 <p class="m-0 d-flex align-items-center"><small>Lead Engineer - React Native | React JS | Laravel</small></p>
@@ -835,7 +947,7 @@
                         <div class="card rounded-3 border-3 shadow">
                           <div class="card-body flex justify-content-center">
                             <div class="d-flex justify-content-start flex-row align-items-center">
-                              <img class="reviewer-avatar" src="https://media.licdn.com/dms/image/D5603AQF-zgZ4iEi8Ag/profile-displayphoto-shrink_100_100/0/1673030800426?e=1723075200&v=beta&t=hNcMQqLvfoKwAYCce4lzbXajDYqv7GqouzOHwUCdGXQ" class="rounded-circle" alt="Adam Fazzani">
+                              <img class="reviewer-avatar rounded-circle" src="https://ui-avatars.com/api/?name=Thamara+Dananjaya&size=128&background=6366f1&color=fff&bold=1" alt="Thamara Dananjaya" loading="lazy">
                               <div class="d-flex flex-column align-items-start justify-content-between ms-2">
                                 <h5 class="card-title mb-1"><strong>Thamara Dananjaya</strong></h5>
                                 <p class="m-0 d-flex align-items-center"><small>Senior Project Lead at OrangeHRM | MBA | BSc | SFC™ | Enterprise Design Thinking Practitioner</small></p>
@@ -859,7 +971,7 @@
                         <div class="card rounded-3 border-3 shadow">
                           <div class="card-body flex justify-content-center">
                             <div class="d-flex justify-content-start flex-row align-items-center">
-                              <img class="reviewer-avatar" src="https://media.licdn.com/dms/image/D5603AQEHBrHHnK2s3w/profile-displayphoto-shrink_100_100/0/1711973444371?e=1723075200&v=beta&t=AAMNsPBQCyH8IjEPEqVKqb-hbgfLrOxhoQQzSVQ_H2s" class="rounded-circle" alt="Adam Fazzani">
+                              <img class="reviewer-avatar rounded-circle" src="https://ui-avatars.com/api/?name=Buddila+Wijeyesekera&size=128&background=6366f1&color=fff&bold=1" alt="Buddila Wijeyesekera" loading="lazy">
                               <div class="d-flex flex-column align-items-start justify-content-between ms-2">
                                 <h5 class="card-title mb-1"><strong>Buddila Wijeyesekera</strong></h5>
                                 <p class="m-0 d-flex align-items-center"><small>Doctoral Researcher @ University of Galway in Sustainability & Indoor Environmental Quality. AMIMechE(UK)</small></p>
@@ -877,7 +989,7 @@
                         <div class="card rounded-3 border-3 shadow">
                           <div class="card-body flex justify-content-center">
                             <div class="d-flex justify-content-start flex-row align-items-center">
-                              <img class="reviewer-avatar" src="https://media.licdn.com/dms/image/C5603AQEhc5pDAGw5LA/profile-displayphoto-shrink_100_100/0/1564549335493?e=1723075200&v=beta&t=fZHcpODWhNRxgIPprDSOmYoR_A9I2Jq6dLhU7Ck-wzA" class="rounded-circle" alt="Adam Fazzani">
+                              <img class="reviewer-avatar rounded-circle" src="https://ui-avatars.com/api/?name=Charitha+Godakumbura&size=128&background=6366f1&color=fff&bold=1" alt="Dr Charitha Godakumbura" loading="lazy">
                               <div class="d-flex flex-column align-items-start justify-content-between ms-2">
                                 <h5 class="card-title mb-1"><strong>Dr Charitha Godakumbura (PhD)</strong></h5>
                                 <p class="m-0 d-flex align-items-center"><small>Senior Project Manager at MillenniumIT ESP</small></p>
@@ -895,7 +1007,7 @@
                         <div class="card rounded-3 border-3 shadow">
                           <div class="card-body flex justify-content-center">
                             <div class="d-flex justify-content-start flex-row align-items-center">
-                              <img class="reviewer-avatar" src="https://media.licdn.com/dms/image/D4D03AQHMgRtCmXOkwA/profile-displayphoto-shrink_100_100/0/1674535696272?e=1723075200&v=beta&t=yPXks1rZo_tizcr72yf9Ev0kilthQwP1wTIOYdKVW6k" class="rounded-circle" alt="Adam Fazzani">
+                              <img class="reviewer-avatar rounded-circle" src="https://ui-avatars.com/api/?name=Sumudu+Sahan+Weerasuriya&size=128&background=6366f1&color=fff&bold=1" alt="Sumudu Sahan Weerasuriya" loading="lazy">
                               <div class="d-flex flex-column align-items-start justify-content-between ms-2">
                                 <h5 class="card-title mb-1"><strong>Sumudu Sahan Weerasuriya</strong></h5>
                                 <p class="m-0 d-flex align-items-center"><small>Associate Technical Lead at WSO2 | 2nd Runner-Up of WSO2 Certified Employee of the Year - 2021 | 10X WSO2 Certified | BIT (UCSC) | OCPJP | DiHN</small></p>
@@ -917,7 +1029,7 @@
                         <div class="card rounded-3 border-3 shadow">
                           <div class="card-body flex justify-content-center">
                             <div class="d-flex justify-content-start flex-row align-items-center">
-                              <img class="reviewer-avatar" src="https://media.licdn.com/dms/image/C5103AQEUWZ3q8Yfheg/profile-displayphoto-shrink_100_100/0/1541040982192?e=1723075200&v=beta&t=Uj9IXwHBXrpB8luF7NRCYKoT0OBd9_ULqeOrdVLkKIc" class="rounded-circle" alt="Adam Fazzani">
+                              <img class="reviewer-avatar rounded-circle" src="https://ui-avatars.com/api/?name=Shamique+Farook&size=128&background=6366f1&color=fff&bold=1" alt="Shamique Farook" loading="lazy">
                               <div class="d-flex flex-column align-items-start justify-content-between ms-2">
                                 <h5 class="card-title mb-1"><strong>Shamique Farook</strong></h5>
                                 <p class="m-0 d-flex align-items-center"><small>Technical Lead at 99x | Microsoft Certified Azure Developer (Associate) | Scrum Master | Reading MBA in MOT (UoM) | Bachelor of IT (UCSC)</small></p>
@@ -989,31 +1101,25 @@
 
     gtag('config', 'G-Q1J857S9FG');
   </script>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="d-flex flex-wrap justify-content-between align-items-center">
+        <div class="d-flex align-items-center">
+          <img src="./favicon-32x32.png" class="rounded-3 me-3" alt="Gayan Sandamal" style="opacity: 0.7;">
+          <span>&copy; <script>document.write(new Date().getFullYear())</script> Gayan Sandamal</span>
+        </div>
+        <div class="d-flex gap-2 mt-3 mt-md-0">
+          <a href="https://www.linkedin.com/in/gayan-sandamal/" target="_blank" class="footer-social-link" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://github.com/gayanSandamal/" target="_blank" class="footer-social-link" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="https://stackoverflow.com/users/5748470/gayan-sandamal" target="_blank" class="footer-social-link" aria-label="StackOverflow"><i class="fa-brands fa-stack-overflow"></i></a>
+          <a href="https://dribbble.com/gayansandamal" target="_blank" class="footer-social-link" aria-label="Dribbble"><i class="fa-brands fa-dribbble"></i></a>
+          <a href="https://medium.com/@gayansandamal" target="_blank" class="footer-social-link" aria-label="Medium"><i class="fa-brands fa-medium"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
   <script src="./script.js"></script>
 </body>
-
-<div class="py-3">
-  <div class="container">
-    <footer class="d-flex flex-wrap justify-content-between align-items-center my-4 pt-4 border-top">
-      <div class="col-md-4 d-flex align-items-center">
-        <img src="./favicon-32x32.png" class="rounded-3 me-3" alt="Gayan Sandamal">
-        <span class="text-muted">©
-          <script>document.write(new Date().getFullYear())</script> Gayan Sandamal
-        </span>
-      </div>
-      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
-              <use xlink:href="#twitter"></use>
-            </svg></a></li>
-        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
-              <use xlink:href="#instagram"></use>
-            </svg></a></li>
-        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24">
-              <use xlink:href="#facebook"></use>
-            </svg></a></li>
-      </ul>
-    </footer>
-  </div>
-</div>
 
 </html>
