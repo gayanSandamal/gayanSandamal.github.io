@@ -14,385 +14,405 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
-  <div class="cursor-dot" aria-hidden="true"></div>
-  <div class="cursor-ring" aria-hidden="true"></div>
 
-  <header class="site-nav" id="siteNav">
-    <a class="nav-wordmark" href="#top" data-hover>GS<span class="wordmark-accent">.</span></a>
-    <nav aria-label="Primary">
-      <a href="#about" data-hover>About</a>
-      <a href="#ai" data-hover>AI</a>
-      <a href="#work" data-hover>Work</a>
-      <a href="#experience" data-hover>Experience</a>
-      <a href="#contact" data-hover>Contact</a>
+  <header class="nav" id="nav">
+    <a href="#top" class="nav-name">Gayan&nbsp;Sandamal</a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#ai">AI</a>
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
     </nav>
-    <a class="nav-status" href="#contact" data-hover><span class="status-dot" aria-hidden="true"></span>Open to
-      consulting</a>
+    <a href="#contact" class="nav-note"><span class="note-dot" aria-hidden="true"></span>Open to consulting</a>
   </header>
 
   <main id="top">
 
-    <!-- ═══════════ HERO ═══════════ -->
-    <section class="hero" aria-label="Introduction">
-      <div class="hero-meta mono">
-        <span>Colombo, Sri Lanka</span>
-        <span id="localTime" aria-label="Local time">--:--:-- +0530</span>
-        <span>Senior Technical Lead</span>
+    <!-- ─────────── HERO ─────────── -->
+    <section class="hero">
+      <p class="eyebrow" data-reveal>Senior Technical Lead &nbsp;·&nbsp; Colombo, Sri Lanka &nbsp;·&nbsp; <span
+          id="localTime">--:--:--</span></p>
+      <h1 class="hero-statement" data-reveal>Front-ends for <em>millions</em> of users.<br>
+        AI adoption that actually <em>pays&nbsp;off</em>.</h1>
+      <div class="hero-below" data-reveal>
+        <p class="hero-sub">A decade of shipping with Vue, React and Angular, a foundation in UI/UX, and an
+          open-source <a href="https://github.com/gayanSandamal/pixelflow" target="_blank" rel="noopener">AI
+            design-to-code toolchain</a>. I lead from the front — close to the code, close to the team.</p>
+        <ul class="hero-contacts" aria-label="Profiles">
+          <li><a href="https://www.linkedin.com/in/gayan-sandamal/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://github.com/gayanSandamal/" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://stackoverflow.com/users/5748470/gayan-sandamal" target="_blank"
+              rel="noopener">StackOverflow</a></li>
+          <li><a href="https://medium.com/@gayansandamal" target="_blank" rel="noopener">Medium</a></li>
+          <li><a href="https://dribbble.com/gayansandamal" target="_blank" rel="noopener">Dribbble</a></li>
+        </ul>
       </div>
-      <h1 class="hero-name" aria-label="Gayan Sandamal">
-        <span class="line"><span class="line-inner">GAYAN</span></span>
-        <span class="line"><span class="line-inner">SANDAMAL<span class="accent">.</span></span></span>
-      </h1>
-      <div class="hero-foot">
-        <p class="hero-role">Frontend engineering for millions of users — <em>Vue, React &amp; Angular</em> — and AI
-          adoption that actually pays off. A decade of shipping, a foundation in UI/UX, and an open-source
-          <a href="https://github.com/gayanSandamal/pixelflow" target="_blank" rel="noopener" data-hover>AI
-            design-to-code toolchain</a>.
-        </p>
-        <div class="hero-links mono">
-          <a href="https://www.linkedin.com/in/gayan-sandamal/" target="_blank" rel="noopener" data-hover>LinkedIn
-            ↗</a>
-          <a href="https://github.com/gayanSandamal/" target="_blank" rel="noopener" data-hover>GitHub ↗</a>
-          <a href="https://stackoverflow.com/users/5748470/gayan-sandamal" target="_blank" rel="noopener"
-            data-hover>StackOverflow ↗</a>
-          <a href="https://medium.com/@gayansandamal" target="_blank" rel="noopener" data-hover>Medium ↗</a>
-          <a href="https://dribbble.com/gayansandamal" target="_blank" rel="noopener" data-hover>Dribbble ↗</a>
-        </div>
-      </div>
-      <div class="scroll-cue mono" aria-hidden="true">Scroll<span class="scroll-line"></span></div>
     </section>
 
-    <!-- ═══════════ MARQUEE ═══════════ -->
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee-track">
-        <span>Vue.js — React — Angular — TypeScript — AI Adoption — Electron — Node.js — UI/UX — Design Systems —
-          Context Engineering — </span><span>Vue.js — React — Angular — TypeScript — AI Adoption — Electron — Node.js
-          — UI/UX — Design Systems — Context Engineering — </span>
-      </div>
-    </div>
-
-    <!-- ═══════════ STATS ═══════════ -->
+    <!-- ─────────── STATS ─────────── -->
     <section class="stats" aria-label="Career statistics">
       <div class="stat" data-reveal>
-        <span class="stat-num mono" data-count="10" data-suffix="+">0</span>
-        <span class="stat-label mono">Years experience</span>
+        <span class="stat-num" data-count="10" data-suffix="+">0</span>
+        <span class="stat-label">Years of craft</span>
       </div>
       <div class="stat" data-reveal>
-        <span class="stat-num mono" data-count="9">0</span>
-        <span class="stat-label mono">Companies</span>
+        <span class="stat-num" data-count="9">0</span>
+        <span class="stat-label">Companies</span>
       </div>
       <div class="stat" data-reveal>
-        <span class="stat-num mono" data-count="20" data-suffix="+">0</span>
-        <span class="stat-label mono">Projects delivered</span>
+        <span class="stat-num" data-count="20" data-suffix="+">0</span>
+        <span class="stat-label">Projects delivered</span>
       </div>
       <div class="stat" data-reveal>
-        <span class="stat-num mono" data-count="1" data-suffix="M+">0</span>
-        <span class="stat-label mono">Users impacted</span>
+        <span class="stat-num" data-count="1" data-suffix="M+">0</span>
+        <span class="stat-label">Users reached</span>
       </div>
     </section>
 
-    <!-- ═══════════ 01 ABOUT ═══════════ -->
+    <!-- ─────────── 01 ABOUT ─────────── -->
     <section class="section" id="about">
-      <div class="section-head" data-reveal>
-        <span class="section-num mono">01</span>
-        <h2 class="section-title">About</h2>
-      </div>
-      <div class="about-grid">
-        <figure class="about-photo" data-reveal>
+      <header class="sec-head" data-reveal>
+        <span class="sec-label">01 — About</span>
+      </header>
+      <div class="about">
+        <figure class="about-fig" data-reveal>
           <img src="./assets/Gayan-Sandamal-Front-Facing.jpg" alt="Portrait of Gayan Sandamal" loading="lazy">
-          <figcaption class="mono">Gayan Sandamal — Colombo</figcaption>
+          <figcaption>Fig. 01 — Gayan Sandamal, Colombo</figcaption>
         </figure>
-        <div class="about-copy">
-          <p class="big-copy" data-reveal>I'm a Senior Technical Lead who still ships. Over a decade I've built
-            web and mobile products used by millions — HR platforms, trade tools, IoT dashboards, solar software —
-            always from the front, always close to the code.</p>
+        <div class="about-text">
+          <p class="lede" data-reveal>I'm a Senior Technical Lead who still ships. Over ten years I've built web and
+            mobile products used by millions — HR platforms, trade tools, IoT dashboards, solar software — always
+            from the front, always close to the code.</p>
           <p data-reveal>My path started in UI/UX design, which is why translating a designer's intent into
-            efficient, maintainable code is my home ground. I care about SSR, SEO, accessibility and performance
-            — and lately, about giving engineering teams an honest answer to "where does AI actually help?"</p>
-          <ul class="skill-list mono" data-reveal aria-label="Core skills">
-            <li>Vue.js</li>
-            <li>React / React Native</li>
-            <li>Angular</li>
-            <li>TypeScript</li>
-            <li>Electron</li>
-            <li>Node.js</li>
-            <li>AI-assisted development</li>
-            <li>Team leadership</li>
-          </ul>
+            efficient, maintainable code is my home ground. I care about server-side rendering, SEO, accessibility
+            and performance — and lately, about giving engineering teams an honest answer to <em>"where does AI
+              actually help?"</em></p>
+          <dl class="skills" data-reveal>
+            <div class="skills-row">
+              <dt>Frameworks</dt>
+              <dd>Vue.js, React &amp; React Native, Angular, Electron</dd>
+            </div>
+            <div class="skills-row">
+              <dt>Languages</dt>
+              <dd>TypeScript, JavaScript, Node.js</dd>
+            </div>
+            <div class="skills-row">
+              <dt>Practice</dt>
+              <dd>AI-assisted development, design systems, team leadership</dd>
+            </div>
+          </dl>
         </div>
       </div>
     </section>
 
-    <!-- ═══════════ 02 AI ═══════════ -->
+    <!-- ─────────── 02 AI ─────────── -->
     <section class="section" id="ai">
-      <div class="section-head" data-reveal>
-        <span class="section-num mono">02</span>
-        <h2 class="section-title">AI, where it measurably pays off</h2>
-      </div>
-      <p class="section-intro" data-reveal>I help engineering and product teams adopt AI where it actually improves
+      <header class="sec-head" data-reveal>
+        <span class="sec-label">02 — AI adoption</span>
+        <h2 class="sec-title">Where it <em>measurably</em> pays off</h2>
+      </header>
+      <p class="sec-intro" data-reveal>I help engineering and product teams adopt AI where it actually improves
         delivery — design-to-code pipelines, AI-assisted development workflow and tool evaluation. I integrate and
         adopt AI rather than train models, and I publish numbers only when they're real.</p>
 
-      <div class="ai-rows">
-        <article class="ai-row" data-reveal>
-          <span class="ai-num mono">B/01</span>
-          <div class="ai-body">
-            <h3>Build — pixelflow <span class="tag mono">Open Source</span></h3>
+      <div class="offers">
+        <article class="offer" data-reveal>
+          <span class="offer-num">I.</span>
+          <div>
+            <h3>Build — pixelflow</h3>
             <p>A Vue-first CLI that generates production components from Figma designs. An AI inference layer
-              (Claude) classifies components and infers props; a 7-layer audit engine scores the output against the
-              original design instead of trusting it. Apache-2.0, public roadmap, contributor-ready issues.</p>
-            <div class="ai-links mono">
-              <a href="https://github.com/gayanSandamal/pixelflow" target="_blank" rel="noopener" data-hover>GitHub
-                ↗</a>
-              <a href="https://github.com/users/gayanSandamal/projects/7" target="_blank" rel="noopener"
-                data-hover>Roadmap ↗</a>
-            </div>
+              (Claude) classifies components and infers props; a seven-layer audit engine scores the output against
+              the original design instead of trusting it. Apache-2.0, with a public roadmap and contributor-ready
+              issues.</p>
+            <p class="offer-links">
+              <a href="https://github.com/gayanSandamal/pixelflow" target="_blank" rel="noopener">GitHub</a>
+              <a href="https://github.com/users/gayanSandamal/projects/7" target="_blank" rel="noopener">Roadmap</a>
+            </p>
           </div>
         </article>
-        <article class="ai-row" data-reveal>
-          <span class="ai-num mono">E/02</span>
-          <div class="ai-body">
+        <article class="offer" data-reveal>
+          <span class="offer-num">II.</span>
+          <div>
             <h3>Enable — context engineering over prompt training</h3>
-            <p>My bet for small teams: repo-level context beats prompt courses. I set up <code>.claude/</code>
-              directories with defined sub-agents and skill guides, and a <code>CLAUDE.md</code> orchestrator that
-              teaches the agent the project's stack, conventions and environment quirks — so every developer's AI
-              session starts productive instead of starting over. Running today with my own three-developer UI team;
-              measured before/after case studies are in progress.</p>
+            <p>My bet for small teams: repo-level context beats prompt courses. I set up agent context directories
+              with defined sub-agents and skill guides, and an orchestrating project brief that teaches the agent
+              the stack, conventions and environment quirks — so every developer's AI session starts productive
+              instead of starting over. Running today with my own three-developer UI team; measured before/after
+              case studies are in progress.</p>
           </div>
         </article>
-        <article class="ai-row" data-reveal>
-          <span class="ai-num mono">V/03</span>
-          <div class="ai-body">
+        <article class="offer" data-reveal>
+          <span class="offer-num">III.</span>
+          <div>
             <h3>Evaluate — evidence before enthusiasm</h3>
             <p>Before recommending a tool, I test the claim — the same Figma file built with and without AI
-              assistance — and I've published a teardown of where design-to-code tools, including my own, fall short
-              of vendor promises: interpreting imperfect input and validating output.</p>
-            <div class="ai-links mono">
+              assistance — and I've published a teardown of where design-to-code tools, including my own, fall
+              short of vendor promises: interpreting imperfect input and validating output.</p>
+            <p class="offer-links">
               <a href="https://github.com/gayanSandamal/pixelflow/blob/main/FIGMA_TO_CODE_GAP_ANALYSIS.md"
-                target="_blank" rel="noopener" data-hover>Read the gap analysis ↗</a>
-            </div>
+                target="_blank" rel="noopener">Read the gap analysis</a>
+            </p>
           </div>
         </article>
       </div>
 
-      <div class="ai-cta" data-reveal>
-        <p><strong>Thinking about AI adoption for your engineering team?</strong> I'm open to consulting
-          conversations.</p>
-        <div class="ai-cta-actions mono">
-          <button type="button" data-hover onclick="copyToClipBoard('gayansandamal94@gmail.com')">Copy email
-            ⧉</button>
-          <a href="https://www.linkedin.com/in/gayan-sandamal/" target="_blank" rel="noopener" data-hover>LinkedIn
-            ↗</a>
-        </div>
-      </div>
+      <aside class="consult" data-reveal>
+        <p>Thinking about AI adoption for your engineering team?<br><em>I'm open to consulting conversations.</em></p>
+        <p class="offer-links">
+          <button type="button" class="linklike" onclick="copyToClipBoard('gayansandamal94@gmail.com')">Copy my
+            email</button>
+          <a href="https://www.linkedin.com/in/gayan-sandamal/" target="_blank" rel="noopener">Write on LinkedIn</a>
+        </p>
+      </aside>
     </section>
 
-    <!-- ═══════════ 03 WORK ═══════════ -->
+    <!-- ─────────── 03 WORK ─────────── -->
     <section class="section" id="work">
-      <div class="section-head" data-reveal>
-        <span class="section-num mono">03</span>
-        <h2 class="section-title">Selected work</h2>
+      <header class="sec-head" data-reveal>
+        <span class="sec-label">03 — Selected work</span>
+        <h2 class="sec-title">Things I've <em>built</em></h2>
+      </header>
+
+      <div class="plates">
+        <article class="plate" data-reveal>
+          <a class="plate-img" href="https://github.com/gayanSandamal/pixelflow" target="_blank" rel="noopener"
+            aria-label="pixelflow on GitHub">
+            <img src="./assets/projects/pixelflow.svg" alt="pixelflow CLI terminal output" loading="lazy">
+          </a>
+          <div class="plate-info">
+            <p class="plate-fig">Fig. 02 — Open source</p>
+            <h3>pixelflow</h3>
+            <p>Vue-first CLI that generates pixel-perfect components from Figma designs — AI inference for
+              classification and props, and a seven-layer audit engine that scores generated code against the
+              original design.</p>
+            <p class="plate-tech">TypeScript · Vue 3 · Claude · Turborepo</p>
+            <p class="offer-links">
+              <a href="https://github.com/gayanSandamal/pixelflow" target="_blank" rel="noopener">GitHub</a>
+              <a href="https://github.com/users/gayanSandamal/projects/7" target="_blank" rel="noopener">Roadmap</a>
+            </p>
+          </div>
+        </article>
+
+        <article class="plate is-flipped" data-reveal>
+          <a class="plate-img" href="https://easyrent.lk" target="_blank" rel="noopener"
+            aria-label="EasyRent.lk — visit site">
+            <img src="./assets/projects/easyrent.png" alt="EasyRent.lk — verified rentals in Sri Lanka"
+              loading="lazy">
+          </a>
+          <div class="plate-info">
+            <p class="plate-fig">Fig. 03 — Live</p>
+            <h3>EasyRent.lk</h3>
+            <p>Verified mid-to-long-term house rental platform for Sri Lanka — verified landlords, property visits
+              and fast viewing coordination, with direct tenant–landlord contact. Built end-to-end: product, design
+              and engineering.</p>
+            <p class="plate-tech">Next.js · TypeScript · Supabase · Drizzle · Tailwind</p>
+            <p class="offer-links">
+              <a href="https://easyrent.lk" target="_blank" rel="noopener">easyrent.lk</a>
+              <a href="https://github.com/gayanSandamal/stay-rental-supabase-boilerplate" target="_blank"
+                rel="noopener">GitHub</a>
+            </p>
+          </div>
+        </article>
+
+        <article class="plate" data-reveal>
+          <a class="plate-img" href="https://app.paradigmbizhub.com/#/login" target="_blank" rel="noopener"
+            aria-label="Paradigm360 CRM — visit site">
+            <img src="./assets/projects/paradigm360-1.jpeg" alt="Paradigm360 CRM dashboard" loading="lazy">
+          </a>
+          <div class="plate-info">
+            <p class="plate-fig">Fig. 04 — In production</p>
+            <h3>Paradigm360 CRM</h3>
+            <p>Front-end of the CRM used daily by Singaporean firm Paradigm360 — private repository, built with a
+              small distributed team.</p>
+            <p class="plate-tech">Vue · Pinia · Jest · Firebase</p>
+            <p class="offer-links">
+              <a href="https://app.paradigmbizhub.com/#/login" target="_blank" rel="noopener">Website</a>
+            </p>
+          </div>
+        </article>
       </div>
-      <div class="work-list">
-        <a class="work-row" href="https://github.com/gayanSandamal/pixelflow" target="_blank" rel="noopener"
-          data-preview="./assets/projects/pixelflow.svg" data-reveal data-hover>
-          <span class="work-idx mono">01</span>
-          <span class="work-name">pixelflow</span>
-          <span class="work-meta mono">AI design-to-code CLI · TypeScript · Vue 3 · Claude</span>
-          <span class="work-status mono">Open Source</span>
-          <span class="work-arrow" aria-hidden="true">↗</span>
-        </a>
-        <a class="work-row" href="https://easyrent.lk" target="_blank" rel="noopener"
-          data-preview="./assets/projects/easyrent.png" data-reveal data-hover>
-          <span class="work-idx mono">02</span>
-          <span class="work-name">EasyRent.lk</span>
-          <span class="work-meta mono">Verified rentals platform · Next.js · Supabase · Drizzle</span>
-          <span class="work-status mono">Live</span>
-          <span class="work-arrow" aria-hidden="true">↗</span>
-        </a>
-        <a class="work-row" href="https://app.paradigmbizhub.com/#/login" target="_blank" rel="noopener"
-          data-preview="./assets/projects/paradigm360-1.jpeg" data-reveal data-hover>
-          <span class="work-idx mono">03</span>
-          <span class="work-name">Paradigm360 CRM</span>
-          <span class="work-meta mono">CRM for a Singaporean firm · Vue · Pinia · Firebase</span>
-          <span class="work-status mono">Production</span>
-          <span class="work-arrow" aria-hidden="true">↗</span>
-        </a>
-        <a class="work-row" href="https://planning-pocker-d304c.web.app" target="_blank" rel="noopener"
-          data-preview="./assets/projects/planning-poker.png" data-reveal data-hover>
-          <span class="work-idx mono">04</span>
-          <span class="work-name">Planning Poker Minimal</span>
-          <span class="work-meta mono">Agile estimation tool · Vue · Firebase</span>
-          <span class="work-status mono">Open Source</span>
-          <span class="work-arrow" aria-hidden="true">↗</span>
-        </a>
-        <a class="work-row" href="https://github.com/gayanSandamal/learning-management-system" target="_blank"
-          rel="noopener" data-preview="./assets/projects/akurata.jpeg" data-reveal data-hover>
-          <span class="work-idx mono">05</span>
-          <span class="work-name">Akurata LMS</span>
-          <span class="work-meta mono">Learning platform, thousands of students · Vue · React · Electron</span>
-          <span class="work-status mono">Archived</span>
-          <span class="work-arrow" aria-hidden="true">↗</span>
-        </a>
-        <div class="work-row is-static" data-preview="./assets/projects/inquest-io.jpeg" data-reveal>
-          <span class="work-idx mono">06</span>
-          <span class="work-name">Inquest.io</span>
-          <span class="work-meta mono">Realtime audience Q&amp;A · Vue · SignalR · UI/UX from wireframes</span>
-          <span class="work-status mono">Archived</span>
-        </div>
-        <a class="work-row" href="https://github.com/gayanSandamal/findyo" target="_blank" rel="noopener"
-          data-preview="./assets/projects/findyo.jpeg" data-reveal data-hover>
-          <span class="work-idx mono">07</span>
-          <span class="work-name">Findyo</span>
-          <span class="work-meta mono">Consumer–tradesman marketplace · Vue · Laravel · Firebase</span>
-          <span class="work-status mono">Archived</span>
-          <span class="work-arrow" aria-hidden="true">↗</span>
-        </a>
-      </div>
-      <div class="work-preview" aria-hidden="true"><img src="./assets/projects/pixelflow.svg" alt=""></div>
+
+      <ul class="work-index" aria-label="Further projects">
+        <li data-reveal>
+          <a href="https://planning-pocker-d304c.web.app" target="_blank" rel="noopener">
+            <span class="wi-name">Planning Poker Minimal</span>
+            <span class="wi-meta">Agile estimation · Vue, Firebase</span>
+            <span class="wi-status">Open source</span>
+          </a>
+        </li>
+        <li data-reveal>
+          <a href="https://github.com/gayanSandamal/learning-management-system" target="_blank" rel="noopener">
+            <span class="wi-name">Akurata LMS</span>
+            <span class="wi-meta">Learning platform for thousands of students · Vue, React, Electron</span>
+            <span class="wi-status">Archived</span>
+          </a>
+        </li>
+        <li data-reveal>
+          <div>
+            <span class="wi-name">Inquest.io</span>
+            <span class="wi-meta">Realtime audience Q&amp;A · Vue, SignalR · UI/UX from wireframes up</span>
+            <span class="wi-status">Archived</span>
+          </div>
+        </li>
+        <li data-reveal>
+          <a href="https://github.com/gayanSandamal/findyo" target="_blank" rel="noopener">
+            <span class="wi-name">Findyo</span>
+            <span class="wi-meta">Consumer–tradesman marketplace · Vue, Laravel, Firebase</span>
+            <span class="wi-status">Archived</span>
+          </a>
+        </li>
+      </ul>
     </section>
 
-    <!-- ═══════════ 04 DESIGN ═══════════ -->
+    <!-- ─────────── 04 DESIGN ─────────── -->
     <section class="section" id="designs">
-      <div class="section-head" data-reveal>
-        <span class="section-num mono">04</span>
-        <h2 class="section-title">Design craft</h2>
+      <header class="sec-head" data-reveal>
+        <span class="sec-label">04 — Design craft</span>
+        <h2 class="sec-title">Before engineering, <em>design</em></h2>
+      </header>
+      <p class="sec-intro" data-reveal>I still take interfaces from wireframe to high-fidelity — it's why the code I
+        ship looks like the mockup.</p>
+      <div class="design-row">
+        <figure data-reveal>
+          <img src="./assets/projects/designs/choner-ui.png" alt="Choner interface design" loading="lazy">
+          <figcaption>Fig. 05 — Choner</figcaption>
+        </figure>
+        <figure data-reveal>
+          <img src="./assets/projects/designs/drivend.png" alt="Drivend interface design" loading="lazy">
+          <figcaption>Fig. 06 — Drivend</figcaption>
+        </figure>
+        <figure data-reveal>
+          <img src="./assets/projects/designs/inquest-ui.png" alt="Inquest interface design" loading="lazy">
+          <figcaption>Fig. 07 — Inquest</figcaption>
+        </figure>
       </div>
-      <p class="section-intro" data-reveal>Before engineering, design. I still take interfaces from wireframe to
-        high-fidelity — it's why the code I ship looks like the mockup.</p>
-      <div class="design-grid">
-        <img src="./assets/projects/designs/choner-ui.png" alt="Choner UI design" loading="lazy" data-reveal>
-        <img src="./assets/projects/designs/drivend.png" alt="Drivend UI design" loading="lazy" data-reveal>
-        <img src="./assets/projects/designs/inquest-ui.png" alt="Inquest UI design" loading="lazy" data-reveal>
-      </div>
-      <div class="section-foot mono" data-reveal>
-        <a href="https://dribbble.com/gayansandamal" target="_blank" rel="noopener" data-hover>See more on Dribbble
-          ↗</a>
-      </div>
+      <p class="offer-links" data-reveal>
+        <a href="https://dribbble.com/gayansandamal" target="_blank" rel="noopener">More on Dribbble</a>
+      </p>
     </section>
 
-    <!-- ═══════════ 05 EXPERIENCE ═══════════ -->
+    <!-- ─────────── 05 EXPERIENCE ─────────── -->
     <section class="section" id="experience">
-      <div class="section-head" data-reveal>
-        <span class="section-num mono">05</span>
-        <h2 class="section-title">Experience</h2>
-      </div>
-      <ol class="xp-list" reversed>
-        <li class="xp-row" data-reveal>
-          <span class="xp-dates mono">2025 — Now</span>
-          <div class="xp-body">
-            <h3>Platform One <span class="xp-loc mono">Colombo, Sri Lanka</span></h3>
-            <p class="xp-role">Senior Technical Lead <span class="mono xp-sub">May 2026 – present</span></p>
-            <p class="xp-role">Technical Lead <span class="mono xp-sub">Nov 2025 – May 2026</span></p>
-            <p class="xp-desc">Leading technical delivery and frontend excellence across scalable web and mobile
-              products; mentoring engineers and driving best practices.</p>
+      <header class="sec-head" data-reveal>
+        <span class="sec-label">05 — Experience</span>
+        <h2 class="sec-title">A decade, <em>properly spent</em></h2>
+      </header>
+      <ol class="xp" reversed>
+        <li data-reveal>
+          <div class="xp-when">2025 — now</div>
+          <div class="xp-what">
+            <h3>Platform One <span>Colombo, Sri Lanka</span></h3>
+            <p class="xp-roles">Senior Technical Lead <span>since May 2026</span><br>
+              Technical Lead <span>Nov 2025 – May 2026</span></p>
+            <p>Leading technical delivery and frontend excellence across scalable web and mobile products;
+              mentoring engineers and driving best practices.</p>
           </div>
         </li>
-        <li class="xp-row" data-reveal>
-          <span class="xp-dates mono">2025</span>
-          <div class="xp-body">
-            <h3>OpenSolar <span class="xp-loc mono">Australia</span></h3>
-            <p class="xp-role">Senior Frontend Engineer <span class="mono xp-sub">Jan – Nov 2025</span></p>
-            <p class="xp-desc">Scalable frontend for solar design and energy software.</p>
+        <li data-reveal>
+          <div class="xp-when">2025</div>
+          <div class="xp-what">
+            <h3>OpenSolar <span>Australia</span></h3>
+            <p class="xp-roles">Senior Frontend Engineer <span>Jan – Nov 2025</span></p>
+            <p>Scalable frontend for solar design and energy software.</p>
           </div>
         </li>
-        <li class="xp-row" data-reveal>
-          <span class="xp-dates mono">2024 — 25</span>
-          <div class="xp-body">
-            <h3>FlowFuse <span class="xp-loc mono">San Francisco, USA — remote</span></h3>
-            <p class="xp-role">Frontend Engineer <span class="mono xp-sub">Apr 2024 – Jan 2025</span></p>
-            <p class="xp-desc">Core developer on Node-RED Dashboard 2.0 (Vue) — performance, memory and data
-              visualization at the scale of hundreds of live charts for thousands of users; open-source community
-              reviews on Discourse and Discord.</p>
+        <li data-reveal>
+          <div class="xp-when">2024 — 25</div>
+          <div class="xp-what">
+            <h3>FlowFuse <span>San Francisco, remote</span></h3>
+            <p class="xp-roles">Frontend Engineer <span>Apr 2024 – Jan 2025</span></p>
+            <p>Core developer on Node-RED Dashboard 2.0 (Vue) — performance, memory and data visualization at the
+              scale of hundreds of live charts for thousands of users; open-source reviews across Discourse and
+              Discord.</p>
           </div>
         </li>
-        <li class="xp-row" data-reveal>
-          <span class="xp-dates mono">2023 — 24</span>
-          <div class="xp-body">
-            <h3>GoTradie <span class="xp-loc mono">Sydney, Australia — remote</span></h3>
-            <p class="xp-role">Senior Software Engineer <span class="mono xp-sub">Sep 2023 – Apr 2024</span></p>
-            <p class="xp-desc">Cross-platform app in React Native and React. Turned the web app into a standalone
-              PWA in one week — cutting projected development cost by 90%.</p>
+        <li data-reveal>
+          <div class="xp-when">2023 — 24</div>
+          <div class="xp-what">
+            <h3>GoTradie <span>Sydney, remote</span></h3>
+            <p class="xp-roles">Senior Software Engineer <span>Sep 2023 – Apr 2024</span></p>
+            <p>Cross-platform app in React Native and React. Turned the web app into a standalone PWA in one week —
+              cutting projected development cost by 90%.</p>
           </div>
         </li>
-        <li class="xp-row" data-reveal>
-          <span class="xp-dates mono">2021 — 23</span>
-          <div class="xp-body">
-            <h3>OrangeHRM <span class="xp-loc mono">Colombo, Sri Lanka</span></h3>
-            <p class="xp-role">Senior Software Engineer <span class="mono xp-sub">Jun 2021 – Aug 2023</span></p>
-            <p class="xp-desc">Led the front-end overhaul (Vue 3, VueX, React Native). Co-revamped the recruitment
-              module — +22% positive user-satisfaction ratings.</p>
+        <li data-reveal>
+          <div class="xp-when">2021 — 23</div>
+          <div class="xp-what">
+            <h3>OrangeHRM <span>Colombo, Sri Lanka</span></h3>
+            <p class="xp-roles">Senior Software Engineer <span>Jun 2021 – Aug 2023</span></p>
+            <p>Led the front-end overhaul (Vue 3, VueX, React Native). Co-revamped the recruitment module — a 22%
+              rise in positive user-satisfaction ratings.</p>
           </div>
         </li>
-        <li class="xp-row" data-reveal>
-          <span class="xp-dates mono">2018 — 21</span>
-          <div class="xp-body">
-            <h3>Platform One <span class="xp-loc mono">Colombo, Sri Lanka</span></h3>
-            <p class="xp-role">Senior Software Engineer, Front-end <span class="mono xp-sub">Jan – Jun
-                2021</span></p>
-            <p class="xp-role">Software Engineer, Front-end <span class="mono xp-sub">Jun 2018 – Jan 2021</span></p>
-            <p class="xp-desc">Micro front-ends, secure UI practices (ISO 27001, GDPR), Vue ecosystem, Storybook.</p>
+        <li data-reveal>
+          <div class="xp-when">2018 — 21</div>
+          <div class="xp-what">
+            <h3>Platform One <span>Colombo, Sri Lanka</span></h3>
+            <p class="xp-roles">Senior Software Engineer, front-end <span>Jan – Jun 2021</span><br>
+              Software Engineer, front-end <span>Jun 2018 – Jan 2021</span></p>
+            <p>Micro front-ends, secure UI practices (ISO 27001, GDPR), the Vue ecosystem, Storybook.</p>
           </div>
         </li>
-        <li class="xp-row" data-reveal>
-          <span class="xp-dates mono">2017 — 18</span>
-          <div class="xp-body">
-            <h3>Suwahas.com <span class="xp-loc mono">Negombo, Sri Lanka</span></h3>
-            <p class="xp-role">Software Engineer <span class="mono xp-sub">Sep 2017 – Jun 2018</span></p>
-            <p class="xp-desc">Full-stack ERP for TrendyWear.lk (JS, PHP, MariaDB) — +25% operational efficiency.</p>
+        <li data-reveal>
+          <div class="xp-when">2017 — 18</div>
+          <div class="xp-what">
+            <h3>Suwahas.com <span>Negombo, Sri Lanka</span></h3>
+            <p class="xp-roles">Software Engineer <span>Sep 2017 – Jun 2018</span></p>
+            <p>Full-stack ERP for TrendyWear.lk (JavaScript, PHP, MariaDB) — a 25% gain in operational efficiency.
+            </p>
           </div>
         </li>
-        <li class="xp-row" data-reveal>
-          <span class="xp-dates mono">2016 — 17</span>
-          <div class="xp-body">
-            <h3>Quard Designs <span class="xp-loc mono">Sri Lanka</span></h3>
-            <p class="xp-role">Web Developer <span class="mono xp-sub">Aug 2016 – Aug 2017</span></p>
-            <p class="xp-desc">20+ sites in PHP, WordPress and Magento.</p>
+        <li data-reveal>
+          <div class="xp-when">2016 — 17</div>
+          <div class="xp-what">
+            <h3>Quard Designs <span>Sri Lanka</span></h3>
+            <p class="xp-roles">Web Developer <span>Aug 2016 – Aug 2017</span></p>
+            <p>Twenty-plus sites in PHP, WordPress and Magento.</p>
           </div>
         </li>
-        <li class="xp-row" data-reveal>
-          <span class="xp-dates mono">2016</span>
-          <div class="xp-body">
-            <h3>3CS Web Design <span class="xp-loc mono">Kotte, Sri Lanka</span></h3>
-            <p class="xp-role">Associate Web Designer <span class="mono xp-sub">Feb – Aug 2016</span></p>
-            <p class="xp-desc">Interface design in Photoshop; later Figma and Adobe XD.</p>
+        <li data-reveal>
+          <div class="xp-when">2016</div>
+          <div class="xp-what">
+            <h3>3CS Web Design <span>Kotte, Sri Lanka</span></h3>
+            <p class="xp-roles">Associate Web Designer <span>Feb – Aug 2016</span></p>
+            <p>Interface design in Photoshop; later Figma and Adobe XD.</p>
           </div>
         </li>
-        <li class="xp-row" data-reveal>
-          <span class="xp-dates mono">2015</span>
-          <div class="xp-body">
-            <h3>Miami Export <span class="xp-loc mono">Homagama, Sri Lanka</span></h3>
-            <p class="xp-role">Web Development Intern <span class="mono xp-sub">Jun – Aug 2015</span></p>
-            <p class="xp-desc">Front-end design and development.</p>
+        <li data-reveal>
+          <div class="xp-when">2015</div>
+          <div class="xp-what">
+            <h3>Miami Export <span>Homagama, Sri Lanka</span></h3>
+            <p class="xp-roles">Web Development Intern <span>Jun – Aug 2015</span></p>
+            <p>Front-end design and development.</p>
           </div>
         </li>
       </ol>
     </section>
 
-    <!-- ═══════════ 06 CREDENTIALS ═══════════ -->
+    <!-- ─────────── 06 CREDENTIALS ─────────── -->
     <section class="section" id="credentials">
-      <div class="section-head" data-reveal>
-        <span class="section-num mono">06</span>
-        <h2 class="section-title">Credentials</h2>
-      </div>
-      <div class="cred-grid">
-        <div class="cred-col" data-reveal>
-          <h3 class="mono">Education</h3>
+      <header class="sec-head" data-reveal>
+        <span class="sec-label">06 — Credentials</span>
+      </header>
+      <div class="creds">
+        <div class="cred" data-reveal>
+          <h3>Education</h3>
           <ul>
-            <li><strong>Cardiff Metropolitan University</strong> — MSc Information Technology, 2021–2023</li>
-            <li><strong>ESOFT Metro Campus</strong> — MCSD Stage 1, ASP.NET 70-486, 2017</li>
-            <li><strong>Aquinas College</strong> — Diploma in I.C.T, 2014–2015</li>
-            <li><strong>Wesley College, Colombo</strong> — Science &amp; Mathematics</li>
+            <li>Cardiff Metropolitan University — <em>MSc Information Technology</em>, 2021–2023</li>
+            <li>ESOFT Metro Campus — MCSD Stage 1, ASP.NET 70-486, 2017</li>
+            <li>Aquinas College — Diploma in I.C.T, 2014–2015</li>
+            <li>Wesley College, Colombo — Science &amp; Mathematics</li>
           </ul>
         </div>
-        <div class="cred-col" data-reveal>
-          <h3 class="mono">Certifications</h3>
+        <div class="cred" data-reveal>
+          <h3>Certification</h3>
           <ul>
             <li>Microsoft Certified Solution Developer — Exam 70-486</li>
             <li>Python Essential Training</li>
@@ -400,97 +420,83 @@
             <li>Building &amp; Securing RESTful APIs in ASP.NET Core</li>
           </ul>
         </div>
-        <div class="cred-col" data-reveal>
-          <h3 class="mono">Honors &amp; research</h3>
+        <div class="cred" data-reveal>
+          <h3>Honors &amp; research</h3>
           <ul>
             <li>ESOFT Dev Challenge 2017 — Winner</li>
             <li>1st place — Aquinas I.C.T Competition 2014</li>
-            <li class="cred-pub"><em>Factors Influencing the Success of User-Friendly Mobile Applications for Senior
-                Citizens with Limited Digital Literacy in Colombo District</em> — MSc publication on technology
-              adoption</li>
+            <li><em>Factors Influencing the Success of User-Friendly Mobile Applications for Senior Citizens with
+                Limited Digital Literacy</em> — MSc publication on technology adoption</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- ═══════════ 07 VOICES ═══════════ -->
+    <!-- ─────────── 07 VOICES ─────────── -->
     <section class="section" id="voices">
-      <div class="section-head" data-reveal>
-        <span class="section-num mono">07</span>
-        <h2 class="section-title">What people say</h2>
-      </div>
-      <div class="voices-track" data-reveal tabindex="0" aria-label="Testimonials, scroll horizontally">
-        <blockquote class="voice">
-          <p>"Absolute super star; great work ethic, top level communication and superb execution… Without doubt would
-            look to hire Gayan many times over."</p>
-          <footer><strong>Adam Fazzani</strong><span class="mono">Founder, GoTradie · Techstars '23</span></footer>
+      <header class="sec-head" data-reveal>
+        <span class="sec-label">07 — What people say</span>
+      </header>
+      <div class="quotes">
+        <blockquote class="quote" data-reveal>
+          <p>"Absolute super star; great work ethic, top level communication and superb execution… without doubt
+            would look to hire Gayan many times over."</p>
+          <cite>Adam Fazzani — Founder, GoTradie · Techstars '23</cite>
         </blockquote>
-        <blockquote class="voice">
-          <p>"His understanding of design to develop requirements was outstanding… He explained why certain things
-            could and couldn't work when translating designs. Awesome guy and a real team player."</p>
-          <footer><strong>Will Brown</strong><span class="mono">Lead Product Designer</span></footer>
-        </blockquote>
-        <blockquote class="voice">
+        <blockquote class="quote" data-reveal>
           <p>"He was our go-to VueJS expert. His mastery was like a guiding light for our projects, and he never
             hesitated to help and mentor others."</p>
-          <footer><strong>Thamara Dananjaya</strong><span class="mono">Senior Project Lead, OrangeHRM</span></footer>
+          <cite>Thamara Dananjaya — Senior Project Lead, OrangeHRM</cite>
         </blockquote>
-        <blockquote class="voice">
-          <p>"He exemplifies proactive behavior, responsibility, and technical proficiency as an engineer… I
-            confidently recommend Gayan to any organization."</p>
-          <footer><strong>Mahesh Dissanayaka</strong><span class="mono">Software Architect</span></footer>
+        <blockquote class="quote" data-reveal>
+          <p>"His understanding of design to develop requirements was outstanding… he explained why certain things
+            could and couldn't work when translating designs."</p>
+          <cite>Will Brown — Lead Product Designer</cite>
         </blockquote>
-        <blockquote class="voice">
-          <p>"He took up responsibility and embraced innovative ways of solving problems… methodical in experimenting
-            his approaches and learning through the outcomes."</p>
-          <footer><strong>Dr Charitha Godakumbura</strong><span class="mono">Senior Project Manager,
-              MillenniumIT</span></footer>
-        </blockquote>
-        <blockquote class="voice">
-          <p>"In a nutshell, Gayan is a Rockstar… a very good talented UI/UX engineer for any company or
-            client."</p>
-          <footer><strong>Sumudu Sahan Weerasuriya</strong><span class="mono">Associate Technical Lead,
-              WSO2</span></footer>
+        <blockquote class="quote" data-reveal>
+          <p>"He took up responsibility and embraced innovative ways of solving problems… methodical in
+            experimenting his approaches and learning through the outcomes."</p>
+          <cite>Dr Charitha Godakumbura — Senior Project Manager, MillenniumIT</cite>
         </blockquote>
       </div>
-      <div class="section-foot mono" data-reveal>
-        <a href="https://www.linkedin.com/in/gayan-sandamal/details/recommendations/" target="_blank" rel="noopener"
-          data-hover>All recommendations on LinkedIn ↗</a>
-      </div>
+      <p class="offer-links" data-reveal>
+        <a href="https://www.linkedin.com/in/gayan-sandamal/details/recommendations/" target="_blank"
+          rel="noopener">All recommendations on LinkedIn</a>
+      </p>
     </section>
 
-    <!-- ═══════════ 08 CONTACT ═══════════ -->
+    <!-- ─────────── 08 CONTACT ─────────── -->
     <section class="section contact" id="contact">
-      <div class="section-head" data-reveal>
-        <span class="section-num mono">08</span>
-        <h2 class="section-title">Contact</h2>
+      <header class="sec-head" data-reveal>
+        <span class="sec-label">08 — Contact</span>
+      </header>
+      <h2 class="contact-title" data-reveal>Let's <em>talk</em>.</h2>
+      <div class="contact-rows" data-reveal>
+        <button type="button" class="contact-row" onclick="copyToClipBoard('gayansandamal94@gmail.com')">
+          <span>gayansandamal94@gmail.com</span><span class="row-hint">Click to copy</span>
+        </button>
+        <button type="button" class="contact-row" onclick="copyToClipBoard('+94752953202')">
+          <span>+94 75 295 3202</span><span class="row-hint">Click to copy</span>
+        </button>
       </div>
-      <h3 class="contact-huge" data-reveal>LET'S<br>TALK<span class="accent">.</span></h3>
-      <div class="contact-actions" data-reveal>
-        <button type="button" class="contact-line" data-hover
-          onclick="copyToClipBoard('gayansandamal94@gmail.com')">gayansandamal94@gmail.com <span class="mono">⧉
-            copy</span></button>
-        <button type="button" class="contact-line" data-hover onclick="copyToClipBoard('+94752953202')">+94 75 295
-          3202 <span class="mono">⧉ copy</span></button>
-      </div>
-      <div class="contact-socials mono" data-reveal>
-        <a href="https://www.linkedin.com/in/gayan-sandamal/" target="_blank" rel="noopener" data-hover>LinkedIn</a>
-        <a href="https://github.com/gayanSandamal/" target="_blank" rel="noopener" data-hover>GitHub</a>
-        <a href="https://stackoverflow.com/users/5748470/gayan-sandamal" target="_blank" rel="noopener"
-          data-hover>StackOverflow</a>
-        <a href="https://codepen.io/gayan_sandamal/" target="_blank" rel="noopener" data-hover>CodePen</a>
-        <a href="https://www.npmjs.com/search?q=gayansandamal" target="_blank" rel="noopener" data-hover>npm</a>
-        <a href="https://medium.com/@gayansandamal" target="_blank" rel="noopener" data-hover>Medium</a>
-        <a href="https://dribbble.com/gayansandamal" target="_blank" rel="noopener" data-hover>Dribbble</a>
-        <a href="https://choner.io/" target="_blank" rel="noopener" data-hover>choner.io</a>
-      </div>
+      <ul class="contact-social" data-reveal aria-label="Profiles">
+        <li><a href="https://www.linkedin.com/in/gayan-sandamal/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://github.com/gayanSandamal/" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://stackoverflow.com/users/5748470/gayan-sandamal" target="_blank"
+            rel="noopener">StackOverflow</a></li>
+        <li><a href="https://codepen.io/gayan_sandamal/" target="_blank" rel="noopener">CodePen</a></li>
+        <li><a href="https://www.npmjs.com/search?q=gayansandamal" target="_blank" rel="noopener">npm</a></li>
+        <li><a href="https://medium.com/@gayansandamal" target="_blank" rel="noopener">Medium</a></li>
+        <li><a href="https://dribbble.com/gayansandamal" target="_blank" rel="noopener">Dribbble</a></li>
+        <li><a href="https://choner.io/" target="_blank" rel="noopener">choner.io</a></li>
+      </ul>
     </section>
   </main>
 
-  <footer class="site-footer mono">
+  <footer class="footer">
     <span>© <span id="year"></span> Gayan Sandamal</span>
-    <span>Colombo · UTC+5:30</span>
-    <a href="#top" data-hover>Back to top ↑</a>
+    <span>Colombo, Sri Lanka</span>
+    <a href="#top">Back to top</a>
   </footer>
 
   <div id="snackbar" role="status" aria-live="polite"><span></span></div>
