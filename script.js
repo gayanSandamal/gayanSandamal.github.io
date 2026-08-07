@@ -29,7 +29,7 @@ const typeWriter = (elementId, text, speed, onComplete) => {
 };
 
 typeWriter('im', "I'm Gayan", 50, () => {
-  typeWriter('fullstack', 'a Frontend Lead — Vue, React & Angular', 50, () => {
+  typeWriter('fullstack', 'a Senior Technical Lead — Vue, React & Angular', 50, () => {
     typeWriter('se', 'Building for millions of users', 50);
   });
 });
