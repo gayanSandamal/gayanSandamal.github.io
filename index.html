@@ -16,11 +16,19 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="./style.css?v=3">
+  <link rel="stylesheet" href="./style.css?v=4">
 </head>
 
 <body>
 
+  <!-- ─────────── PRELOADER ─────────── -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <span class="loader-name">Gayan Sandamal</span>
+    <span class="loader-count" id="loaderCount">0</span>
+    <span class="loader-bar"><span id="loaderBar"></span></span>
+  </div>
+
+  <div class="cursor" id="cursor" aria-hidden="true"><span>View</span></div>
   <div class="progress" aria-hidden="true"><span></span></div>
 
   <header class="nav" id="nav">
@@ -35,28 +43,25 @@
     <a href="#contact" class="nav-note"><span class="note-dot" aria-hidden="true"></span>Open to consulting</a>
   </header>
 
-  <main id="top">
+  <main>
 
-    <!-- ─────────── HERO ─────────── -->
-    <section class="hero">
-      <p class="eyebrow" data-reveal>Senior Technical Lead &nbsp;·&nbsp; Colombo, Sri Lanka &nbsp;·&nbsp; <span
-          id="localTime">--:--:--</span></p>
-      <h1 class="hero-statement reveal-lines" data-reveal>
-        <span class="line"><span class="line-inner">Front-ends for <em>millions</em> of&nbsp;users.</span></span>
-        <span class="line"><span class="line-inner">AI adoption that actually <em>pays&nbsp;off</em>.</span></span>
-      </h1>
-      <div class="hero-below" data-reveal>
-        <p class="hero-sub">A decade of shipping with Vue, React and Angular, a foundation in UI/UX, and an
-          open-source <a href="https://github.com/gayanSandamal/pixelflow" target="_blank" rel="noopener">AI
-            design-to-code toolchain</a>. I lead from the front — close to the code, close to the team.</p>
-        <ul class="hero-contacts" aria-label="Profiles">
-          <li><a href="https://www.linkedin.com/in/gayan-sandamal/" target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><a href="https://github.com/gayanSandamal/" target="_blank" rel="noopener">GitHub</a></li>
-          <li><a href="https://stackoverflow.com/users/5748470/gayan-sandamal" target="_blank"
-              rel="noopener">StackOverflow</a></li>
-          <li><a href="https://medium.com/@gayansandamal" target="_blank" rel="noopener">Medium</a></li>
-          <li><a href="https://dribbble.com/gayansandamal" target="_blank" rel="noopener">Dribbble</a></li>
-        </ul>
+    <!-- ─────────── HERO · pinned kinetic scene ─────────── -->
+    <section class="scene scene-hero" id="top" data-scene="hero">
+      <div class="stage">
+        <p class="eyebrow">Senior Technical Lead &nbsp;·&nbsp; Colombo, Sri Lanka &nbsp;·&nbsp; <span
+            id="localTime">--:--</span></p>
+        <h1 class="hero-statement">
+          <span class="line" data-drift="-1"><span class="line-inner">Front-ends for <em>millions</em>
+              of&nbsp;users.</span></span>
+          <span class="line" data-drift="1"><span class="line-inner">AI adoption that actually
+              <em>pays&nbsp;off</em>.</span></span>
+        </h1>
+        <div class="hero-foot">
+          <p class="hero-sub">A decade of shipping with Vue, React and Angular, a foundation in UI/UX, and an
+            open-source <a href="https://github.com/gayanSandamal/pixelflow" target="_blank" rel="noopener">AI
+              design-to-code toolchain</a>. I lead from the front — close to the code, close to the team.</p>
+          <p class="scroll-hint">Scroll<span class="scroll-line"></span></p>
+        </div>
       </div>
     </section>
 
@@ -88,8 +93,7 @@
       <div class="about">
         <figure class="about-fig" data-reveal>
           <span class="fig-frame reveal-mask" data-reveal>
-            <img src="./assets/Gayan-Sandamal-Front-Facing.jpg" alt="Portrait of Gayan Sandamal" loading="lazy"
-              data-parallax="16">
+            <img src="./assets/Gayan-Sandamal-Front-Facing.jpg" alt="Portrait of Gayan Sandamal" loading="lazy">
           </span>
           <figcaption>Fig. 01 — Gayan Sandamal, Colombo</figcaption>
         </figure>
@@ -119,12 +123,22 @@
       </div>
     </section>
 
+    <!-- ─────────── MARQUEE ─────────── -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track" id="marqueeTrack">
+        <span>Vue · React · TypeScript · Angular · Node · Design systems · <em>AI-assisted development</em> ·
+        </span><span>Vue · React · TypeScript · Angular · Node · Design systems · <em>AI-assisted development</em> ·
+        </span><span>Vue · React · TypeScript · Angular · Node · Design systems · <em>AI-assisted development</em> ·
+        </span><span>Vue · React · TypeScript · Angular · Node · Design systems · <em>AI-assisted development</em> ·
+        </span>
+      </div>
+    </div>
+
     <!-- ─────────── 02 AI ─────────── -->
     <section class="section" id="ai">
       <header class="sec-head" data-reveal>
         <span class="sec-label">02 — AI adoption</span>
-        <h2 class="sec-title reveal-lines"><span class="line"><span class="line-inner">Where it <em>measurably</em>
-              pays off</span></span></h2>
+        <h2 class="sec-title" data-split>Where it <em>measurably</em> pays off</h2>
       </header>
       <p class="sec-intro" data-reveal>I help engineering and product teams adopt AI where it actually improves
         delivery — design-to-code pipelines, AI-assisted development workflow and tool evaluation. I integrate and
@@ -181,73 +195,67 @@
       </aside>
     </section>
 
-    <!-- ─────────── 03 WORK ─────────── -->
-    <section class="section" id="work">
-      <header class="sec-head" data-reveal>
+    <!-- ─────────── 03 WORK · ink chapter with horizontal gallery ─────────── -->
+    <section class="chapter" id="work">
+      <header class="sec-head chapter-head" data-reveal>
         <span class="sec-label">03 — Selected work</span>
-        <h2 class="sec-title reveal-lines"><span class="line"><span class="line-inner">Things I've
-              <em>built</em></span></span></h2>
+        <h2 class="sec-title" data-split>Things I've <em>built</em></h2>
+        <p class="chapter-hint" data-reveal>Keep scrolling — the gallery moves sideways.</p>
       </header>
 
-      <div class="plates">
-        <article class="plate" data-reveal>
-          <a class="plate-img reveal-mask" data-reveal href="https://github.com/gayanSandamal/pixelflow"
-            target="_blank" rel="noopener" aria-label="pixelflow on GitHub">
-            <img src="./assets/projects/pixelflow.svg" alt="pixelflow CLI terminal output" loading="lazy"
-              data-parallax="14">
-          </a>
-          <div class="plate-info">
-            <p class="plate-fig">Fig. 02 — Open source</p>
-            <h3>pixelflow</h3>
-            <p>Vue-first CLI that generates pixel-perfect components from Figma designs — AI inference for
-              classification and props, and a seven-layer audit engine that scores generated code against the
-              original design.</p>
-            <p class="plate-tech">TypeScript · Vue 3 · Claude · Turborepo</p>
-            <p class="offer-links">
-              <a href="https://github.com/gayanSandamal/pixelflow" target="_blank" rel="noopener">GitHub</a>
-              <a href="https://github.com/users/gayanSandamal/projects/7" target="_blank" rel="noopener">Roadmap</a>
-            </p>
-          </div>
-        </article>
+      <div class="gallery" data-scene="gallery">
+        <div class="gallery-stage">
+          <div class="gallery-track" id="galleryTrack">
+            <article class="g-plate" data-cursor="view">
+              <a class="g-media" href="https://github.com/gayanSandamal/pixelflow" target="_blank" rel="noopener"
+                aria-label="pixelflow on GitHub">
+                <img src="./assets/projects/pixelflow.svg" alt="pixelflow CLI terminal output" loading="lazy">
+              </a>
+              <div class="g-info">
+                <p class="plate-fig">Fig. 02 — Open source</p>
+                <h3>pixelflow</h3>
+                <p class="g-desc">Vue-first CLI that turns Figma designs into production components — AI inference
+                  for classification and props, a seven-layer audit engine for honesty.</p>
+                <p class="plate-tech">TypeScript · Vue 3 · Claude · Turborepo</p>
+              </div>
+            </article>
 
-        <article class="plate is-flipped" data-reveal>
-          <a class="plate-img reveal-mask" data-reveal href="https://easyrent.lk" target="_blank" rel="noopener"
-            aria-label="EasyRent.lk — visit site">
-            <img src="./assets/projects/easyrent.png" alt="EasyRent.lk — verified rentals in Sri Lanka" loading="lazy"
-              data-parallax="14">
-          </a>
-          <div class="plate-info">
-            <p class="plate-fig">Fig. 03 — Live</p>
-            <h3>EasyRent.lk</h3>
-            <p>Verified mid-to-long-term house rental platform for Sri Lanka — verified landlords, property visits
-              and fast viewing coordination, with direct tenant–landlord contact. Built end-to-end: product, design
-              and engineering.</p>
-            <p class="plate-tech">Next.js · TypeScript · Supabase · Drizzle · Tailwind</p>
-            <p class="offer-links">
-              <a href="https://easyrent.lk" target="_blank" rel="noopener">easyrent.lk</a>
-              <a href="https://github.com/gayanSandamal/stay-rental-supabase-boilerplate" target="_blank"
-                rel="noopener">GitHub</a>
-            </p>
-          </div>
-        </article>
+            <article class="g-plate" data-cursor="view">
+              <a class="g-media" href="https://easyrent.lk" target="_blank" rel="noopener"
+                aria-label="EasyRent.lk — visit site">
+                <img src="./assets/projects/easyrent.png" alt="EasyRent.lk — verified rentals in Sri Lanka"
+                  loading="lazy">
+              </a>
+              <div class="g-info">
+                <p class="plate-fig">Fig. 03 — Live</p>
+                <h3>EasyRent.lk</h3>
+                <p class="g-desc">Verified mid-to-long-term rental platform for Sri Lanka — built end-to-end:
+                  product, design and engineering.</p>
+                <p class="plate-tech">Next.js · TypeScript · Supabase · Drizzle · Tailwind</p>
+              </div>
+            </article>
 
-        <article class="plate" data-reveal>
-          <a class="plate-img reveal-mask" data-reveal href="https://app.paradigmbizhub.com/#/login" target="_blank"
-            rel="noopener" aria-label="Paradigm360 CRM — visit site">
-            <img src="./assets/projects/paradigm360-1.jpeg" alt="Paradigm360 CRM dashboard" loading="lazy"
-              data-parallax="14">
-          </a>
-          <div class="plate-info">
-            <p class="plate-fig">Fig. 04 — In production</p>
-            <h3>Paradigm360 CRM</h3>
-            <p>Front-end of the CRM used daily by Singaporean firm Paradigm360 — private repository, built with a
-              small distributed team.</p>
-            <p class="plate-tech">Vue · Pinia · Jest · Firebase</p>
-            <p class="offer-links">
-              <a href="https://app.paradigmbizhub.com/#/login" target="_blank" rel="noopener">Website</a>
-            </p>
+            <article class="g-plate" data-cursor="view">
+              <a class="g-media" href="https://app.paradigmbizhub.com/#/login" target="_blank" rel="noopener"
+                aria-label="Paradigm360 CRM — visit site">
+                <img src="./assets/projects/paradigm360-1.jpeg" alt="Paradigm360 CRM dashboard" loading="lazy">
+              </a>
+              <div class="g-info">
+                <p class="plate-fig">Fig. 04 — In production</p>
+                <h3>Paradigm360 CRM</h3>
+                <p class="g-desc">Front-end of the CRM used daily by Singaporean firm Paradigm360 — private
+                  repository, small distributed team.</p>
+                <p class="plate-tech">Vue · Pinia · Jest · Firebase</p>
+              </div>
+            </article>
+
+            <article class="g-plate g-last">
+              <p class="g-last-title">…and a<br><em>decade more</em>.</p>
+              <p class="g-last-hint">The full index is just below ↓</p>
+            </article>
           </div>
-        </article>
+          <div class="gallery-count" id="galleryCount">01 / 04</div>
+        </div>
       </div>
 
       <ul class="work-index" aria-label="Further projects">
@@ -286,8 +294,7 @@
     <section class="section" id="designs">
       <header class="sec-head" data-reveal>
         <span class="sec-label">04 — Design craft</span>
-        <h2 class="sec-title reveal-lines"><span class="line"><span class="line-inner">Before engineering,
-              <em>design</em></span></span></h2>
+        <h2 class="sec-title" data-split>Before engineering, <em>design</em></h2>
       </header>
       <p class="sec-intro" data-reveal>I still take interfaces from wireframe to high-fidelity — it's why the code I
         ship looks like the mockup.</p>
@@ -314,8 +321,7 @@
     <section class="section" id="experience">
       <header class="sec-head" data-reveal>
         <span class="sec-label">05 — Experience</span>
-        <h2 class="sec-title reveal-lines"><span class="line"><span class="line-inner">A decade, <em>properly
-                spent</em></span></span></h2>
+        <h2 class="sec-title" data-split>A decade, <em>properly spent</em></h2>
       </header>
       <ol class="xp" reversed>
         <li data-reveal>
@@ -478,32 +484,31 @@
       </p>
     </section>
 
-    <!-- ─────────── 08 CONTACT ─────────── -->
-    <section class="section contact" id="contact">
-      <header class="sec-head" data-reveal>
-        <span class="sec-label">08 — Contact</span>
-      </header>
-      <h2 class="contact-title reveal-lines" data-reveal><span class="line"><span class="line-inner">Let's
-              <em>talk</em>.</span></span></h2>
-      <div class="contact-rows" data-reveal>
-        <button type="button" class="contact-row" onclick="copyToClipBoard('gayansandamal94@gmail.com')">
-          <span>gayansandamal94@gmail.com</span><span class="row-hint">Click to copy</span>
-        </button>
-        <button type="button" class="contact-row" onclick="copyToClipBoard('+94752953202')">
-          <span>+94 75 295 3202</span><span class="row-hint">Click to copy</span>
-        </button>
+    <!-- ─────────── 08 CONTACT · scrub finale ─────────── -->
+    <section class="scene scene-contact" id="contact" data-scene="contact">
+      <div class="stage">
+        <span class="sec-label" data-reveal>08 — Contact</span>
+        <h2 class="contact-title" id="contactTitle">Let's <em>talk</em>.</h2>
+        <div class="contact-rows" data-reveal>
+          <button type="button" class="contact-row" onclick="copyToClipBoard('gayansandamal94@gmail.com')">
+            <span>gayansandamal94@gmail.com</span><span class="row-hint">Click to copy</span>
+          </button>
+          <button type="button" class="contact-row" onclick="copyToClipBoard('+94752953202')">
+            <span>+94 75 295 3202</span><span class="row-hint">Click to copy</span>
+          </button>
+        </div>
+        <ul class="contact-social" data-reveal aria-label="Profiles">
+          <li><a href="https://www.linkedin.com/in/gayan-sandamal/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://github.com/gayanSandamal/" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://stackoverflow.com/users/5748470/gayan-sandamal" target="_blank"
+              rel="noopener">StackOverflow</a></li>
+          <li><a href="https://codepen.io/gayan_sandamal/" target="_blank" rel="noopener">CodePen</a></li>
+          <li><a href="https://www.npmjs.com/search?q=gayansandamal" target="_blank" rel="noopener">npm</a></li>
+          <li><a href="https://medium.com/@gayansandamal" target="_blank" rel="noopener">Medium</a></li>
+          <li><a href="https://dribbble.com/gayansandamal" target="_blank" rel="noopener">Dribbble</a></li>
+          <li><a href="https://choner.io/" target="_blank" rel="noopener">choner.io</a></li>
+        </ul>
       </div>
-      <ul class="contact-social" data-reveal aria-label="Profiles">
-        <li><a href="https://www.linkedin.com/in/gayan-sandamal/" target="_blank" rel="noopener">LinkedIn</a></li>
-        <li><a href="https://github.com/gayanSandamal/" target="_blank" rel="noopener">GitHub</a></li>
-        <li><a href="https://stackoverflow.com/users/5748470/gayan-sandamal" target="_blank"
-            rel="noopener">StackOverflow</a></li>
-        <li><a href="https://codepen.io/gayan_sandamal/" target="_blank" rel="noopener">CodePen</a></li>
-        <li><a href="https://www.npmjs.com/search?q=gayansandamal" target="_blank" rel="noopener">npm</a></li>
-        <li><a href="https://medium.com/@gayansandamal" target="_blank" rel="noopener">Medium</a></li>
-        <li><a href="https://dribbble.com/gayansandamal" target="_blank" rel="noopener">Dribbble</a></li>
-        <li><a href="https://choner.io/" target="_blank" rel="noopener">choner.io</a></li>
-      </ul>
     </section>
   </main>
 
@@ -515,7 +520,7 @@
 
   <div id="snackbar" role="status" aria-live="polite"><span></span></div>
 
-  <script src="./script.js?v=3"></script>
+  <script src="./script.js?v=4"></script>
   <!--Start of Tawk.to Script-->
   <script type="text/javascript">
     var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
