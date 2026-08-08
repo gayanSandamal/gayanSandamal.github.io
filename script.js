@@ -199,6 +199,8 @@ if (!reducedMotion) {
 
   const workChapter = document.getElementById('work');
   const marqueeTrack = document.getElementById('marqueeTrack');
+  const galleryMedia = galleryTrack ? [...galleryTrack.querySelectorAll('.g-media img')] : [];
+  const signature = document.querySelector('.signature');
 
   /* measured geometry */
   let galleryMaxX = 0;
@@ -227,20 +229,50 @@ if (!reducedMotion) {
     return range > 0 ? clamp(-r.top / range, 0, 1) : 0;
   };
 
-  /* cursor */
+  /* cursor + work-index peek + magnetism (all pointer-driven) */
   const cursor = document.getElementById('cursor');
-  let mx = -100, my = -100, cx = -100, cy = -100;
-  if (finePointer && cursor) {
+  const peek = document.getElementById('peek');
+  const peekImg = document.getElementById('peekImg');
+  const magnets = [...document.querySelectorAll('[data-magnetic]')];
+  let mx = -100, my = -100, cx = -100, cy = -100, px = -100, py = -100;
+
+  if (finePointer) {
     window.addEventListener('mousemove', (e) => {
       mx = e.clientX; my = e.clientY;
-      cursor.classList.add('is-on');
+      if (cursor) cursor.classList.add('is-on');
     }, { passive: true });
-    document.addEventListener('mouseleave', () => cursor.classList.remove('is-on'));
+    document.addEventListener('mouseleave', () => {
+      if (cursor) cursor.classList.remove('is-on');
+    });
     document.addEventListener('mouseover', (e) => {
-      const view = e.target.closest('[data-cursor]');
-      const link = e.target.closest('a, button');
-      cursor.classList.toggle('is-view', !!view);
-      cursor.classList.toggle('is-link', !view && !!link);
+      if (cursor) {
+        const view = e.target.closest('[data-cursor]');
+        const link = e.target.closest('a, button');
+        cursor.classList.toggle('is-view', !!view);
+        cursor.classList.toggle('is-link', !view && !!link);
+      }
+      if (peek && peekImg) {
+        const row = e.target.closest('[data-peek]');
+        if (row) {
+          const src = row.dataset.peek;
+          if (peekImg.getAttribute('src') !== src) peekImg.src = src;
+          peek.classList.add('is-on');
+        } else if (!e.target.closest('.peek')) {
+          peek.classList.remove('is-on');
+        }
+      }
+    });
+
+    /* 3D tilt on gallery media */
+    document.querySelectorAll('.g-media').forEach((media) => {
+      media.addEventListener('mousemove', (e) => {
+        const r = media.getBoundingClientRect();
+        const rx = ((e.clientY - r.top) / r.height - 0.5) * -7;
+        const ry = ((e.clientX - r.left) / r.width - 0.5) * 7;
+        media.style.transform =
+          `perspective(1100px) rotateX(${rx.toFixed(2)}deg) rotateY(${ry.toFixed(2)}deg) scale(1.015)`;
+      });
+      media.addEventListener('mouseleave', () => { media.style.transform = ''; });
     });
   }
 
@@ -271,7 +303,8 @@ if (!reducedMotion) {
       heroStage.style.opacity = (1 - clamp((p - 0.55) * 2.4, 0, 1)).toFixed(3);
     }
 
-    /* gallery: vertical scroll becomes horizontal travel */
+    /* gallery: vertical scroll becomes horizontal travel, and each
+       image drifts inside its frame as the plate crosses the screen */
     if (gallery && galleryTrack) {
       const p = sceneProgress(gallery);
       galleryTrack.style.transform = `translate3d(${(-p * galleryMaxX).toFixed(1)}px, 0, 0)`;
@@ -279,6 +312,15 @@ if (!reducedMotion) {
         const idx = Math.min(galleryPlates, Math.floor(p * galleryPlates) + 1);
         galleryCount.textContent =
           `${String(idx).padStart(2, '0')} / ${String(galleryPlates).padStart(2, '0')}`;
+      }
+      if (p > 0 && p < 1) {
+        const cxv = window.innerWidth / 2;
+        galleryMedia.forEach((img) => {
+          const r = img.getBoundingClientRect();
+          if (r.right < -200 || r.left > window.innerWidth + 200) return;
+          const off = clamp(((r.left + r.width / 2) - cxv) / window.innerWidth, -1, 1);
+          img.style.transform = `translate3d(${(off * 34).toFixed(1)}px, 0, 0) scale(1.12)`;
+        });
       }
     }
 
@@ -304,12 +346,44 @@ if (!reducedMotion) {
       marqueeTrack.style.transform = `translate3d(${marqueeX.toFixed(1)}px, 0, 0)`;
     }
 
-    /* cursor chase */
-    if (finePointer && cursor) {
-      cx += (mx - cx) * 0.22;
-      cy += (my - cy) * 0.22;
-      cursor.style.left = `${cx.toFixed(1)}px`;
-      cursor.style.top = `${cy.toFixed(1)}px`;
+    /* signature fills once its band is on screen */
+    if (signature) {
+      const r = signature.getBoundingClientRect();
+      signature.classList.toggle('is-lit', r.top < vh * 0.92 && r.bottom > 0);
+    }
+
+    /* cursor chase, peek trail (slower = depth), magnet pull */
+    if (finePointer) {
+      if (cursor) {
+        cx += (mx - cx) * 0.22;
+        cy += (my - cy) * 0.22;
+        cursor.style.left = `${cx.toFixed(1)}px`;
+        cursor.style.top = `${cy.toFixed(1)}px`;
+      }
+      if (peek) {
+        px += (mx - px) * 0.1;
+        py += (my - py) * 0.1;
+        peek.style.left = `${px.toFixed(1)}px`;
+        peek.style.top = `${py.toFixed(1)}px`;
+      }
+      magnets.forEach((el) => {
+        const r = el.getBoundingClientRect();
+        const ex = r.left + r.width / 2;
+        const ey = r.top + r.height / 2;
+        const dx = mx - ex;
+        const dy = my - ey;
+        const dist = Math.hypot(dx, dy);
+        /* capped so the effect stays a nudge on small targets and never
+           drags a wide element out of its column */
+        const radius = Math.min(Math.max(r.width, 80) * 1.1, 190);
+        if (dist < radius) {
+          const pull = 1 - dist / radius;
+          el.style.transform =
+            `translate3d(${(dx * 0.28 * pull).toFixed(1)}px, ${(dy * 0.42 * pull).toFixed(1)}px, 0)`;
+        } else if (el.style.transform) {
+          el.style.transform = '';
+        }
+      });
     }
 
     /* nav: hide going down, return going up */

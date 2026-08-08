@@ -57,16 +57,22 @@ a:focus-visible, button:focus-visible {
   outline-offset: 3px;
 }
 
+/* faint baseline rule, accent wipes across it on hover */
 p a, .offer-links a, .linklike, .contact-social a {
   text-decoration: none;
-  background-image: linear-gradient(var(--accent), var(--accent));
+  background-image:
+    linear-gradient(var(--accent), var(--accent)),
+    linear-gradient(var(--rule), var(--rule));
   background-repeat: no-repeat;
-  background-size: 100% 1px;
-  background-position: 0 100%;
-  padding-bottom: 2px;
-  transition: color 0.25s var(--ease);
+  background-size: 0% 1px, 100% 1px;
+  background-position: 0 100%, 0 100%;
+  padding-bottom: 3px;
+  transition: color 0.3s var(--ease), background-size 0.55s var(--ease-expo);
 }
-p a:hover, .offer-links a:hover, .linklike:hover, .contact-social a:hover { color: var(--accent); }
+p a:hover, .offer-links a:hover, .linklike:hover, .contact-social a:hover {
+  color: var(--accent);
+  background-size: 100% 1px, 100% 1px;
+}
 
 .linklike {
   font: inherit;
@@ -117,6 +123,45 @@ em { font-style: italic; }
   width: 0%;
   background: var(--accent);
 }
+
+/* ─────────── PAPER GRAIN ───────────
+   Static SVG noise, blended into the surface so paper reads as stock
+   and ink reads as print. Never intercepts pointer events. */
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 95;
+  pointer-events: none;
+  opacity: 0.3;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='0.32'/%3E%3C/svg%3E");
+}
+html.theme-ink .grain { mix-blend-mode: screen; opacity: 0.22; }
+
+/* ─────────── WORK-INDEX PEEK ───────────
+   Cursor-following preview for the index rows. */
+.peek {
+  position: fixed;
+  top: 0; left: 0;
+  z-index: 90;
+  width: clamp(14rem, 22vw, 22rem);
+  aspect-ratio: 4 / 3;
+  pointer-events: none;
+  overflow: hidden;
+  border: 1px solid var(--rule);
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.94);
+  clip-path: inset(50% 0 50% 0);
+  transition: opacity 0.45s var(--ease), transform 0.55s var(--ease-expo),
+    clip-path 0.55s var(--ease-expo);
+}
+.peek.is-on {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  clip-path: inset(0 0 0 0);
+}
+.peek img { width: 100%; height: 100%; object-fit: cover; }
+@media (hover: none), (pointer: coarse) { .peek { display: none; } }
 
 /* ─────────── CURSOR (fine pointers only) ─────────── */
 .cursor { display: none; }
@@ -583,15 +628,18 @@ html.ready .hero-foot { opacity: 1; }
   background: var(--paper-deep);
   overflow: hidden;
   aspect-ratio: 16 / 10;
+  transform-style: preserve-3d;
+  transition: transform 0.6s var(--ease-expo), box-shadow 0.6s var(--ease);
+  will-change: transform;
 }
+.g-plate:hover .g-media { box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.22); }
 .g-media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: top center;
-  transition: transform 0.7s var(--ease);
+  will-change: transform;
 }
-.g-plate:hover .g-media img { transform: scale(1.03); }
 .g-info { margin-top: 1.4rem; }
 .g-info h3 {
   font-family: var(--serif);
@@ -634,9 +682,20 @@ html.ready .hero-foot { opacity: 1; }
   color: var(--ink-mute);
 }
 
-/* work index */
+/* work index — hairlines draw themselves in as rows reveal */
 .work-index { list-style: none; border-top: 1px solid var(--rule); }
-.work-index li { border-bottom: 1px solid var(--rule); }
+.work-index li { position: relative; }
+.work-index li::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 1px;
+  background: var(--rule);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  transition: transform 1.1s var(--ease-expo);
+}
+.work-index li.is-visible::after { transform: scaleX(1); }
 .work-index a, .work-index div {
   display: grid;
   grid-template-columns: minmax(0, 3fr) minmax(0, 5fr) auto;
@@ -687,8 +746,19 @@ html.ready .hero-foot { opacity: 1; }
   grid-template-columns: minmax(7rem, 11rem) 1fr;
   gap: 1.5rem;
   padding: clamp(1.75rem, 3.5vw, 2.75rem) 0;
-  border-bottom: 1px solid var(--rule);
+  position: relative;
 }
+.xp li::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 1px;
+  background: var(--rule);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  transition: transform 1.1s var(--ease-expo);
+}
+.xp li.is-visible::after { transform: scaleX(1); }
 .xp-when {
   font-size: 0.8rem;
   font-weight: 500;
@@ -810,6 +880,37 @@ html.ready .hero-foot { opacity: 1; }
   text-transform: uppercase;
 }
 
+/* ─────────── SIGNATURE ───────────
+   Outlined name that fills as the page bottoms out, cropped by the
+   viewport edge like a printed masthead. */
+.signature {
+  overflow: hidden;
+  padding: 0 var(--gutter);
+  line-height: 0.78;
+  position: relative;
+  z-index: 2;
+}
+.signature span {
+  display: block;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(3.5rem, 17vw, 17rem);
+  letter-spacing: -0.03em;
+  white-space: nowrap;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--ink-mute);
+  background-image: linear-gradient(var(--accent), var(--accent));
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  transition: background-size 1.6s var(--ease-expo);
+}
+.signature.is-lit span { background-size: 100% 100%; }
+
+/* ─────────── MAGNETIC ─────────── */
+[data-magnetic] { will-change: transform; }
+
 /* ─────────── FOOTER ─────────── */
 .footer {
   display: flex;
@@ -886,5 +987,9 @@ html.ready .hero-foot { opacity: 1; }
   .g-plate, .g-last { width: 100%; }
   .gallery-count { display: none; }
   .marquee-track { transform: none !important; }
-  .g-media img, .design-row img { transition: none; }
+  .g-media, .g-media img, .design-row img { transform: none !important; transition: none; }
+  .grain, .peek { display: none; }
+  .work-index li::after, .xp li::after { transform: scaleX(1); transition: none; }
+  .signature span { background-size: 100% 100%; transition: none; }
+  [data-magnetic] { transform: none !important; }
 }

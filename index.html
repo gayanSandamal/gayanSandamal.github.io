@@ -16,7 +16,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="./style.css?v=4">
+  <link rel="stylesheet" href="./style.css?v=5">
 </head>
 
 <body>
@@ -28,19 +28,22 @@
     <span class="loader-bar"><span id="loaderBar"></span></span>
   </div>
 
+  <div class="grain" aria-hidden="true"></div>
   <div class="cursor" id="cursor" aria-hidden="true"><span>View</span></div>
   <div class="progress" aria-hidden="true"><span></span></div>
+
+  <div class="peek" id="peek" aria-hidden="true"><img alt="" id="peekImg"></div>
 
   <header class="nav" id="nav">
     <a href="#top" class="nav-name">Gayan&nbsp;Sandamal</a>
     <nav class="nav-links" aria-label="Primary">
-      <a href="#about">About</a>
-      <a href="#ai">AI</a>
-      <a href="#work">Work</a>
-      <a href="#experience">Experience</a>
-      <a href="#contact">Contact</a>
+      <a href="#about" data-magnetic>About</a>
+      <a href="#ai" data-magnetic>AI</a>
+      <a href="#work" data-magnetic>Work</a>
+      <a href="#experience" data-magnetic>Experience</a>
+      <a href="#contact" data-magnetic>Contact</a>
     </nav>
-    <a href="#contact" class="nav-note"><span class="note-dot" aria-hidden="true"></span>Open to consulting</a>
+    <a href="#contact" class="nav-note" data-magnetic><span class="note-dot" aria-hidden="true"></span>Open to consulting</a>
   </header>
 
   <main>
@@ -260,28 +263,31 @@
 
       <ul class="work-index" aria-label="Further projects">
         <li data-reveal>
-          <a href="https://planning-pocker-d304c.web.app" target="_blank" rel="noopener">
+          <a href="https://planning-pocker-d304c.web.app" target="_blank" rel="noopener"
+            data-peek="./assets/projects/planning-poker.png">
             <span class="wi-name">Planning Poker Minimal</span>
             <span class="wi-meta">Agile estimation · Vue, Firebase</span>
             <span class="wi-status">Open source</span>
           </a>
         </li>
         <li data-reveal>
-          <a href="https://github.com/gayanSandamal/learning-management-system" target="_blank" rel="noopener">
+          <a href="https://github.com/gayanSandamal/learning-management-system" target="_blank" rel="noopener"
+            data-peek="./assets/projects/akurata.jpeg">
             <span class="wi-name">Akurata LMS</span>
             <span class="wi-meta">Learning platform for thousands of students · Vue, React, Electron</span>
             <span class="wi-status">Archived</span>
           </a>
         </li>
         <li data-reveal>
-          <div>
+          <div data-peek="./assets/projects/inquest-io.jpeg">
             <span class="wi-name">Inquest.io</span>
             <span class="wi-meta">Realtime audience Q&amp;A · Vue, SignalR · UI/UX from wireframes up</span>
             <span class="wi-status">Archived</span>
           </div>
         </li>
         <li data-reveal>
-          <a href="https://github.com/gayanSandamal/findyo" target="_blank" rel="noopener">
+          <a href="https://github.com/gayanSandamal/findyo" target="_blank" rel="noopener"
+            data-peek="./assets/projects/findyo.jpeg">
             <span class="wi-name">Findyo</span>
             <span class="wi-meta">Consumer–tradesman marketplace · Vue, Laravel, Firebase</span>
             <span class="wi-status">Archived</span>
@@ -512,15 +518,17 @@
     </section>
   </main>
 
+  <div class="signature" aria-hidden="true"><span>Gayan Sandamal</span></div>
+
   <footer class="footer">
     <span>© <span id="year"></span> Gayan Sandamal</span>
     <span>Colombo, Sri Lanka</span>
-    <a href="#top">Back to top</a>
+    <a href="#top" data-magnetic>Back to top</a>
   </footer>
 
   <div id="snackbar" role="status" aria-live="polite"><span></span></div>
 
-  <script src="./script.js?v=4"></script>
+  <script src="./script.js?v=5"></script>
   <!--Start of Tawk.to Script-->
   <script type="text/javascript">
     var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
