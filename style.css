@@ -14,6 +14,7 @@
   --serif: 'Fraunces', Georgia, serif;
   --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --ease: cubic-bezier(0.33, 1, 0.68, 1);
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --gutter: clamp(1.5rem, 6vw, 7rem);
   --measure: 42rem;
 }
@@ -65,6 +66,55 @@ p a:hover, .offer-links a:hover, .linklike:hover,
 
 em { font-style: italic; }
 
+/* ─────────── SCROLL PROGRESS ─────────── */
+.progress {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  z-index: 200;
+  pointer-events: none;
+}
+.progress span {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+}
+
+/* ─────────── MASKED LINE REVEALS ─────────── */
+.line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.09em;
+  margin-bottom: -0.09em;
+}
+.line-inner {
+  display: block;
+  transform: translateY(115%);
+  transition: transform 1.15s var(--ease-expo);
+}
+.is-visible .line-inner { transform: translateY(0); }
+.is-visible .line:nth-child(2) .line-inner { transition-delay: 0.12s; }
+
+/* line/mask reveal containers opt out of the generic fade */
+[data-reveal].reveal-lines,
+[data-reveal].reveal-mask {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+/* curtain reveal for framed images */
+.reveal-mask {
+  clip-path: inset(100% 0 0 0);
+  transition: clip-path 1.25s var(--ease-expo);
+}
+.reveal-mask.is-visible,
+[data-reveal].reveal-mask.is-visible {
+  clip-path: inset(0 0 0 0);
+}
+
 /* ─────────── NAV ─────────── */
 .nav {
   position: fixed;
@@ -76,8 +126,9 @@ em { font-style: italic; }
   gap: 1.5rem;
   padding: 1.3rem var(--gutter);
   transition: padding 0.35s var(--ease), background 0.35s var(--ease),
-    box-shadow 0.35s var(--ease);
+    box-shadow 0.35s var(--ease), transform 0.45s var(--ease);
 }
+.nav.is-hidden { transform: translateY(-102%); }
 .nav.is-scrolled {
   background: rgba(246, 243, 236, 0.92);
   backdrop-filter: blur(10px);
@@ -260,11 +311,17 @@ em { font-style: italic; }
   gap: clamp(2.5rem, 6vw, 6rem);
   align-items: start;
 }
-.about-fig img {
+.fig-frame {
+  display: block;
+  overflow: hidden;
   border: 1px solid var(--rule);
-  width: 100%;
   aspect-ratio: 3 / 4;
+}
+.fig-frame img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  will-change: transform;
 }
 .about-fig figcaption, .plate-fig, .design-row figcaption {
   margin-top: 0.8rem;
@@ -378,15 +435,15 @@ em { font-style: italic; }
   border: 1px solid var(--rule);
   background: var(--paper-deep);
   overflow: hidden;
+  aspect-ratio: 16 / 10;
 }
 .plate-img img {
   width: 100%;
-  aspect-ratio: 16 / 10;
+  height: 100%;
   object-fit: cover;
   object-position: top center;
-  transition: transform 0.8s var(--ease);
+  will-change: transform;
 }
-.plate-img:hover img { transform: scale(1.02); }
 .plate-fig { margin-bottom: 1rem; }
 .plate-tech {
   font-size: 0.82rem;
@@ -649,5 +706,9 @@ em { font-style: italic; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   [data-reveal] { opacity: 1; transform: none; transition: none; }
-  .plate-img img, .design-row img { transition: none; }
+  .design-row img { transition: none; }
+  .line-inner { transform: none; transition: none; }
+  .reveal-mask { clip-path: none; transition: none; }
+  .nav.is-hidden { transform: none; }
+  .progress { display: none; }
 }

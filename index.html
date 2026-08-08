@@ -16,10 +16,12 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./style.css?v=3">
 </head>
 
 <body>
+
+  <div class="progress" aria-hidden="true"><span></span></div>
 
   <header class="nav" id="nav">
     <a href="#top" class="nav-name">Gayan&nbsp;Sandamal</a>
@@ -39,8 +41,10 @@
     <section class="hero">
       <p class="eyebrow" data-reveal>Senior Technical Lead &nbsp;·&nbsp; Colombo, Sri Lanka &nbsp;·&nbsp; <span
           id="localTime">--:--:--</span></p>
-      <h1 class="hero-statement" data-reveal>Front-ends for <em>millions</em> of users.<br>
-        AI adoption that actually <em>pays&nbsp;off</em>.</h1>
+      <h1 class="hero-statement reveal-lines" data-reveal>
+        <span class="line"><span class="line-inner">Front-ends for <em>millions</em> of&nbsp;users.</span></span>
+        <span class="line"><span class="line-inner">AI adoption that actually <em>pays&nbsp;off</em>.</span></span>
+      </h1>
       <div class="hero-below" data-reveal>
         <p class="hero-sub">A decade of shipping with Vue, React and Angular, a foundation in UI/UX, and an
           open-source <a href="https://github.com/gayanSandamal/pixelflow" target="_blank" rel="noopener">AI
@@ -83,7 +87,10 @@
       </header>
       <div class="about">
         <figure class="about-fig" data-reveal>
-          <img src="./assets/Gayan-Sandamal-Front-Facing.jpg" alt="Portrait of Gayan Sandamal" loading="lazy">
+          <span class="fig-frame reveal-mask" data-reveal>
+            <img src="./assets/Gayan-Sandamal-Front-Facing.jpg" alt="Portrait of Gayan Sandamal" loading="lazy"
+              data-parallax="16">
+          </span>
           <figcaption>Fig. 01 — Gayan Sandamal, Colombo</figcaption>
         </figure>
         <div class="about-text">
@@ -116,7 +123,8 @@
     <section class="section" id="ai">
       <header class="sec-head" data-reveal>
         <span class="sec-label">02 — AI adoption</span>
-        <h2 class="sec-title">Where it <em>measurably</em> pays off</h2>
+        <h2 class="sec-title reveal-lines"><span class="line"><span class="line-inner">Where it <em>measurably</em>
+              pays off</span></span></h2>
       </header>
       <p class="sec-intro" data-reveal>I help engineering and product teams adopt AI where it actually improves
         delivery — design-to-code pipelines, AI-assisted development workflow and tool evaluation. I integrate and
@@ -177,14 +185,16 @@
     <section class="section" id="work">
       <header class="sec-head" data-reveal>
         <span class="sec-label">03 — Selected work</span>
-        <h2 class="sec-title">Things I've <em>built</em></h2>
+        <h2 class="sec-title reveal-lines"><span class="line"><span class="line-inner">Things I've
+              <em>built</em></span></span></h2>
       </header>
 
       <div class="plates">
         <article class="plate" data-reveal>
-          <a class="plate-img" href="https://github.com/gayanSandamal/pixelflow" target="_blank" rel="noopener"
-            aria-label="pixelflow on GitHub">
-            <img src="./assets/projects/pixelflow.svg" alt="pixelflow CLI terminal output" loading="lazy">
+          <a class="plate-img reveal-mask" data-reveal href="https://github.com/gayanSandamal/pixelflow"
+            target="_blank" rel="noopener" aria-label="pixelflow on GitHub">
+            <img src="./assets/projects/pixelflow.svg" alt="pixelflow CLI terminal output" loading="lazy"
+              data-parallax="14">
           </a>
           <div class="plate-info">
             <p class="plate-fig">Fig. 02 — Open source</p>
@@ -201,10 +211,10 @@
         </article>
 
         <article class="plate is-flipped" data-reveal>
-          <a class="plate-img" href="https://easyrent.lk" target="_blank" rel="noopener"
+          <a class="plate-img reveal-mask" data-reveal href="https://easyrent.lk" target="_blank" rel="noopener"
             aria-label="EasyRent.lk — visit site">
-            <img src="./assets/projects/easyrent.png" alt="EasyRent.lk — verified rentals in Sri Lanka"
-              loading="lazy">
+            <img src="./assets/projects/easyrent.png" alt="EasyRent.lk — verified rentals in Sri Lanka" loading="lazy"
+              data-parallax="14">
           </a>
           <div class="plate-info">
             <p class="plate-fig">Fig. 03 — Live</p>
@@ -222,9 +232,10 @@
         </article>
 
         <article class="plate" data-reveal>
-          <a class="plate-img" href="https://app.paradigmbizhub.com/#/login" target="_blank" rel="noopener"
-            aria-label="Paradigm360 CRM — visit site">
-            <img src="./assets/projects/paradigm360-1.jpeg" alt="Paradigm360 CRM dashboard" loading="lazy">
+          <a class="plate-img reveal-mask" data-reveal href="https://app.paradigmbizhub.com/#/login" target="_blank"
+            rel="noopener" aria-label="Paradigm360 CRM — visit site">
+            <img src="./assets/projects/paradigm360-1.jpeg" alt="Paradigm360 CRM dashboard" loading="lazy"
+              data-parallax="14">
           </a>
           <div class="plate-info">
             <p class="plate-fig">Fig. 04 — In production</p>
@@ -275,7 +286,8 @@
     <section class="section" id="designs">
       <header class="sec-head" data-reveal>
         <span class="sec-label">04 — Design craft</span>
-        <h2 class="sec-title">Before engineering, <em>design</em></h2>
+        <h2 class="sec-title reveal-lines"><span class="line"><span class="line-inner">Before engineering,
+              <em>design</em></span></span></h2>
       </header>
       <p class="sec-intro" data-reveal>I still take interfaces from wireframe to high-fidelity — it's why the code I
         ship looks like the mockup.</p>
@@ -302,7 +314,8 @@
     <section class="section" id="experience">
       <header class="sec-head" data-reveal>
         <span class="sec-label">05 — Experience</span>
-        <h2 class="sec-title">A decade, <em>properly spent</em></h2>
+        <h2 class="sec-title reveal-lines"><span class="line"><span class="line-inner">A decade, <em>properly
+                spent</em></span></span></h2>
       </header>
       <ol class="xp" reversed>
         <li data-reveal>
@@ -470,7 +483,8 @@
       <header class="sec-head" data-reveal>
         <span class="sec-label">08 — Contact</span>
       </header>
-      <h2 class="contact-title" data-reveal>Let's <em>talk</em>.</h2>
+      <h2 class="contact-title reveal-lines" data-reveal><span class="line"><span class="line-inner">Let's
+              <em>talk</em>.</span></span></h2>
       <div class="contact-rows" data-reveal>
         <button type="button" class="contact-row" onclick="copyToClipBoard('gayansandamal94@gmail.com')">
           <span>gayansandamal94@gmail.com</span><span class="row-hint">Click to copy</span>
@@ -501,7 +515,7 @@
 
   <div id="snackbar" role="status" aria-live="polite"><span></span></div>
 
-  <script src="./script.js"></script>
+  <script src="./script.js?v=3"></script>
   <!--Start of Tawk.to Script-->
   <script type="text/javascript">
     var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();

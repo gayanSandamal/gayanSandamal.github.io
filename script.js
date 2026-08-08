@@ -88,6 +88,10 @@ const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matc
       requestAnimationFrame(() => { queued = false; sweep(false); });
     };
     window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('pageshow', () => sweep(false));
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden) sweep(false);
+    });
 
     if ('IntersectionObserver' in window) {
       const io = new IntersectionObserver((entries) => {
@@ -103,6 +107,66 @@ const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matc
       if (!pending.size) clearInterval(guard);
     }, 700);
   }
+}
+
+/* ─────────── Motion engine ───────────
+   One rAF loop drives everything scroll-linked: the progress bar,
+   parallax depth inside image frames, velocity skew on display type,
+   and the hide-on-scroll nav. Transform/opacity only — no layout. */
+if (!reducedMotion) {
+  const progressBar = document.querySelector('.progress span');
+  const skewEls = [...document.querySelectorAll('.hero-statement, .contact-title')];
+  const parallaxEls = [...document.querySelectorAll('[data-parallax]')].map((el) => ({
+    el,
+    strength: parseFloat(el.dataset.parallax) || 20,
+    top: 0, h: 0, scale: 1.1,
+  }));
+
+  const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+
+  const measure = () => {
+    parallaxEls.forEach((p) => {
+      const r = p.el.parentElement.getBoundingClientRect();
+      p.top = r.top + window.scrollY;
+      p.h = r.height || 1;
+      p.scale = 1 + (p.strength * 2.4) / p.h;
+    });
+  };
+  measure();
+  window.addEventListener('resize', measure, { passive: true });
+  window.addEventListener('load', () => { measure(); setTimeout(measure, 1000); });
+
+  let smoothY = window.scrollY;
+  let lastY = window.scrollY;
+
+  const frame = () => {
+    const y = window.scrollY;
+    const vh = window.innerHeight;
+    smoothY += (y - smoothY) * 0.12;
+    const vel = y - smoothY;
+
+    if (progressBar) {
+      const max = document.documentElement.scrollHeight - vh;
+      progressBar.style.transform = `scaleX(${clamp(y / Math.max(max, 1), 0, 1)})`;
+    }
+
+    parallaxEls.forEach((p) => {
+      const centerDelta = (p.top + p.h / 2 - smoothY) - vh / 2;
+      const prog = clamp(centerDelta / (vh / 2 + p.h / 2), -1, 1);
+      p.el.style.transform =
+        `translate3d(0, ${(prog * p.strength).toFixed(2)}px, 0) scale(${p.scale.toFixed(3)})`;
+    });
+
+    const skew = clamp(vel * 0.05, -2.5, 2.5);
+    skewEls.forEach((el) => { el.style.transform = `skewY(${skew.toFixed(3)}deg)`; });
+
+    if (y > 600 && y - lastY > 3) nav.classList.add('is-hidden');
+    else if (y - lastY < -3 || y <= 600) nav.classList.remove('is-hidden');
+    lastY = y;
+
+    requestAnimationFrame(frame);
+  };
+  requestAnimationFrame(frame);
 }
 
 /* ─────────── Stat counters ─────────── */
