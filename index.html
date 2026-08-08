@@ -14,25 +14,34 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="./style.css?v=6">
+  <link rel="stylesheet" href="./style.css?v=7">
 </head>
 
 <body>
 
-  <!-- ─────────── PRELOADER ─────────── -->
-  <div class="loader" id="loader" aria-hidden="true">
-    <span class="loader-name">Gayan Sandamal</span>
-    <span class="loader-count" id="loaderCount">0</span>
-    <span class="loader-bar"><span id="loaderBar"></span></span>
+  <!-- ─────────── OVERTURE ─────────── -->
+  <div class="overture" id="overture" aria-hidden="true">
+    <span class="overture-name">Gayan Sandamal</span>
+    <span class="overture-rule"><i id="overtureFill"></i></span>
   </div>
 
-  <div class="grain" aria-hidden="true"></div>
-  <div class="cursor" id="cursor" aria-hidden="true"><span>View</span></div>
-  <div class="progress" aria-hidden="true"><span></span></div>
-
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
   <div class="peek" id="peek" aria-hidden="true"><img alt="" id="peekImg"></div>
+
+  <!-- ─────────── CHAPTER RAIL ─────────── -->
+  <nav class="rail" id="rail" aria-hidden="true">
+    <a href="#about"><i>I</i></a>
+    <a href="#ai"><i>II</i></a>
+    <a href="#work"><i>III</i></a>
+    <a href="#designs"><i>IV</i></a>
+    <a href="#experience"><i>V</i></a>
+    <a href="#credentials"><i>VI</i></a>
+    <a href="#voices"><i>VII</i></a>
+    <a href="#contact"><i>VIII</i></a>
+  </nav>
 
   <header class="nav" id="nav">
     <a href="#top" class="nav-name">Gayan&nbsp;Sandamal</a>
@@ -43,82 +52,72 @@
       <a href="#experience" data-magnetic>Experience</a>
       <a href="#contact" data-magnetic>Contact</a>
     </nav>
-    <a href="#contact" class="nav-note" data-magnetic><span class="note-dot" aria-hidden="true"></span>Open to consulting</a>
+    <a href="#contact" class="nav-note" data-magnetic><i class="dot"></i>Open to consulting</a>
   </header>
 
   <main>
 
-    <!-- ─────────── HERO · pinned kinetic scene ─────────── -->
+    <!-- ─────────── HERO ─────────── -->
     <section class="scene scene-hero" id="top" data-scene="hero">
-      <div class="stage">
-        <p class="eyebrow">Senior Technical Lead &nbsp;·&nbsp; Colombo, Sri Lanka &nbsp;·&nbsp; <span
-            id="localTime">--:--</span></p>
-        <h1 class="hero-statement">
-          <span class="line" data-drift="-1"><span class="line-inner">Front-ends for <em>millions</em>
-              of&nbsp;users.</span></span>
-          <span class="line" data-drift="1"><span class="line-inner">AI adoption that actually
-              <em>pays&nbsp;off</em>.</span></span>
-        </h1>
-        <div class="hero-foot">
-          <p class="hero-sub">A decade of shipping with Vue, React and Angular, a foundation in UI/UX, and an
-            open-source <a href="https://github.com/gayanSandamal/pixelflow" target="_blank" rel="noopener">AI
-              design-to-code toolchain</a>. I lead from the front — close to the code, close to the team.</p>
-          <p class="scroll-hint">Scroll<span class="scroll-line"></span></p>
+      <div class="stage hero">
+        <div class="hero-copy">
+          <p class="label">Senior Technical Lead <i>·</i> Colombo <i>·</i> <span id="localTime">--:--</span></p>
+          <h1 class="display">
+            <span class="line"><span class="line-inner">Front-ends for</span></span>
+            <span class="line"><span class="line-inner"><em>millions</em> of users.</span></span>
+            <span class="line"><span class="line-inner">AI adoption that</span></span>
+            <span class="line"><span class="line-inner">actually <em>pays&nbsp;off</em>.</span></span>
+          </h1>
+          <div class="hero-foot">
+            <p class="hero-sub">A decade of shipping with Vue, React and Angular, a foundation in UI/UX, and an
+              open-source <a href="https://github.com/gayanSandamal/pixelflow" target="_blank" rel="noopener">AI
+                design-to-code toolchain</a>. I lead from the front — close to the code, close to the team.</p>
+            <p class="scroll-cue"><span>Scroll</span><i></i></p>
+          </div>
         </div>
+        <figure class="hero-portrait">
+          <span class="frame">
+            <img src="./assets/Gayan-Sandamal-Front-Facing.jpg" alt="Portrait of Gayan Sandamal" data-parallax="30">
+          </span>
+        </figure>
       </div>
     </section>
 
-    <!-- ─────────── STATS ─────────── -->
-    <section class="stats" aria-label="Career statistics">
-      <div class="stat" data-reveal>
-        <span class="stat-num" data-count="10" data-suffix="+">0</span>
-        <span class="stat-label">Years of craft</span>
+    <!-- ─────────── LEDGER ─────────── -->
+    <section class="ledger" aria-label="Career statistics">
+      <div class="fig" data-reveal><span class="fig-num" data-count="10" data-suffix="+">0</span><span
+          class="label">Years of craft</span></div>
+      <div class="fig" data-reveal><span class="fig-num" data-count="9">0</span><span class="label">Companies</span>
       </div>
-      <div class="stat" data-reveal>
-        <span class="stat-num" data-count="9">0</span>
-        <span class="stat-label">Companies</span>
-      </div>
-      <div class="stat" data-reveal>
-        <span class="stat-num" data-count="20" data-suffix="+">0</span>
-        <span class="stat-label">Projects delivered</span>
-      </div>
-      <div class="stat" data-reveal>
-        <span class="stat-num" data-count="1" data-suffix="M+">0</span>
-        <span class="stat-label">Users reached</span>
-      </div>
+      <div class="fig" data-reveal><span class="fig-num" data-count="20" data-suffix="+">0</span><span
+          class="label">Projects delivered</span></div>
+      <div class="fig" data-reveal><span class="fig-num" data-count="1" data-suffix="M+">0</span><span
+          class="label">Users reached</span></div>
     </section>
 
-    <!-- ─────────── 01 ABOUT ─────────── -->
-    <section class="section" id="about">
-      <header class="sec-head" data-reveal>
-        <span class="sec-label">01 — About</span>
+    <!-- ─────────── I · ABOUT ─────────── -->
+    <section class="chapter" id="about">
+      <header class="chapter-head" data-reveal>
+        <span class="numeral">I</span>
+        <span class="label">About</span>
       </header>
       <div class="about">
-        <figure class="about-fig" data-reveal>
-          <span class="fig-frame reveal-mask" data-reveal>
-            <img src="./assets/Gayan-Sandamal-Front-Facing.jpg" alt="Portrait of Gayan Sandamal" loading="lazy">
-          </span>
-          <figcaption>Fig. 01 — Gayan Sandamal, Colombo</figcaption>
-        </figure>
-        <div class="about-text">
-          <p class="lede" data-scrub>I'm a Senior Technical Lead who still ships. Over ten years I've built web and
-            mobile products used by millions — HR platforms, trade tools, IoT dashboards, solar software — always
-            from the front, always close to the code.</p>
+        <p class="lede" data-scrub>I'm a Senior Technical Lead who still ships. Over ten years I've built web and
+          mobile products used by millions — HR platforms, trade tools, IoT dashboards, solar software — always from
+          the front, always close to the code.</p>
+        <div class="about-cols">
           <p data-reveal>My path started in UI/UX design, which is why translating a designer's intent into
             efficient, maintainable code is my home ground. I care about server-side rendering, SEO, accessibility
             and performance — and lately, about giving engineering teams an honest answer to <em>"where does AI
               actually help?"</em></p>
-          <dl class="skills" data-reveal>
-            <div class="skills-row">
-              <dt>Frameworks</dt>
+          <dl class="spec" data-reveal>
+            <div><dt>Frameworks</dt>
               <dd>Vue.js, React &amp; React Native, Angular, Electron</dd>
             </div>
-            <div class="skills-row">
-              <dt>Languages</dt>
+            <div><dt>Languages</dt>
               <dd>TypeScript, JavaScript, Node.js</dd>
             </div>
-            <div class="skills-row">
-              <dt>Practice</dt>
+            <div><dt>Practice</dt>
               <dd>AI-assisted development, design systems, team leadership</dd>
             </div>
           </dl>
@@ -126,61 +125,51 @@
       </div>
     </section>
 
-    <!-- ─────────── MARQUEE ─────────── -->
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee-track" id="marqueeTrack">
-        <span>Vue · React · TypeScript · Angular · Node · Design systems · <em>AI-assisted development</em> ·
-        </span><span>Vue · React · TypeScript · Angular · Node · Design systems · <em>AI-assisted development</em> ·
-        </span><span>Vue · React · TypeScript · Angular · Node · Design systems · <em>AI-assisted development</em> ·
-        </span><span>Vue · React · TypeScript · Angular · Node · Design systems · <em>AI-assisted development</em> ·
-        </span>
-      </div>
-    </div>
-
-    <!-- ─────────── 02 AI ─────────── -->
-    <section class="section" id="ai">
-      <header class="sec-head" data-reveal>
-        <span class="sec-label">02 — AI adoption</span>
-        <h2 class="sec-title" data-split>Where it <em>measurably</em> pays off</h2>
+    <!-- ─────────── II · AI ─────────── -->
+    <section class="chapter" id="ai">
+      <header class="chapter-head" data-reveal>
+        <span class="numeral">II</span>
+        <span class="label">AI adoption</span>
       </header>
-      <p class="sec-intro" data-scrub>I help engineering and product teams adopt AI where it actually improves
-        delivery — design-to-code pipelines, AI-assisted development workflow and tool evaluation. I integrate and
-        adopt AI rather than train models, and I publish numbers only when they're real.</p>
+      <h2 class="display sm" data-split>Where it <em>measurably</em> pays off</h2>
+      <p class="intro" data-scrub>I help engineering and product teams adopt AI where it actually improves delivery —
+        design-to-code pipelines, AI-assisted development workflow and tool evaluation. I integrate and adopt AI
+        rather than train models, and I publish numbers only when they're real.</p>
 
-      <div class="offers" data-stack>
-        <article class="offer">
-          <span class="offer-num">I.</span>
+      <div class="cards" data-stack>
+        <article class="card">
+          <span class="card-num">01</span>
           <div>
             <h3>Build — pixelflow</h3>
             <p>A Vue-first CLI that generates production components from Figma designs. An AI inference layer
               (Claude) classifies components and infers props; a seven-layer audit engine scores the output against
               the original design instead of trusting it. Apache-2.0, with a public roadmap and contributor-ready
               issues.</p>
-            <p class="offer-links">
+            <p class="links">
               <a href="https://github.com/gayanSandamal/pixelflow" target="_blank" rel="noopener">GitHub</a>
               <a href="https://github.com/users/gayanSandamal/projects/7" target="_blank" rel="noopener">Roadmap</a>
             </p>
           </div>
         </article>
-        <article class="offer">
-          <span class="offer-num">II.</span>
+        <article class="card">
+          <span class="card-num">02</span>
           <div>
             <h3>Enable — context engineering over prompt training</h3>
             <p>My bet for small teams: repo-level context beats prompt courses. I set up agent context directories
-              with defined sub-agents and skill guides, and an orchestrating project brief that teaches the agent
-              the stack, conventions and environment quirks — so every developer's AI session starts productive
-              instead of starting over. Running today with my own three-developer UI team; measured before/after
-              case studies are in progress.</p>
+              with defined sub-agents and skill guides, and an orchestrating project brief that teaches the agent the
+              stack, conventions and environment quirks — so every developer's AI session starts productive instead
+              of starting over. Running today with my own three-developer UI team; measured before/after case studies
+              are in progress.</p>
           </div>
         </article>
-        <article class="offer">
-          <span class="offer-num">III.</span>
+        <article class="card">
+          <span class="card-num">03</span>
           <div>
             <h3>Evaluate — evidence before enthusiasm</h3>
             <p>Before recommending a tool, I test the claim — the same Figma file built with and without AI
-              assistance — and I've published a teardown of where design-to-code tools, including my own, fall
-              short of vendor promises: interpreting imperfect input and validating output.</p>
-            <p class="offer-links">
+              assistance — and I've published a teardown of where design-to-code tools, including my own, fall short
+              of vendor promises: interpreting imperfect input and validating output.</p>
+            <p class="links">
               <a href="https://github.com/gayanSandamal/pixelflow/blob/main/FIGMA_TO_CODE_GAP_ANALYSIS.md"
                 target="_blank" rel="noopener">Read the gap analysis</a>
             </p>
@@ -188,9 +177,9 @@
         </article>
       </div>
 
-      <aside class="consult" data-reveal>
+      <aside class="invite" data-reveal>
         <p>Thinking about AI adoption for your engineering team?<br><em>I'm open to consulting conversations.</em></p>
-        <p class="offer-links">
+        <p class="links">
           <button type="button" class="linklike" onclick="copyToClipBoard('gayansandamal94@gmail.com')">Copy my
             email</button>
           <a href="https://www.linkedin.com/in/gayan-sandamal/" target="_blank" rel="noopener">Write on LinkedIn</a>
@@ -198,236 +187,237 @@
       </aside>
     </section>
 
-    <!-- ─────────── 03 WORK · ink chapter with horizontal gallery ─────────── -->
+    <!-- ─────────── III · WORK ─────────── -->
     <section class="chapter" id="work">
-      <header class="sec-head chapter-head" data-reveal>
-        <span class="sec-label">03 — Selected work</span>
-        <h2 class="sec-title" data-split>Things I've <em>built</em></h2>
-        <p class="chapter-hint" data-reveal>Keep scrolling — the gallery moves sideways.</p>
+      <header class="chapter-head" data-reveal>
+        <span class="numeral">III</span>
+        <span class="label">Selected work</span>
       </header>
+      <h2 class="display sm" data-split>Things I've <em>built</em></h2>
 
       <div class="gallery" data-scene="gallery">
         <div class="gallery-stage">
           <div class="gallery-track" id="galleryTrack">
-            <article class="g-plate" data-cursor="view">
-              <a class="g-media" href="https://github.com/gayanSandamal/pixelflow" target="_blank" rel="noopener"
-                aria-label="pixelflow on GitHub">
+            <article class="plate" data-cursor="view">
+              <a class="plate-media" href="https://github.com/gayanSandamal/pixelflow" target="_blank"
+                rel="noopener" aria-label="pixelflow on GitHub">
                 <img src="./assets/projects/pixelflow.svg" alt="pixelflow CLI terminal output" loading="lazy">
               </a>
-              <div class="g-info">
-                <p class="plate-fig">Fig. 02 — Open source</p>
+              <div class="plate-info">
+                <span class="label">Open source</span>
                 <h3>pixelflow</h3>
-                <p class="g-desc">Vue-first CLI that turns Figma designs into production components — AI inference
-                  for classification and props, a seven-layer audit engine for honesty.</p>
-                <p class="plate-tech">TypeScript · Vue 3 · Claude · Turborepo</p>
+                <p>Vue-first CLI that turns Figma designs into production components — AI inference for
+                  classification and props, a seven-layer audit engine for honesty.</p>
+                <span class="tech">TypeScript · Vue 3 · Claude · Turborepo</span>
               </div>
             </article>
 
-            <article class="g-plate" data-cursor="view">
-              <a class="g-media" href="https://easyrent.lk" target="_blank" rel="noopener"
+            <article class="plate" data-cursor="view">
+              <a class="plate-media" href="https://easyrent.lk" target="_blank" rel="noopener"
                 aria-label="EasyRent.lk — visit site">
                 <img src="./assets/projects/easyrent.png" alt="EasyRent.lk — verified rentals in Sri Lanka"
                   loading="lazy">
               </a>
-              <div class="g-info">
-                <p class="plate-fig">Fig. 03 — Live</p>
+              <div class="plate-info">
+                <span class="label">Live</span>
                 <h3>EasyRent.lk</h3>
-                <p class="g-desc">Verified mid-to-long-term rental platform for Sri Lanka — built end-to-end:
-                  product, design and engineering.</p>
-                <p class="plate-tech">Next.js · TypeScript · Supabase · Drizzle · Tailwind</p>
+                <p>Verified mid-to-long-term rental platform for Sri Lanka — built end-to-end: product, design and
+                  engineering.</p>
+                <span class="tech">Next.js · TypeScript · Supabase · Drizzle · Tailwind</span>
               </div>
             </article>
 
-            <article class="g-plate" data-cursor="view">
-              <a class="g-media" href="https://app.paradigmbizhub.com/#/login" target="_blank" rel="noopener"
+            <article class="plate" data-cursor="view">
+              <a class="plate-media" href="https://app.paradigmbizhub.com/#/login" target="_blank" rel="noopener"
                 aria-label="Paradigm360 CRM — visit site">
                 <img src="./assets/projects/paradigm360-1.jpeg" alt="Paradigm360 CRM dashboard" loading="lazy">
               </a>
-              <div class="g-info">
-                <p class="plate-fig">Fig. 04 — In production</p>
+              <div class="plate-info">
+                <span class="label">In production</span>
                 <h3>Paradigm360 CRM</h3>
-                <p class="g-desc">Front-end of the CRM used daily by Singaporean firm Paradigm360 — private
-                  repository, small distributed team.</p>
-                <p class="plate-tech">Vue · Pinia · Jest · Firebase</p>
+                <p>Front-end of the CRM used daily by Singaporean firm Paradigm360 — private repository, small
+                  distributed team.</p>
+                <span class="tech">Vue · Pinia · Jest · Firebase</span>
               </div>
             </article>
 
-            <article class="g-plate g-last">
-              <p class="g-last-title">…and a<br><em>decade more</em>.</p>
-              <p class="g-last-hint">The full index is just below ↓</p>
+            <article class="plate closing">
+              <p class="display sm">…and a<br><em>decade more</em>.</p>
+              <span class="label">The full index follows</span>
             </article>
           </div>
-          <div class="gallery-count" id="galleryCount">01 / 04</div>
+          <span class="tally" id="galleryCount">01 / 04</span>
         </div>
       </div>
 
-      <ul class="work-index" aria-label="Further projects">
+      <ul class="index" aria-label="Further projects">
         <li data-reveal>
           <a href="https://planning-pocker-d304c.web.app" target="_blank" rel="noopener"
             data-peek="./assets/projects/planning-poker.png">
-            <span class="wi-name">Planning Poker Minimal</span>
-            <span class="wi-meta">Agile estimation · Vue, Firebase</span>
-            <span class="wi-status">Open source</span>
+            <span class="idx-name">Planning Poker Minimal</span>
+            <span class="idx-meta">Agile estimation · Vue, Firebase</span>
+            <span class="idx-state">Open source</span>
           </a>
         </li>
         <li data-reveal>
           <a href="https://github.com/gayanSandamal/learning-management-system" target="_blank" rel="noopener"
             data-peek="./assets/projects/akurata.jpeg">
-            <span class="wi-name">Akurata LMS</span>
-            <span class="wi-meta">Learning platform for thousands of students · Vue, React, Electron</span>
-            <span class="wi-status">Archived</span>
+            <span class="idx-name">Akurata LMS</span>
+            <span class="idx-meta">Learning platform for thousands of students · Vue, React, Electron</span>
+            <span class="idx-state">Archived</span>
           </a>
         </li>
         <li data-reveal>
           <div data-peek="./assets/projects/inquest-io.jpeg">
-            <span class="wi-name">Inquest.io</span>
-            <span class="wi-meta">Realtime audience Q&amp;A · Vue, SignalR · UI/UX from wireframes up</span>
-            <span class="wi-status">Archived</span>
+            <span class="idx-name">Inquest.io</span>
+            <span class="idx-meta">Realtime audience Q&amp;A · Vue, SignalR · UI/UX from wireframes up</span>
+            <span class="idx-state">Archived</span>
           </div>
         </li>
         <li data-reveal>
           <a href="https://github.com/gayanSandamal/findyo" target="_blank" rel="noopener"
             data-peek="./assets/projects/findyo.jpeg">
-            <span class="wi-name">Findyo</span>
-            <span class="wi-meta">Consumer–tradesman marketplace · Vue, Laravel, Firebase</span>
-            <span class="wi-status">Archived</span>
+            <span class="idx-name">Findyo</span>
+            <span class="idx-meta">Consumer–tradesman marketplace · Vue, Laravel, Firebase</span>
+            <span class="idx-state">Archived</span>
           </a>
         </li>
       </ul>
     </section>
 
-    <!-- ─────────── 04 DESIGN ─────────── -->
-    <section class="section" id="designs">
-      <header class="sec-head" data-reveal>
-        <span class="sec-label">04 — Design craft</span>
-        <h2 class="sec-title" data-split>Before engineering, <em>design</em></h2>
+    <!-- ─────────── IV · DESIGN ─────────── -->
+    <section class="chapter" id="designs">
+      <header class="chapter-head" data-reveal>
+        <span class="numeral">IV</span>
+        <span class="label">Design craft</span>
       </header>
-      <p class="sec-intro" data-scrub>I still take interfaces from wireframe to high-fidelity — it's why the code I
-        ship looks like the mockup.</p>
-      <div class="design-row">
-        <figure data-reveal>
-          <img src="./assets/projects/designs/choner-ui.png" alt="Choner interface design" loading="lazy">
-          <figcaption>Fig. 05 — Choner</figcaption>
+      <h2 class="display sm" data-split>Before engineering, <em>design</em></h2>
+      <p class="intro" data-scrub>I still take interfaces from wireframe to high-fidelity — it's why the code I ship
+        looks like the mockup.</p>
+      <div class="triptych">
+        <figure data-reveal><span class="frame"><img src="./assets/projects/designs/choner-ui.png"
+              alt="Choner interface design" loading="lazy" data-parallax="18"></span>
+          <figcaption class="label">Choner</figcaption>
         </figure>
-        <figure data-reveal>
-          <img src="./assets/projects/designs/drivend.png" alt="Drivend interface design" loading="lazy">
-          <figcaption>Fig. 06 — Drivend</figcaption>
+        <figure data-reveal><span class="frame"><img src="./assets/projects/designs/drivend.png"
+              alt="Drivend interface design" loading="lazy" data-parallax="18"></span>
+          <figcaption class="label">Drivend</figcaption>
         </figure>
-        <figure data-reveal>
-          <img src="./assets/projects/designs/inquest-ui.png" alt="Inquest interface design" loading="lazy">
-          <figcaption>Fig. 07 — Inquest</figcaption>
+        <figure data-reveal><span class="frame"><img src="./assets/projects/designs/inquest-ui.png"
+              alt="Inquest interface design" loading="lazy" data-parallax="18"></span>
+          <figcaption class="label">Inquest</figcaption>
         </figure>
       </div>
-      <p class="offer-links" data-reveal>
-        <a href="https://dribbble.com/gayansandamal" target="_blank" rel="noopener">More on Dribbble</a>
-      </p>
+      <p class="links" data-reveal><a href="https://dribbble.com/gayansandamal" target="_blank"
+          rel="noopener">More on Dribbble</a></p>
     </section>
 
-    <!-- ─────────── 05 EXPERIENCE ─────────── -->
-    <section class="section" id="experience">
-      <header class="sec-head" data-reveal>
-        <span class="sec-label">05 — Experience</span>
-        <h2 class="sec-title" data-split>A decade, <em>properly spent</em></h2>
+    <!-- ─────────── V · EXPERIENCE ─────────── -->
+    <section class="chapter" id="experience">
+      <header class="chapter-head" data-reveal>
+        <span class="numeral">V</span>
+        <span class="label">Experience</span>
       </header>
-      <ol class="xp" reversed>
+      <h2 class="display sm" data-split>A decade, <em>properly spent</em></h2>
+      <ol class="record">
         <li data-reveal>
-          <div class="xp-when">2025 — now</div>
-          <div class="xp-what">
-            <h3>Platform One <span>Colombo, Sri Lanka</span></h3>
-            <p class="xp-roles">Senior Technical Lead <span>since May 2026</span><br>
-              Technical Lead <span>Nov 2025 – May 2026</span></p>
-            <p>Leading technical delivery and frontend excellence across scalable web and mobile products;
-              mentoring engineers and driving best practices.</p>
+          <span class="when">2025 — now</span>
+          <div class="what">
+            <h3>Platform One <i>Colombo, Sri Lanka</i></h3>
+            <p class="roles">Senior Technical Lead <i>since May 2026</i><br>Technical Lead <i>Nov 2025 – May
+                2026</i></p>
+            <p>Leading technical delivery and frontend excellence across scalable web and mobile products; mentoring
+              engineers and driving best practices.</p>
           </div>
         </li>
         <li data-reveal>
-          <div class="xp-when">2025</div>
-          <div class="xp-what">
-            <h3>OpenSolar <span>Australia</span></h3>
-            <p class="xp-roles">Senior Frontend Engineer <span>Jan – Nov 2025</span></p>
+          <span class="when">2025</span>
+          <div class="what">
+            <h3>OpenSolar <i>Australia</i></h3>
+            <p class="roles">Senior Frontend Engineer <i>Jan – Nov 2025</i></p>
             <p>Scalable frontend for solar design and energy software.</p>
           </div>
         </li>
         <li data-reveal>
-          <div class="xp-when">2024 — 25</div>
-          <div class="xp-what">
-            <h3>FlowFuse <span>San Francisco, remote</span></h3>
-            <p class="xp-roles">Frontend Engineer <span>Apr 2024 – Jan 2025</span></p>
+          <span class="when">2024 — 25</span>
+          <div class="what">
+            <h3>FlowFuse <i>San Francisco, remote</i></h3>
+            <p class="roles">Frontend Engineer <i>Apr 2024 – Jan 2025</i></p>
             <p>Core developer on Node-RED Dashboard 2.0 (Vue) — performance, memory and data visualization at the
               scale of hundreds of live charts for thousands of users; open-source reviews across Discourse and
               Discord.</p>
           </div>
         </li>
         <li data-reveal>
-          <div class="xp-when">2023 — 24</div>
-          <div class="xp-what">
-            <h3>GoTradie <span>Sydney, remote</span></h3>
-            <p class="xp-roles">Senior Software Engineer <span>Sep 2023 – Apr 2024</span></p>
+          <span class="when">2023 — 24</span>
+          <div class="what">
+            <h3>GoTradie <i>Sydney, remote</i></h3>
+            <p class="roles">Senior Software Engineer <i>Sep 2023 – Apr 2024</i></p>
             <p>Cross-platform app in React Native and React. Turned the web app into a standalone PWA in one week —
               cutting projected development cost by 90%.</p>
           </div>
         </li>
         <li data-reveal>
-          <div class="xp-when">2021 — 23</div>
-          <div class="xp-what">
-            <h3>OrangeHRM <span>Colombo, Sri Lanka</span></h3>
-            <p class="xp-roles">Senior Software Engineer <span>Jun 2021 – Aug 2023</span></p>
+          <span class="when">2021 — 23</span>
+          <div class="what">
+            <h3>OrangeHRM <i>Colombo, Sri Lanka</i></h3>
+            <p class="roles">Senior Software Engineer <i>Jun 2021 – Aug 2023</i></p>
             <p>Led the front-end overhaul (Vue 3, VueX, React Native). Co-revamped the recruitment module — a 22%
               rise in positive user-satisfaction ratings.</p>
           </div>
         </li>
         <li data-reveal>
-          <div class="xp-when">2018 — 21</div>
-          <div class="xp-what">
-            <h3>Platform One <span>Colombo, Sri Lanka</span></h3>
-            <p class="xp-roles">Senior Software Engineer, front-end <span>Jan – Jun 2021</span><br>
-              Software Engineer, front-end <span>Jun 2018 – Jan 2021</span></p>
+          <span class="when">2018 — 21</span>
+          <div class="what">
+            <h3>Platform One <i>Colombo, Sri Lanka</i></h3>
+            <p class="roles">Senior Software Engineer, front-end <i>Jan – Jun 2021</i><br>Software Engineer,
+              front-end <i>Jun 2018 – Jan 2021</i></p>
             <p>Micro front-ends, secure UI practices (ISO 27001, GDPR), the Vue ecosystem, Storybook.</p>
           </div>
         </li>
         <li data-reveal>
-          <div class="xp-when">2017 — 18</div>
-          <div class="xp-what">
-            <h3>Suwahas.com <span>Negombo, Sri Lanka</span></h3>
-            <p class="xp-roles">Software Engineer <span>Sep 2017 – Jun 2018</span></p>
-            <p>Full-stack ERP for TrendyWear.lk (JavaScript, PHP, MariaDB) — a 25% gain in operational efficiency.
-            </p>
+          <span class="when">2017 — 18</span>
+          <div class="what">
+            <h3>Suwahas.com <i>Negombo, Sri Lanka</i></h3>
+            <p class="roles">Software Engineer <i>Sep 2017 – Jun 2018</i></p>
+            <p>Full-stack ERP for TrendyWear.lk (JavaScript, PHP, MariaDB) — a 25% gain in operational efficiency.</p>
           </div>
         </li>
         <li data-reveal>
-          <div class="xp-when">2016 — 17</div>
-          <div class="xp-what">
-            <h3>Quard Designs <span>Sri Lanka</span></h3>
-            <p class="xp-roles">Web Developer <span>Aug 2016 – Aug 2017</span></p>
+          <span class="when">2016 — 17</span>
+          <div class="what">
+            <h3>Quard Designs <i>Sri Lanka</i></h3>
+            <p class="roles">Web Developer <i>Aug 2016 – Aug 2017</i></p>
             <p>Twenty-plus sites in PHP, WordPress and Magento.</p>
           </div>
         </li>
         <li data-reveal>
-          <div class="xp-when">2016</div>
-          <div class="xp-what">
-            <h3>3CS Web Design <span>Kotte, Sri Lanka</span></h3>
-            <p class="xp-roles">Associate Web Designer <span>Feb – Aug 2016</span></p>
+          <span class="when">2016</span>
+          <div class="what">
+            <h3>3CS Web Design <i>Kotte, Sri Lanka</i></h3>
+            <p class="roles">Associate Web Designer <i>Feb – Aug 2016</i></p>
             <p>Interface design in Photoshop; later Figma and Adobe XD.</p>
           </div>
         </li>
         <li data-reveal>
-          <div class="xp-when">2015</div>
-          <div class="xp-what">
-            <h3>Miami Export <span>Homagama, Sri Lanka</span></h3>
-            <p class="xp-roles">Web Development Intern <span>Jun – Aug 2015</span></p>
+          <span class="when">2015</span>
+          <div class="what">
+            <h3>Miami Export <i>Homagama, Sri Lanka</i></h3>
+            <p class="roles">Web Development Intern <i>Jun – Aug 2015</i></p>
             <p>Front-end design and development.</p>
           </div>
         </li>
       </ol>
     </section>
 
-    <!-- ─────────── 06 CREDENTIALS ─────────── -->
-    <section class="section" id="credentials">
-      <header class="sec-head" data-reveal>
-        <span class="sec-label">06 — Credentials</span>
+    <!-- ─────────── VI · CREDENTIALS ─────────── -->
+    <section class="chapter" id="credentials">
+      <header class="chapter-head" data-reveal>
+        <span class="numeral">VI</span>
+        <span class="label">Credentials</span>
       </header>
       <div class="creds">
-        <div class="cred" data-reveal>
+        <div data-reveal>
           <h3>Education</h3>
           <ul>
             <li>Cardiff Metropolitan University — <em>MSc Information Technology</em>, 2021–2023</li>
@@ -436,7 +426,7 @@
             <li>Wesley College, Colombo — Science &amp; Mathematics</li>
           </ul>
         </div>
-        <div class="cred" data-reveal>
+        <div data-reveal>
           <h3>Certification</h3>
           <ul>
             <li>Microsoft Certified Solution Developer — Exam 70-486</li>
@@ -445,7 +435,7 @@
             <li>Building &amp; Securing RESTful APIs in ASP.NET Core</li>
           </ul>
         </div>
-        <div class="cred" data-reveal>
+        <div data-reveal>
           <h3>Honors &amp; research</h3>
           <ul>
             <li>ESOFT Dev Challenge 2017 — Winner</li>
@@ -457,78 +447,78 @@
       </div>
     </section>
 
-    <!-- ─────────── 07 VOICES ─────────── -->
-    <section class="section" id="voices">
-      <header class="sec-head" data-reveal>
-        <span class="sec-label">07 — What people say</span>
-      </header>
-      <div class="quotes">
-        <blockquote class="quote" data-reveal>
-          <p>"Absolute super star; great work ethic, top level communication and superb execution… without doubt
-            would look to hire Gayan many times over."</p>
-          <cite>Adam Fazzani — Founder, GoTradie · Techstars '23</cite>
-        </blockquote>
-        <blockquote class="quote" data-reveal>
-          <p>"He was our go-to VueJS expert. His mastery was like a guiding light for our projects, and he never
-            hesitated to help and mentor others."</p>
-          <cite>Thamara Dananjaya — Senior Project Lead, OrangeHRM</cite>
-        </blockquote>
-        <blockquote class="quote" data-reveal>
-          <p>"His understanding of design to develop requirements was outstanding… he explained why certain things
-            could and couldn't work when translating designs."</p>
-          <cite>Will Brown — Lead Product Designer</cite>
-        </blockquote>
-        <blockquote class="quote" data-reveal>
-          <p>"He took up responsibility and embraced innovative ways of solving problems… methodical in
-            experimenting his approaches and learning through the outcomes."</p>
-          <cite>Dr Charitha Godakumbura — Senior Project Manager, MillenniumIT</cite>
-        </blockquote>
+    <!-- ─────────── VII · VOICES ─────────── -->
+    <section class="scene scene-voices" id="voices" data-scene="voices">
+      <div class="stage voices">
+        <header class="chapter-head">
+          <span class="numeral">VII</span>
+          <span class="label">What people say</span>
+        </header>
+        <div class="quotes" id="quotes">
+          <blockquote>
+            <p>"Absolute super star; great work ethic, top level communication and superb execution… without doubt
+              would look to hire Gayan many times over."</p>
+            <cite>Adam Fazzani <i>Founder, GoTradie · Techstars '23</i></cite>
+          </blockquote>
+          <blockquote>
+            <p>"He was our go-to VueJS expert. His mastery was like a guiding light for our projects, and he never
+              hesitated to help and mentor others."</p>
+            <cite>Thamara Dananjaya <i>Senior Project Lead, OrangeHRM</i></cite>
+          </blockquote>
+          <blockquote>
+            <p>"His understanding of design to develop requirements was outstanding… he explained why certain things
+              could and couldn't work when translating designs."</p>
+            <cite>Will Brown <i>Lead Product Designer</i></cite>
+          </blockquote>
+          <blockquote>
+            <p>"He took up responsibility and embraced innovative ways of solving problems… methodical in
+              experimenting his approaches and learning through the outcomes."</p>
+            <cite>Dr Charitha Godakumbura <i>Senior Project Manager, MillenniumIT</i></cite>
+          </blockquote>
+        </div>
+        <p class="links"><a href="https://www.linkedin.com/in/gayan-sandamal/details/recommendations/" target="_blank"
+            rel="noopener">All recommendations on LinkedIn</a></p>
       </div>
-      <p class="offer-links" data-reveal>
-        <a href="https://www.linkedin.com/in/gayan-sandamal/details/recommendations/" target="_blank"
-          rel="noopener">All recommendations on LinkedIn</a>
-      </p>
     </section>
 
-    <!-- ─────────── 08 CONTACT · scrub finale ─────────── -->
-    <section class="scene scene-contact" id="contact" data-scene="contact">
-      <div class="stage">
-        <span class="sec-label" data-reveal>08 — Contact</span>
-        <h2 class="contact-title" id="contactTitle">Let's <em>talk</em>.</h2>
-        <div class="contact-rows" data-reveal>
-          <button type="button" class="contact-row" onclick="copyToClipBoard('gayansandamal94@gmail.com')">
-            <span>gayansandamal94@gmail.com</span><span class="row-hint">Click to copy</span>
-          </button>
-          <button type="button" class="contact-row" onclick="copyToClipBoard('+94752953202')">
-            <span>+94 75 295 3202</span><span class="row-hint">Click to copy</span>
-          </button>
-        </div>
-        <ul class="contact-social" data-reveal aria-label="Profiles">
-          <li><a href="https://www.linkedin.com/in/gayan-sandamal/" target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><a href="https://github.com/gayanSandamal/" target="_blank" rel="noopener">GitHub</a></li>
-          <li><a href="https://stackoverflow.com/users/5748470/gayan-sandamal" target="_blank"
-              rel="noopener">StackOverflow</a></li>
-          <li><a href="https://codepen.io/gayan_sandamal/" target="_blank" rel="noopener">CodePen</a></li>
-          <li><a href="https://www.npmjs.com/search?q=gayansandamal" target="_blank" rel="noopener">npm</a></li>
-          <li><a href="https://medium.com/@gayansandamal" target="_blank" rel="noopener">Medium</a></li>
-          <li><a href="https://dribbble.com/gayansandamal" target="_blank" rel="noopener">Dribbble</a></li>
-          <li><a href="https://choner.io/" target="_blank" rel="noopener">choner.io</a></li>
-        </ul>
+    <!-- ─────────── VIII · CONTACT ─────────── -->
+    <section class="chapter contact" id="contact">
+      <header class="chapter-head" data-reveal>
+        <span class="numeral">VIII</span>
+        <span class="label">Contact</span>
+      </header>
+      <h2 class="display" id="contactTitle">Let's <em>talk</em>.</h2>
+      <div class="reach" data-reveal>
+        <button type="button" class="reach-row" onclick="copyToClipBoard('gayansandamal94@gmail.com')">
+          <span>gayansandamal94@gmail.com</span><i>Copy</i>
+        </button>
+        <button type="button" class="reach-row" onclick="copyToClipBoard('+94752953202')">
+          <span>+94 75 295 3202</span><i>Copy</i>
+        </button>
       </div>
+      <ul class="social" data-reveal aria-label="Profiles">
+        <li><a href="https://www.linkedin.com/in/gayan-sandamal/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://github.com/gayanSandamal/" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://stackoverflow.com/users/5748470/gayan-sandamal" target="_blank"
+            rel="noopener">StackOverflow</a></li>
+        <li><a href="https://codepen.io/gayan_sandamal/" target="_blank" rel="noopener">CodePen</a></li>
+        <li><a href="https://www.npmjs.com/search?q=gayansandamal" target="_blank" rel="noopener">npm</a></li>
+        <li><a href="https://medium.com/@gayansandamal" target="_blank" rel="noopener">Medium</a></li>
+        <li><a href="https://dribbble.com/gayansandamal" target="_blank" rel="noopener">Dribbble</a></li>
+        <li><a href="https://choner.io/" target="_blank" rel="noopener">choner.io</a></li>
+      </ul>
     </section>
   </main>
 
-  <div class="signature" aria-hidden="true"><span>Gayan Sandamal</span></div>
-
   <footer class="footer">
     <span>© <span id="year"></span> Gayan Sandamal</span>
-    <span>Colombo, Sri Lanka</span>
+    <span class="label">Colombo, Sri Lanka</span>
     <a href="#top" data-magnetic>Back to top</a>
   </footer>
 
   <div id="snackbar" role="status" aria-live="polite"><span></span></div>
 
-  <script src="./script.js?v=6"></script>
+  <script src="./script.js?v=7"></script>
   <!--Start of Tawk.to Script-->
   <script type="text/javascript">
     var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
