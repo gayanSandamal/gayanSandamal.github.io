@@ -1,9 +1,9 @@
 /* ═══════════════════════════════════════════════════════════
    GAYAN SANDAMAL — portfolio engine
-   Overture → choreography → scroll-driven scenes (kinetic hero,
-   horizontal gallery, cross-fading voices, contact finale) with
-   inertia scrolling, scrubbed copy, stacking cards and a chapter
-   rail. Vanilla, one rAF loop, transform/opacity only.
+   DOM layer: overture, choreography, inertia scrolling, scrubbed
+   copy, stacking cards, cross-fading voices and the chapter rail.
+   The WebGL layer lives in scene3d.js and is driven from the same
+   scroll positions, so the two can never disagree.
    ═══════════════════════════════════════════════════════════ */
 
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -268,29 +268,12 @@ if (!reducedMotion) {
   const heroScene = document.querySelector('[data-scene="hero"]');
   const heroStage = heroScene ? heroScene.querySelector('.stage') : null;
 
-  const gallery = document.querySelector('[data-scene="gallery"]');
-  const galleryStage = gallery ? gallery.querySelector('.gallery-stage') : null;
-  const galleryTrack = document.getElementById('galleryTrack');
-  const galleryCount = document.getElementById('galleryCount');
-  const galleryPlates = galleryTrack ? galleryTrack.children.length : 0;
-  const galleryMedia = galleryTrack ? [...galleryTrack.querySelectorAll('.plate-media img')] : [];
-
   const voicesScene = document.querySelector('[data-scene="voices"]');
   const quotes = voicesScene ? [...voicesScene.querySelectorAll('blockquote')] : [];
 
   const contactTitle = document.getElementById('contactTitle');
   const parallaxImgs = [...document.querySelectorAll('[data-parallax]')];
   const stackCards = [...document.querySelectorAll('[data-stack] > *')];
-
-  let galleryMaxX = 0;
-  const measure = () => {
-    if (galleryTrack && galleryStage) {
-      galleryMaxX = Math.max(0, galleryTrack.scrollWidth - galleryStage.clientWidth);
-    }
-  };
-  measure();
-  window.addEventListener('resize', measure, { passive: true });
-  window.addEventListener('load', () => { measure(); setTimeout(measure, 1200); });
 
   const sceneProgress = (wrapper) => {
     const r = wrapper.getBoundingClientRect();
@@ -330,17 +313,6 @@ if (!reducedMotion) {
           peek.classList.remove('is-on');
         }
       }
-    });
-
-    document.querySelectorAll('.plate-media').forEach((media) => {
-      media.addEventListener('mousemove', (e) => {
-        const r = media.getBoundingClientRect();
-        const rx = ((e.clientY - r.top) / r.height - 0.5) * -6;
-        const ry = ((e.clientX - r.left) / r.width - 0.5) * 6;
-        media.style.transform =
-          `perspective(1200px) rotateX(${rx.toFixed(2)}deg) rotateY(${ry.toFixed(2)}deg) scale(1.012)`;
-      });
-      media.addEventListener('mouseleave', () => { media.style.transform = ''; });
     });
   }
 
@@ -397,26 +369,6 @@ if (!reducedMotion) {
       img.style.transform =
         `translate3d(0, ${(off * strength).toFixed(1)}px, 0) scale(${scale.toFixed(3)})`;
     });
-
-    /* gallery: vertical scroll becomes horizontal travel */
-    if (gallery && galleryTrack) {
-      const p = sceneProgress(gallery);
-      galleryTrack.style.transform = `translate3d(${(-p * galleryMaxX).toFixed(1)}px, 0, 0)`;
-      if (galleryCount && galleryPlates > 0) {
-        const idx = Math.min(galleryPlates, Math.floor(p * galleryPlates) + 1);
-        galleryCount.textContent =
-          `${String(idx).padStart(2, '0')} / ${String(galleryPlates).padStart(2, '0')}`;
-      }
-      if (p > 0 && p < 1) {
-        const half = window.innerWidth / 2;
-        galleryMedia.forEach((img) => {
-          const r = img.getBoundingClientRect();
-          if (r.right < -200 || r.left > window.innerWidth + 200) return;
-          const off = clamp(((r.left + r.width / 2) - half) / window.innerWidth, -1, 1);
-          img.style.transform = `translate3d(${(off * 30).toFixed(1)}px, 0, 0) scale(1.1)`;
-        });
-      }
-    }
 
     /* voices: quotes cross-fade across the pinned scene */
     if (voicesScene && quotes.length) {

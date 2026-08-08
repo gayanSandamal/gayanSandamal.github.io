@@ -151,6 +151,21 @@ em { font-style: italic; }
   background: var(--bronze);
 }
 
+/* ─────────── WEBGL LAYER ───────────
+   Fixed behind all content. Chapters carry their own background so
+   text always sits on solid charcoal; the scenes stay transparent so
+   the 3D shows through. */
+#gl {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  display: block;
+  transition: opacity 0.8s var(--ease);
+}
+
 /* ─────────── VIGNETTE ─────────── */
 .vignette {
   position: fixed;
@@ -290,8 +305,11 @@ em { font-style: italic; }
   box-shadow: 0 0 0 3px rgba(194, 160, 106, 0.14);
 }
 
-/* ─────────── SCENES ─────────── */
-.scene { position: relative; }
+/* ─────────── SCENES ───────────
+   Explicit layer above #gl (z-index 0). Sticky stages create their own
+   stacking contexts, so the scenes must state their level rather than
+   depend on paint order — without this the canvas covers the copy. */
+.scene { position: relative; z-index: 1; }
 .scene .stage {
   position: sticky;
   top: 0;
@@ -300,17 +318,83 @@ em { font-style: italic; }
   overflow: hidden;
 }
 .scene-hero { height: 190svh; }
+.scene-work { height: 420svh; }
 .scene-voices { height: 320svh; }
 
-/* ─────────── HERO ─────────── */
-.hero {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 0.62fr);
-  gap: clamp(2rem, 6vw, 6rem);
-  align-items: center;
+/* ─────────── WORK SHOWCASE (3D) ───────────
+   The plates live in WebGL; this is the copy layer over them. Both are
+   driven from the same scroll progress, so they cannot disagree. */
+.work { display: flex; flex-direction: column; }
+.showcase {
+  position: relative;
+  flex: 1;
+  min-height: 54vh;
+  margin-top: auto;
 }
-.hero-copy { display: flex; flex-direction: column; justify-content: center; }
+.showcase article {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  max-width: min(30rem, 44%);
+  opacity: 0;
+  will-change: opacity, transform;
+}
+@media (max-width: 900px) {
+  .showcase article { max-width: none; }
+}
+.showcase h2 {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  margin: 0.75rem 0 1rem;
+}
+.showcase p {
+  color: var(--bone-dim);
+  margin-bottom: 1.1rem;
+  text-shadow: 0 1px 24px rgba(19, 17, 15, 0.85);
+}
+.showcase .tech {
+  display: block;
+  font-size: 0.66rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--bone-mute);
+  margin-bottom: 1.1rem;
+}
+.showcase .links { display: flex; }
+.showcase-meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  border-top: 1px solid var(--rule-soft);
+  padding-top: 1.25rem;
+  margin-top: 1.5rem;
+}
+.showcase-meta .tally {
+  position: static;
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  letter-spacing: 0.1em;
+  color: var(--bronze);
+  font-variant-numeric: tabular-nums;
+}
+.showcase-meta .hint { color: var(--bone-mute); }
+
+/* ─────────── HERO ─────────── */
+/* The 3D form occupies the right of the frame, so the hero copy holds
+   the left and never runs under it. */
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: min(62ch, 68%);
+}
 .hero .label { margin-bottom: clamp(1.5rem, 4vh, 2.75rem); }
+/* sized to fit four lines inside one viewport beside the 3D form */
+.hero .display { font-size: clamp(2rem, 4.4vw, 4.4rem); }
 #localTime { color: var(--bronze); font-variant-numeric: tabular-nums; }
 .hero .display { margin-bottom: clamp(2.25rem, 5vh, 3.75rem); }
 .line {
@@ -373,19 +457,10 @@ html.ready .hero-foot { opacity: 1; }
   100% { transform: translateX(100%); }
 }
 
-.hero-portrait { position: relative; }
 .frame {
   display: block;
   overflow: hidden;
   border: 1px solid var(--rule-soft);
-}
-.hero-portrait .frame { aspect-ratio: 3 / 4; }
-.hero-portrait img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: grayscale(0.62) contrast(1.04) brightness(0.7) sepia(0.12);
-  will-change: transform;
 }
 
 /* ─────────── LEDGER ─────────── */
@@ -457,6 +532,22 @@ html.ready .hero-foot { opacity: 1; }
 [data-split].is-visible .char { transform: none; opacity: 1; }
 
 /* ─────────── ABOUT ─────────── */
+.about {
+  display: grid;
+  grid-template-columns: minmax(0, 0.52fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: start;
+}
+.portrait .frame { aspect-ratio: 3 / 4; }
+.portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* toned so the photograph sits inside the palette instead of
+     punching out of it */
+  filter: grayscale(0.6) contrast(1.05) brightness(0.72) sepia(0.12);
+  will-change: transform;
+}
 .lede {
   font-family: var(--serif);
   font-size: clamp(1.6rem, 3.2vw, 2.6rem);
@@ -464,13 +555,7 @@ html.ready .hero-foot { opacity: 1; }
   max-width: 24em;
   margin-bottom: clamp(2.5rem, 5vw, 4rem);
 }
-.about-cols {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: clamp(2rem, 5vw, 5rem);
-  align-items: start;
-}
-.about-cols > p { color: var(--bone-dim); max-width: var(--measure); }
+.about-body > p { color: var(--bone-dim); max-width: var(--measure); }
 .spec > div {
   display: grid;
   grid-template-columns: minmax(6rem, 9rem) 1fr;
@@ -536,75 +621,6 @@ html.ready .hero-foot { opacity: 1; }
   line-height: 1.4;
 }
 .invite em { color: var(--bronze); }
-
-/* ─────────── GALLERY ─────────── */
-.gallery {
-  height: 360svh;
-  position: relative;
-  margin: 0 calc(-1 * var(--gutter)) clamp(3.5rem, 7vw, 6rem);
-}
-.gallery-stage {
-  position: sticky;
-  top: 0;
-  height: 100svh;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-}
-.gallery-track {
-  display: flex;
-  align-items: center;
-  gap: clamp(2.5rem, 6vw, 6rem);
-  padding: 0 var(--gutter);
-  will-change: transform;
-}
-.plate { flex: 0 0 auto; width: min(58vw, 54rem); }
-.plate-media {
-  display: block;
-  overflow: hidden;
-  border: 1px solid var(--rule-soft);
-  background: var(--surface);
-  aspect-ratio: 16 / 10;
-  transform-style: preserve-3d;
-  transition: transform 0.7s var(--ease-expo), box-shadow 0.7s var(--ease);
-  will-change: transform;
-}
-.plate:hover .plate-media { box-shadow: 0 2.5rem 6rem rgba(0, 0, 0, 0.5); }
-.plate-media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top center;
-  filter: saturate(0.9) brightness(0.94);
-  will-change: transform;
-}
-.plate-info { margin-top: 1.6rem; max-width: 34rem; }
-.plate-info h3 {
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: clamp(1.6rem, 2.8vw, 2.4rem);
-  margin: 0.6rem 0 0.75rem;
-}
-.plate-info p { color: var(--bone-dim); margin-bottom: 0.9rem; }
-.tech {
-  display: block;
-  font-size: 0.66rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--bone-mute);
-}
-.plate.closing { width: min(40vw, 30rem); }
-.plate.closing .display { margin-bottom: 1.5rem; }
-.tally {
-  position: absolute;
-  right: var(--gutter);
-  bottom: clamp(1.75rem, 4vh, 3rem);
-  font-family: var(--serif);
-  font-size: 1rem;
-  letter-spacing: 0.1em;
-  color: var(--bone-mute);
-  font-variant-numeric: tabular-nums;
-}
 
 /* ─────────── INDEX ─────────── */
 .index { list-style: none; border-top: 1px solid var(--rule-soft); }
@@ -848,10 +864,10 @@ html.ready .hero-foot { opacity: 1; }
 
 /* ─────────── RESPONSIVE ─────────── */
 @media (max-width: 1000px) {
-  .hero { grid-template-columns: 1fr; }
-  .hero-portrait { display: none; }
+  .hero { max-width: none; }
   .scene-hero { height: 150svh; }
-  .about-cols { grid-template-columns: 1fr; }
+  .about { grid-template-columns: 1fr; }
+  .portrait { max-width: 18rem; }
   .creds { grid-template-columns: 1fr; }
   .triptych { grid-template-columns: 1fr; }
   .plate { width: 76vw; }
@@ -887,17 +903,18 @@ html.ready .hero-foot { opacity: 1; }
   .nav.is-hidden { transform: none; }
   .scroll-cue i::after { animation: none; }
   .card { position: static; transform: none !important; }
-  .scene-hero, .scene-voices { height: auto; }
+  .scene-hero, .scene-voices, .scene-work { height: auto; }
   .scene .stage { position: static; min-height: 0; overflow: visible; }
-  .gallery { height: auto; margin: 0 0 3rem; }
-  .gallery-stage { position: static; height: auto; overflow: visible; }
-  .gallery-track { flex-direction: column; align-items: stretch; padding: 0; gap: 3.5rem; }
-  .plate, .plate.closing { width: 100%; }
-  .tally { display: none; }
-  .plate-media, .plate-media img, .triptych img, .hero-portrait img {
+  .showcase { min-height: 0; }
+  .showcase article {
+    position: static;
+    opacity: 1 !important;
     transform: none !important;
-    transition: none;
+    margin-bottom: 3rem;
+    max-width: none;
   }
+  .scene-work { height: auto; }
+  .triptych img, .portrait img { transform: none !important; transition: none; }
   .quotes { min-height: 0; }
   .quotes blockquote {
     position: static;

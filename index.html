@@ -16,7 +16,10 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="./style.css?v=7">
+  <link rel="stylesheet" href="./style.css?v=8">
+  <script type="importmap">
+    { "imports": { "three": "./vendor/three.module.min.js" } }
+  </script>
 </head>
 
 <body>
@@ -27,15 +30,17 @@
     <span class="overture-rule"><i id="overtureFill"></i></span>
   </div>
 
+  <!-- ─────────── WEBGL LAYER ─────────── -->
+  <canvas id="gl" aria-hidden="true"></canvas>
+
   <div class="vignette" aria-hidden="true"></div>
   <div class="cursor" id="cursor" aria-hidden="true"></div>
   <div class="peek" id="peek" aria-hidden="true"><img alt="" id="peekImg"></div>
 
-  <!-- ─────────── CHAPTER RAIL ─────────── -->
   <nav class="rail" id="rail" aria-hidden="true">
-    <a href="#about"><i>I</i></a>
-    <a href="#ai"><i>II</i></a>
-    <a href="#work"><i>III</i></a>
+    <a href="#work"><i>I</i></a>
+    <a href="#about"><i>II</i></a>
+    <a href="#ai"><i>III</i></a>
     <a href="#designs"><i>IV</i></a>
     <a href="#experience"><i>V</i></a>
     <a href="#credentials"><i>VI</i></a>
@@ -46,9 +51,9 @@
   <header class="nav" id="nav">
     <a href="#top" class="nav-name">Gayan&nbsp;Sandamal</a>
     <nav class="nav-links" aria-label="Primary">
+      <a href="#work" data-magnetic>Work</a>
       <a href="#about" data-magnetic>About</a>
       <a href="#ai" data-magnetic>AI</a>
-      <a href="#work" data-magnetic>Work</a>
       <a href="#experience" data-magnetic>Experience</a>
       <a href="#contact" data-magnetic>Contact</a>
     </nav>
@@ -60,27 +65,114 @@
     <!-- ─────────── HERO ─────────── -->
     <section class="scene scene-hero" id="top" data-scene="hero">
       <div class="stage hero">
-        <div class="hero-copy">
-          <p class="label">Senior Technical Lead <i>·</i> Colombo <i>·</i> <span id="localTime">--:--</span></p>
-          <h1 class="display">
-            <span class="line"><span class="line-inner">Front-ends for</span></span>
-            <span class="line"><span class="line-inner"><em>millions</em> of users.</span></span>
-            <span class="line"><span class="line-inner">AI adoption that</span></span>
-            <span class="line"><span class="line-inner">actually <em>pays&nbsp;off</em>.</span></span>
-          </h1>
-          <div class="hero-foot">
-            <p class="hero-sub">A decade of shipping with Vue, React and Angular, a foundation in UI/UX, and an
-              open-source <a href="https://github.com/gayanSandamal/pixelflow" target="_blank" rel="noopener">AI
-                design-to-code toolchain</a>. I lead from the front — close to the code, close to the team.</p>
-            <p class="scroll-cue"><span>Scroll</span><i></i></p>
-          </div>
+        <p class="label">Senior Technical Lead <i>·</i> Colombo <i>·</i> <span id="localTime">--:--</span></p>
+        <h1 class="display">
+          <span class="line"><span class="line-inner">Front-ends for</span></span>
+          <span class="line"><span class="line-inner"><em>millions</em> of users.</span></span>
+          <span class="line"><span class="line-inner">AI adoption that</span></span>
+          <span class="line"><span class="line-inner">actually <em>pays&nbsp;off</em>.</span></span>
+        </h1>
+        <div class="hero-foot">
+          <p class="hero-sub">Senior Technical Lead with ten years building web and mobile products used by millions
+            — and an open-source <a href="https://github.com/gayanSandamal/pixelflow" target="_blank"
+              rel="noopener">AI design-to-code toolchain</a>. I lead from the front: close to the code, close to the
+            team.</p>
+          <p class="scroll-cue"><span>Selected work</span><i></i></p>
         </div>
-        <figure class="hero-portrait">
-          <span class="frame">
-            <img src="./assets/Gayan-Sandamal-Front-Facing.jpg" alt="Portrait of Gayan Sandamal" data-parallax="30">
-          </span>
-        </figure>
       </div>
+    </section>
+
+    <!-- ─────────── I · WORK (3D) ─────────── -->
+    <section class="scene scene-work" id="work" data-scene="work">
+      <div class="stage work">
+        <header class="chapter-head">
+          <span class="numeral">I</span>
+          <span class="label">Selected work</span>
+        </header>
+
+        <div class="showcase" id="showcase">
+          <article>
+            <span class="label">Open source · CLI</span>
+            <h2>pixelflow</h2>
+            <p>A Vue-first CLI that turns Figma designs into production components. An AI inference layer classifies
+              components and infers props; a seven-layer audit engine scores the output against the original design
+              instead of trusting it.</p>
+            <span class="tech">TypeScript · Vue 3 · Claude · Turborepo</span>
+            <span class="links">
+              <a href="https://github.com/gayanSandamal/pixelflow" target="_blank" rel="noopener">GitHub</a>
+              <a href="https://github.com/users/gayanSandamal/projects/7" target="_blank" rel="noopener">Roadmap</a>
+            </span>
+          </article>
+          <article>
+            <span class="label">Live · Product</span>
+            <h2>EasyRent.lk</h2>
+            <p>A verified mid-to-long-term house rental platform for Sri Lanka — verified landlords, property visits
+              and fast viewing coordination. Built end-to-end: product, design and engineering.</p>
+            <span class="tech">Next.js · TypeScript · Supabase · Drizzle · Tailwind</span>
+            <span class="links">
+              <a href="https://easyrent.lk" target="_blank" rel="noopener">easyrent.lk</a>
+              <a href="https://github.com/gayanSandamal/stay-rental-supabase-boilerplate" target="_blank"
+                rel="noopener">GitHub</a>
+            </span>
+          </article>
+          <article>
+            <span class="label">In production · CRM</span>
+            <h2>Paradigm360</h2>
+            <p>The front-end of the CRM used daily by Singaporean firm Paradigm360 — built with a small distributed
+              team against a private repository.</p>
+            <span class="tech">Vue · Pinia · Jest · Firebase</span>
+            <span class="links">
+              <a href="https://app.paradigmbizhub.com/#/login" target="_blank" rel="noopener">Visit</a>
+            </span>
+          </article>
+          <article>
+            <span class="label">Open source · Tool</span>
+            <h2>Planning Poker</h2>
+            <p>A minimal agile estimation room for distributed teams — realtime, no accounts, no ceremony.</p>
+            <span class="tech">Vue · Firebase</span>
+            <span class="links">
+              <a href="https://planning-pocker-d304c.web.app" target="_blank" rel="noopener">Launch</a>
+            </span>
+          </article>
+        </div>
+
+        <div class="showcase-meta">
+          <span class="tally" id="workTally">01 / 04</span>
+          <span class="hint label">Scroll to travel</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────────── WORK INDEX ─────────── -->
+    <section class="chapter" id="archive">
+      <header class="chapter-head" data-reveal>
+        <span class="label">Also built</span>
+      </header>
+      <ul class="index" aria-label="Further projects">
+        <li data-reveal>
+          <a href="https://github.com/gayanSandamal/learning-management-system" target="_blank" rel="noopener"
+            data-peek="./assets/projects/akurata.jpeg">
+            <span class="idx-name">Akurata LMS</span>
+            <span class="idx-meta">Learning platform for thousands of students · Vue, React, Electron</span>
+            <span class="idx-state">Archived</span>
+          </a>
+        </li>
+        <li data-reveal>
+          <div data-peek="./assets/projects/inquest-io.jpeg">
+            <span class="idx-name">Inquest.io</span>
+            <span class="idx-meta">Realtime audience Q&amp;A · Vue, SignalR · UI/UX from wireframes up</span>
+            <span class="idx-state">Archived</span>
+          </div>
+        </li>
+        <li data-reveal>
+          <a href="https://github.com/gayanSandamal/findyo" target="_blank" rel="noopener"
+            data-peek="./assets/projects/findyo.jpeg">
+            <span class="idx-name">Findyo</span>
+            <span class="idx-meta">Consumer–tradesman marketplace · Vue, Laravel, Firebase</span>
+            <span class="idx-state">Archived</span>
+          </a>
+        </li>
+      </ul>
     </section>
 
     <!-- ─────────── LEDGER ─────────── -->
@@ -95,17 +187,21 @@
           class="label">Users reached</span></div>
     </section>
 
-    <!-- ─────────── I · ABOUT ─────────── -->
+    <!-- ─────────── II · ABOUT ─────────── -->
     <section class="chapter" id="about">
       <header class="chapter-head" data-reveal>
-        <span class="numeral">I</span>
+        <span class="numeral">II</span>
         <span class="label">About</span>
       </header>
       <div class="about">
-        <p class="lede" data-scrub>I'm a Senior Technical Lead who still ships. Over ten years I've built web and
-          mobile products used by millions — HR platforms, trade tools, IoT dashboards, solar software — always from
-          the front, always close to the code.</p>
-        <div class="about-cols">
+        <figure class="portrait" data-reveal>
+          <span class="frame"><img src="./assets/Gayan-Sandamal-Front-Facing.jpg" alt="Portrait of Gayan Sandamal"
+              loading="lazy" data-parallax="26"></span>
+        </figure>
+        <div class="about-body">
+          <p class="lede" data-scrub>I'm a Senior Technical Lead who still ships. Over ten years I've built web and
+            mobile products used by millions — HR platforms, trade tools, IoT dashboards, solar software — always
+            from the front, always close to the code.</p>
           <p data-reveal>My path started in UI/UX design, which is why translating a designer's intent into
             efficient, maintainable code is my home ground. I care about server-side rendering, SEO, accessibility
             and performance — and lately, about giving engineering teams an honest answer to <em>"where does AI
@@ -125,10 +221,10 @@
       </div>
     </section>
 
-    <!-- ─────────── II · AI ─────────── -->
+    <!-- ─────────── III · AI ─────────── -->
     <section class="chapter" id="ai">
       <header class="chapter-head" data-reveal>
-        <span class="numeral">II</span>
+        <span class="numeral">III</span>
         <span class="label">AI adoption</span>
       </header>
       <h2 class="display sm" data-split>Where it <em>measurably</em> pays off</h2>
@@ -185,104 +281,6 @@
           <a href="https://www.linkedin.com/in/gayan-sandamal/" target="_blank" rel="noopener">Write on LinkedIn</a>
         </p>
       </aside>
-    </section>
-
-    <!-- ─────────── III · WORK ─────────── -->
-    <section class="chapter" id="work">
-      <header class="chapter-head" data-reveal>
-        <span class="numeral">III</span>
-        <span class="label">Selected work</span>
-      </header>
-      <h2 class="display sm" data-split>Things I've <em>built</em></h2>
-
-      <div class="gallery" data-scene="gallery">
-        <div class="gallery-stage">
-          <div class="gallery-track" id="galleryTrack">
-            <article class="plate" data-cursor="view">
-              <a class="plate-media" href="https://github.com/gayanSandamal/pixelflow" target="_blank"
-                rel="noopener" aria-label="pixelflow on GitHub">
-                <img src="./assets/projects/pixelflow.svg" alt="pixelflow CLI terminal output" loading="lazy">
-              </a>
-              <div class="plate-info">
-                <span class="label">Open source</span>
-                <h3>pixelflow</h3>
-                <p>Vue-first CLI that turns Figma designs into production components — AI inference for
-                  classification and props, a seven-layer audit engine for honesty.</p>
-                <span class="tech">TypeScript · Vue 3 · Claude · Turborepo</span>
-              </div>
-            </article>
-
-            <article class="plate" data-cursor="view">
-              <a class="plate-media" href="https://easyrent.lk" target="_blank" rel="noopener"
-                aria-label="EasyRent.lk — visit site">
-                <img src="./assets/projects/easyrent.png" alt="EasyRent.lk — verified rentals in Sri Lanka"
-                  loading="lazy">
-              </a>
-              <div class="plate-info">
-                <span class="label">Live</span>
-                <h3>EasyRent.lk</h3>
-                <p>Verified mid-to-long-term rental platform for Sri Lanka — built end-to-end: product, design and
-                  engineering.</p>
-                <span class="tech">Next.js · TypeScript · Supabase · Drizzle · Tailwind</span>
-              </div>
-            </article>
-
-            <article class="plate" data-cursor="view">
-              <a class="plate-media" href="https://app.paradigmbizhub.com/#/login" target="_blank" rel="noopener"
-                aria-label="Paradigm360 CRM — visit site">
-                <img src="./assets/projects/paradigm360-1.jpeg" alt="Paradigm360 CRM dashboard" loading="lazy">
-              </a>
-              <div class="plate-info">
-                <span class="label">In production</span>
-                <h3>Paradigm360 CRM</h3>
-                <p>Front-end of the CRM used daily by Singaporean firm Paradigm360 — private repository, small
-                  distributed team.</p>
-                <span class="tech">Vue · Pinia · Jest · Firebase</span>
-              </div>
-            </article>
-
-            <article class="plate closing">
-              <p class="display sm">…and a<br><em>decade more</em>.</p>
-              <span class="label">The full index follows</span>
-            </article>
-          </div>
-          <span class="tally" id="galleryCount">01 / 04</span>
-        </div>
-      </div>
-
-      <ul class="index" aria-label="Further projects">
-        <li data-reveal>
-          <a href="https://planning-pocker-d304c.web.app" target="_blank" rel="noopener"
-            data-peek="./assets/projects/planning-poker.png">
-            <span class="idx-name">Planning Poker Minimal</span>
-            <span class="idx-meta">Agile estimation · Vue, Firebase</span>
-            <span class="idx-state">Open source</span>
-          </a>
-        </li>
-        <li data-reveal>
-          <a href="https://github.com/gayanSandamal/learning-management-system" target="_blank" rel="noopener"
-            data-peek="./assets/projects/akurata.jpeg">
-            <span class="idx-name">Akurata LMS</span>
-            <span class="idx-meta">Learning platform for thousands of students · Vue, React, Electron</span>
-            <span class="idx-state">Archived</span>
-          </a>
-        </li>
-        <li data-reveal>
-          <div data-peek="./assets/projects/inquest-io.jpeg">
-            <span class="idx-name">Inquest.io</span>
-            <span class="idx-meta">Realtime audience Q&amp;A · Vue, SignalR · UI/UX from wireframes up</span>
-            <span class="idx-state">Archived</span>
-          </div>
-        </li>
-        <li data-reveal>
-          <a href="https://github.com/gayanSandamal/findyo" target="_blank" rel="noopener"
-            data-peek="./assets/projects/findyo.jpeg">
-            <span class="idx-name">Findyo</span>
-            <span class="idx-meta">Consumer–tradesman marketplace · Vue, Laravel, Firebase</span>
-            <span class="idx-state">Archived</span>
-          </a>
-        </li>
-      </ul>
     </section>
 
     <!-- ─────────── IV · DESIGN ─────────── -->
@@ -518,7 +516,8 @@
 
   <div id="snackbar" role="status" aria-live="polite"><span></span></div>
 
-  <script src="./script.js?v=7"></script>
+  <script src="./script.js?v=8"></script>
+  <script type="module" src="./scene3d.js?v=8"></script>
   <!--Start of Tawk.to Script-->
   <script type="text/javascript">
     var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
