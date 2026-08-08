@@ -35,6 +35,9 @@ html.theme-ink {
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html { scroll-behavior: smooth; }
+/* JS inertia scrolling owns the scroll position when active, so the
+   native smooth behaviour must step aside or the two fight each other */
+html.has-inertia { scroll-behavior: auto; }
 
 body {
   background: var(--paper);
@@ -443,6 +446,13 @@ html.ready .hero-foot { opacity: 1; }
 .is-visible .char, .sec-head.is-visible ~ * .char,
 [data-split].is-visible .char { transform: translateY(0); opacity: 1; }
 
+/* scroll-scrubbed text — words illuminate as the block crosses the screen */
+.word {
+  display: inline-block;
+  opacity: 0.16;
+  transition: opacity 0.18s linear;
+}
+
 /* reveals */
 [data-reveal] {
   opacity: 0;
@@ -537,15 +547,25 @@ html.ready .hero-foot { opacity: 1; }
   font-style: italic;
 }
 
-/* ─────────── AI OFFERS ─────────── */
-.offers { border-top: 1px solid var(--rule); }
+/* ─────────── AI OFFERS · stacking cards ───────────
+   Each card sticks under the nav; the next rides up and covers it,
+   and JS eases the covered card back in scale. */
+.offers { position: relative; }
 .offer {
+  position: sticky;
+  top: clamp(4.5rem, 9vh, 7rem);
   display: grid;
   grid-template-columns: minmax(4rem, 6rem) 1fr;
   gap: 1.5rem;
-  padding: clamp(2rem, 4vw, 3rem) 0;
-  border-bottom: 1px solid var(--rule);
+  padding: clamp(1.75rem, 3.5vw, 2.75rem);
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  transform-origin: 50% 0;
+  will-change: transform;
+  transition: background 0.9s var(--ease);
 }
+.offer:last-child { margin-bottom: 0; }
 .offer-num {
   font-family: var(--serif);
   font-style: italic;
@@ -992,4 +1012,12 @@ html.ready .hero-foot { opacity: 1; }
   .work-index li::after, .xp li::after { transform: scaleX(1); transition: none; }
   .signature span { background-size: 100% 100%; transition: none; }
   [data-magnetic] { transform: none !important; }
+  .word { opacity: 1; transition: none; }
+  .offer { position: static; transform: none !important; margin-bottom: 0; }
+}
+
+/* Sticky stacking needs room to travel; on short screens fall back to
+   a plain stacked list so cards can't cover each other permanently. */
+@media (max-height: 620px) {
+  .offer { position: static; transform: none !important; }
 }

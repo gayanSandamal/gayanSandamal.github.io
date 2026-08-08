@@ -80,6 +80,85 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
   }
 }
 
+/* ─────────── Inertia scrolling ───────────
+   Wheel and keyboard drive a target; the frame loop eases the real
+   scroll position toward it. Native scrolling stays the source of
+   truth (so position:sticky, anchors and the scrollbar all keep
+   working) — only the pacing is ours. Pointer/touch scrolling is left
+   completely alone. */
+const inertia = {
+  on: false,
+  target: window.scrollY,
+  current: window.scrollY,
+  ease: 0.14,
+  beat: 0,          /* timestamp of the last frame; proves the loop is alive */
+};
+
+if (!reducedMotion && finePointer && !('ontouchstart' in window)) {
+  const maxScroll = () =>
+    Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+
+  inertia.on = true;
+  document.documentElement.classList.add('has-inertia');
+
+  const sync = () => { inertia.target = inertia.current = window.scrollY; };
+
+  window.addEventListener('wheel', (e) => {
+    if (e.ctrlKey) return;                       /* pinch-zoom */
+    const t = e.target;
+    if (t && t.closest && t.closest('[data-native-scroll]')) return;
+    /* Never swallow the gesture unless the loop that replaces it is
+       demonstrably alive — a stalled loop plus preventDefault would
+       leave the page unscrollable. */
+    if (performance.now() - inertia.beat > 400) return;
+    e.preventDefault();
+    const unit = e.deltaMode === 1 ? 33 : e.deltaMode === 2 ? window.innerHeight : 1;
+    /* Trackpads emit small, frequent, fractional deltas and already
+       carry OS momentum; mouse wheels emit large discrete notches.
+       Ease the notches hard, stay light on the trackpad so we never
+       fight momentum that's already smooth. */
+    const d = Math.abs(e.deltaY);
+    inertia.ease = (d >= 45 && Number.isInteger(e.deltaY)) ? 0.11 : 0.2;
+    inertia.target = clamp(inertia.target + e.deltaY * unit, 0, maxScroll());
+  }, { passive: false });
+
+  /* keyboard paging, kept on the same easing */
+  const keySteps = {
+    ArrowDown: 90, ArrowUp: -90,
+    PageDown: 0.85, PageUp: -0.85,
+    Home: 'top', End: 'bottom', ' ': 0.85,
+  };
+  window.addEventListener('keydown', (e) => {
+    const tag = document.activeElement && document.activeElement.tagName;
+    if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+    const step = keySteps[e.key];
+    if (step === undefined) return;
+    if (step === 'top') inertia.target = 0;
+    else if (step === 'bottom') inertia.target = maxScroll();
+    else if (Math.abs(step) < 2) inertia.target += step * window.innerHeight;
+    else inertia.target += step;
+    inertia.target = clamp(inertia.target, 0, maxScroll());
+    e.preventDefault();
+  });
+
+  /* in-page anchors ease instead of jumping */
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    const id = a.getAttribute('href').slice(1);
+    const el = id ? document.getElementById(id) : document.body;
+    if (!el) return;
+    e.preventDefault();
+    inertia.target = clamp(
+      el.getBoundingClientRect().top + window.scrollY, 0, maxScroll());
+  });
+
+  /* anything that moves the page outside our control re-syncs us */
+  window.addEventListener('resize', sync, { passive: true });
+  window.addEventListener('pageshow', sync);
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) sync(); });
+}
+
 /* ─────────── Split headings into chars ─────────── */
 document.querySelectorAll('[data-split]').forEach((heading) => {
   let i = 0;
@@ -104,6 +183,31 @@ document.querySelectorAll('[data-split]').forEach((heading) => {
   };
   [...heading.childNodes].forEach(splitNode);
 });
+
+/* ─────────── Split scrubbed copy into words ─────────── */
+const scrubBlocks = [...document.querySelectorAll('[data-scrub]')].map((el) => {
+  const splitNode = (node) => {
+    if (node.nodeType === Node.TEXT_NODE) {
+      const frag = document.createDocumentFragment();
+      node.textContent.split(/(\s+)/).forEach((part) => {
+        if (!part) return;
+        if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
+        const s = document.createElement('span');
+        s.className = 'word';
+        s.textContent = part;
+        frag.appendChild(s);
+      });
+      node.replaceWith(frag);
+    } else if (node.nodeType === Node.ELEMENT_NODE) {
+      [...node.childNodes].forEach(splitNode);
+    }
+  };
+  [...el.childNodes].forEach(splitNode);
+  return { el, words: [...el.querySelectorAll('.word')] };
+});
+if (reducedMotion) {
+  scrubBlocks.forEach(({ words }) => words.forEach((w) => { w.style.opacity = 1; }));
+}
 
 /* ─────────── Reveals (fail-open) ───────────
    Position checks are the source of truth; IntersectionObserver is an
@@ -201,6 +305,7 @@ if (!reducedMotion) {
   const marqueeTrack = document.getElementById('marqueeTrack');
   const galleryMedia = galleryTrack ? [...galleryTrack.querySelectorAll('.g-media img')] : [];
   const signature = document.querySelector('.signature');
+  const stackCards = [...document.querySelectorAll('[data-stack] > *')];
 
   /* measured geometry */
   let galleryMaxX = 0;
@@ -280,7 +385,23 @@ if (!reducedMotion) {
   let lastY = window.scrollY;
   let marqueeX = 0;
 
-  const frame = () => {
+  /* Stepping the scroll position and painting the scene are separate
+     jobs: only the rAF loop may step inertia (it writes scrollY, which
+     would re-enter through the scroll listener), while render() is safe
+     to call from anywhere and also runs on scroll — so scroll-linked
+     visuals stay correct even when rAF is throttled. */
+  const stepInertia = () => {
+    if (!inertia.on) return;
+    const y0 = window.scrollY;
+    if (Math.abs(inertia.target - y0) > 0.6) {
+      inertia.current = y0 + (inertia.target - y0) * inertia.ease;
+      window.scrollTo(0, inertia.current);
+    } else {
+      inertia.target = inertia.current = y0;
+    }
+  };
+
+  const render = () => {
     const y = window.scrollY;
     const vh = window.innerHeight;
     smoothY += (y - smoothY) * 0.12;
@@ -339,12 +460,36 @@ if (!reducedMotion) {
         'theme-ink', mid > workTop && mid < workBottom);
     }
 
-    /* marquee: always moving, faster with scroll velocity */
+    /* marquee: drifts by itself, accelerates with scroll speed, and
+       reverses when you scroll back up */
     if (marqueeTrack && marqueeHalf > 0) {
-      marqueeX -= 0.6 + Math.min(Math.abs(vel) * 0.06, 4);
+      const dir = vel < -0.4 ? 1 : -1;
+      marqueeX += dir * (0.6 + Math.min(Math.abs(vel) * 0.07, 5));
       if (marqueeX <= -marqueeHalf) marqueeX += marqueeHalf;
+      if (marqueeX > 0) marqueeX -= marqueeHalf;
       marqueeTrack.style.transform = `translate3d(${marqueeX.toFixed(1)}px, 0, 0)`;
     }
+
+    /* scrubbed copy: words light up across the block as it crosses */
+    scrubBlocks.forEach(({ el, words }) => {
+      const r = el.getBoundingClientRect();
+      if (r.bottom < -50 || r.top > vh + 50) return;
+      const p = clamp((vh * 0.86 - r.top) / (vh * 0.5 + r.height * 0.5), 0, 1);
+      const lit = p * (words.length + 6);
+      words.forEach((w, i) => {
+        w.style.opacity = clamp((lit - i) * 0.6, 0.16, 1).toFixed(3);
+      });
+    });
+
+    /* stacking cards: each card shrinks slightly as the next covers it */
+    stackCards.forEach((card, i) => {
+      const r = card.getBoundingClientRect();
+      const next = stackCards[i + 1];
+      if (!next) { card.style.transform = ''; return; }
+      const nr = next.getBoundingClientRect();
+      const overlap = clamp((r.bottom - nr.top) / Math.max(r.height, 1), 0, 1);
+      card.style.transform = `scale(${(1 - overlap * 0.055).toFixed(4)})`;
+    });
 
     /* signature fills once its band is on screen */
     if (signature) {
@@ -391,10 +536,24 @@ if (!reducedMotion) {
     else if (y - lastY < -3 || y <= 600) nav.classList.remove('is-hidden');
     nav.classList.toggle('is-scrolled', y > 40);
     lastY = y;
-
-    requestAnimationFrame(frame);
   };
-  requestAnimationFrame(frame);
+
+  const loop = () => {
+    inertia.beat = performance.now();
+    stepInertia();
+    render();
+    requestAnimationFrame(loop);
+  };
+  requestAnimationFrame(loop);
+
+  let scrollQueued = false;
+  window.addEventListener('scroll', () => {
+    if (scrollQueued) return;
+    scrollQueued = true;
+    requestAnimationFrame(() => { scrollQueued = false; });
+    render();
+  }, { passive: true });
+  window.addEventListener('resize', render, { passive: true });
 } else {
   window.addEventListener('scroll', () => {
     nav.classList.toggle('is-scrolled', window.scrollY > 40);
