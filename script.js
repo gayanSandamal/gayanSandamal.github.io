@@ -14,7 +14,7 @@ const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
 const copyToClipBoard = (text) => {
   navigator.clipboard.writeText(text);
   const el = document.getElementById('snackbar');
-  el.querySelector('span').innerText = `Copied — ${text}`;
+  el.querySelector('span').innerText = `Copied: ${text}`;
   el.classList.add('show');
   clearTimeout(el._t);
   el._t = setTimeout(() => el.classList.remove('show'), 2600);
